@@ -3,13 +3,16 @@ import Slider from "./Slider"
 import { content } from "../assets/json/contentlist.json";
 
 export default function ContentList() {
-    console.log(content);
+    function onSortSlider(value: boolean) {
+        console.log(value);
+    }  
+
     return (
         <>
             <div class="bh-contenttitle">
                 <h1>media projects</h1>
                 <div class="sort">
-                    <Slider id="sort" op1="reccomended" op2="chronological"/>
+                    <Slider id="contentlist/sort" callback={ onSortSlider } lefttext="reccomended" righttext="chronological"/>
                 </div>
             </div>
             <div class="bh-contentlist">

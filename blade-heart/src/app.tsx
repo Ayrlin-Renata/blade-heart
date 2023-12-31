@@ -1,14 +1,22 @@
 
-//hooks
-import { useState } from 'preact/hooks'
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 
 //css
 import './css/app.scss'
 
 //components
-import PageHeader from './components/PageHeader'
-import ContentList from './components/ContentList'
-import PageFooter from './components/PageFooter'
+import Root from './routes/Root'
+
+//router
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+  },
+]);
 
 //
 // APP RENDER
@@ -17,11 +25,7 @@ export function App() {
 
   return (
     <>
-      <div class="fullpage">
-        <PageHeader />
-        <ContentList />
-        <PageFooter />
-      </div>
+      <RouterProvider router={router} />
     </>
   )
 }
