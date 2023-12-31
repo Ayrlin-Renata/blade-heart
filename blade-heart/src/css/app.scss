@@ -1,0 +1,18 @@
+@use 'colors';
+@import "pageheader.scss";
+
+html {
+  background: colors.$bg-darkest;
+  color: colors.$text-primary;
+
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+div {
+  border-width: 3px; 
+  border-color: colors.$acc-primary;
+}
+
+#app {
+  padding-top: 1em;
+}

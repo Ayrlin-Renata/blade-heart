@@ -1,0 +1,15 @@
+//background
+$bg-darkest: #000203;
+$bg-dark: #00070a;
+
+//accent
+$acc-primary: #007070;
+$acc-dull: #003030;
+$acc-dark: #002020;
+$acc-white: #ffffff;
+
+//readable
+$text-primary: #ffffff;
+
+//gradients
+$grad-bg-dark: linear-gradient(to bottom, $acc-dark, $bg-dark, $bg-dark, $bg-dark);
