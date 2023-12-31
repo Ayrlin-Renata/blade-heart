@@ -1,0 +1,11 @@
+@use 'colors';
+
+div {
+    border-width: 3px;
+    border-color: colors.$acc-primary;
+}
+
+a {
+    color: colors.$acc-bright;
+    text-decoration: none;
+}

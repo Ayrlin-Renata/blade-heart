@@ -1,0 +1,19 @@
+@use 'colors';
+
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: colors.$bg-dark;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: colors.$acc-primary;
+    border-radius: 20px;
+    border: 3px solid colors.$bg-dark;
+}
+
+*::-webkit-scrollbar-corner {
+    background: colors.$bg-dark;
+}

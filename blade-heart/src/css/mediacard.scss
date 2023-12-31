@@ -1,0 +1,58 @@
+@use 'colors';
+
+.bh-mediacard {
+    flex: 1 0 20%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    flex-basis: 20em;
+    flex-grow: 1.5;
+
+    margin: 0.5em;
+
+    background: colors.$grad-bg-dark-right;
+
+    border: solid 3px colors.$acc-primary;
+    border-radius: 7px;
+}
+
+.bh-mediacard > img {
+    display: block;
+    object-fit: scale-down;
+
+    //width: 10em;
+    max-height: 15em;
+    
+}
+
+.bh-mediacard > .details {
+    padding: 1em;
+}
+
+.bh-mediacard > .details > p {
+    margin: 0px;
+}
+
+.bh-mediacard > .details > p.title {
+    margin-bottom: 0em;
+    
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
+    font-weight: bold;
+}
+
+.bh-mediacard > .details > p.type {
+    margin-top: 0em;
+    margin-bottom: 0em;
+
+    color: colors.$acc-primary;
+    
+    font-size: small;
+}
+
+.bh-mediacard > .details > p.desc {
+    margin-top: 1em;
+    margin-bottom: 0em;
+    
+    font-size: normal;
+}

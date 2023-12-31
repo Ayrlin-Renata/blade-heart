@@ -1,0 +1,25 @@
+@use 'colors';
+
+.sociallink {
+    display: flex;
+    flex-direction: row;
+
+    margin-right: 1em;
+
+    font-size: small;
+}
+.sociallink > svg {
+    width: 1.5em;
+    height: 1.5em;
+
+    margin-top: 0.05em;
+}
+
+.sociallink > .text {
+    margin-top: 0em;
+    margin-left: 1em;
+}
+
+.sociallink > .text > .site {
+    margin: 0.2em 0em;
+}

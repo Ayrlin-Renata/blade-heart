@@ -3,13 +3,19 @@ $bg-darkest: #000203;
 $bg-dark: #00070a;
 
 //accent
+$acc-white: #ffffff;
+$acc-brighter: #00f0f0;
+$acc-bright: #00c0c0;
 $acc-primary: #007070;
 $acc-dull: #003030;
 $acc-dark: #002020;
-$acc-white: #ffffff;
 
 //readable
 $text-primary: #ffffff;
 
 //gradients
-$grad-bg-dark: linear-gradient(to bottom, $acc-dark, $bg-dark, $bg-dark, $bg-dark);
+$grad-bg-dark-top: linear-gradient(to top, $bg-dark, $bg-dark, $bg-dark, $acc-dark);
+$grad-bg-dark-bottom: linear-gradient(to bottom, $bg-dark, $bg-dark, $bg-dark, $acc-dark);
+$grad-bg-dark-left: linear-gradient(to left, $bg-dark, $bg-dark, $bg-dark, $acc-dark);
+$grad-bg-dark-right: linear-gradient(to right, $bg-dark, $bg-dark, $bg-dark, $acc-dark);
+

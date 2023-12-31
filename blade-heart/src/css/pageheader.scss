@@ -1,12 +1,15 @@
 @use 'colors';
 
 .bh-pageheader {
-    width:fit-content;
+    display: flex;
+    flex-direction: row;
+
+    width:-webkit-fill-available;
 
     margin: 0 auto;
     padding: 1em 5em;
 
-    background: colors.$grad-bg-dark;
+    background: colors.$grad-bg-dark-top;
 
     border-style: solid;
     border-radius: 0px 0px 10px 10px;
@@ -40,10 +43,15 @@
 }
 
 .bh-pageheader > p {
-    margin-top: 1em;
-    margin-bottom: 0.5em;
+    overflow:hidden;
+
+    margin: 0.2em;
+
+    max-height: 4em;
 
     color: colors.$acc-primary;
 
     text-wrap: wrap;
+    text-align: end;
+    
 }

@@ -17,9 +17,11 @@ export function App() {
 
   return (
     <>
-      <PageHeader/>
-      <ContentList/>
-      <PageFooter/>
+      <div class="fullpage">
+        <PageHeader />
+        <ContentList />
+        <PageFooter />
+      </div>
     </>
   )
 }
