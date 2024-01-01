@@ -1,0 +1,25 @@
+@use 'colors';
+
+#errorpage {
+    height: -webkit-fill-available;
+
+    margin: 0px;
+    padding: 20vh;
+
+    background: colors.$grad-bg-dark-bottom;
+    
+    text-align: center;
+}
+
+#errorpage > svg {
+    width:3em;
+    height:3em;
+}
+
+#errorpage > h1 {
+    margin: 0em;
+    
+    color: colors.$acc-bright;
+
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}

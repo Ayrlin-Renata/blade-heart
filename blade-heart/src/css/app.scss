@@ -10,6 +10,9 @@
 @import "mediacard.scss";
 @import "slider.scss";
 
+//technical
+@import "errorpage.scss";
+
 html {
   overflow: hidden;
 
@@ -45,12 +48,10 @@ body {
 }
 
 @media screen and (min-width: 1000px) {
-  #app {
-    padding-top: 1.5em;
-  }
-  
   .fullpage {
     width: 70vw;
     max-width: 70em;
+    
+    padding-top: 1.5em;
   }
 }

@@ -14,6 +14,12 @@
 
     border: solid 3px colors.$acc-primary;
     border-radius: 7px;
+
+    transition: border-color 0.25s ease-in-out;
+}
+
+.bh-mediacard:hover {
+    border-color: colors.$acc-white;
 }
 
 .bh-mediacard > img {

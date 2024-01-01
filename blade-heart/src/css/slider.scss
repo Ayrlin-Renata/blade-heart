@@ -14,9 +14,15 @@
 
     border: solid 3px colors.$acc-primary;
     border-radius: 7px;
+
+    transition: border-color 0.25s ease-in-out;
 }
 
-.bh-slider > .bar {
+.bh-slider:hover {
+    border-color: colors.$acc-white;
+}
+
+.bh-slider>.bar {
     width: 2em;
     height: 2em;
 
