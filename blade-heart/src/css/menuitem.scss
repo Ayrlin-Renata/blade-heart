@@ -1,15 +1,18 @@
-@use 'colors';
+@use 'colors'; 
 
 @import "accountmenuitem.scss";
 @import "selectmenuitem.scss";
+@import "labelmenuitem.scss";
 
 .menuitem {
     display: flex;
     flex-direction: row;
     align-items: center;
 
-    padding: 0.5em;
-    padding-left: 1em;
+    min-width: 15em;
+
+    padding: 0.25em;
+    padding-left: 2em;
     padding-right: 2em;
     
     background: colors.$bg-darkest;
