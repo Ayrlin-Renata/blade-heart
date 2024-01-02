@@ -10,7 +10,7 @@ import './css/app.scss'
 //components
 import Root from './routes/Root'
 import ErrorPage from "./errorpage";
-import MangaReader from "./routes/MangaReader";
+import MangaReader, { loader as readerLoader} from "./routes/MangaReader";
 
 //router
 const router = createBrowserRouter([
@@ -21,7 +21,9 @@ const router = createBrowserRouter([
   },
   {
     path: "manhua/:manhuaName",
-    element: <MangaReader />
+    element: <MangaReader />,
+    loader: readerLoader,
+    errorElement: <ErrorPage />,
   },
 ]);
 

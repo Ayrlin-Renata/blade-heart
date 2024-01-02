@@ -1,0 +1,7 @@
+@use 'colors';
+
+.menudivider {
+    margin: 1em 2em;
+
+    border: solid 1px colors.$acc-dull;
+}

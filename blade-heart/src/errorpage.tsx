@@ -1,5 +1,5 @@
 import { useRouteError } from "react-router-dom";
-import HeartBrokenIcon from '@mui/icons-material/HeartBroken'
+import BladeHeartIcon from './components/BladeHeartIcon';
 
 export default function ErrorPage() {
   const error: any = useRouteError();
@@ -7,7 +7,7 @@ export default function ErrorPage() {
 
   return (
     <div id="errorpage">
-      <HeartBrokenIcon/>
+      <BladeHeartIcon/>
       <h1>there has been a mistake</h1>
       <p>lol mb... well anyway, it's telling me the problem is </p>
       <h1>

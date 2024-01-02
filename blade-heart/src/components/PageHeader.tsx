@@ -1,11 +1,11 @@
-import HeartBrokenIcon from '@mui/icons-material/HeartBroken'
+import BladeHeartIcon from './BladeHeartIcon';
 
 export default function PageHeader() {
     return (
         <div class="bh-pageheader">
             <div class="maintitle">
-                <HeartBrokenIcon/>
-                <div class="titlewords">
+                <BladeHeartIcon/>
+                <div class="titlewords bh-wordmark">
                     <h1>BLADE</h1>
                     <h1>HEART</h1>
                 </div>

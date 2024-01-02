@@ -1,0 +1,28 @@
+@use 'colors';
+
+.menuitem.bh-account {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+
+    padding: 0.5em;
+    padding-left: 2em;
+    margin-top: 1px;
+
+    background: colors.$bg-darkest;
+    color: colors.$acc-bright;
+
+    border-color: colors.$acc-dull;
+}
+
+.bh-account > svg {
+    width: 1.4em;
+    height: 1.4em;
+}
+
+.bh-account > .accName {
+    margin-left: 0.5em;
+
+    font-size: large;
+}

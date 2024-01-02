@@ -1,1 +1,26 @@
 @use 'colors';
+
+//components
+@import "menuitem.scss";
+@import "menudivider.scss";
+
+@import "readermenu.scss";
+@import "readerpagearea.scss";
+
+.mangareader {
+    height: 100vh;
+    width: 100vw;
+}
+
+.mainscreen {
+    display: flex;
+    flex-direction: row;
+}
+
+.resizable.re-readerpagearea {
+    margin-left: 3px; 
+}
+
+.resizable > div > .righthandle:hover {
+    background: colors.$acc-white;
+}
