@@ -28,7 +28,7 @@ export default function ({ id, label, options }: SelectMenuItem) {
                             label: stringItem.charAt(0).toUpperCase() + stringItem.slice(1)
                         }))}
                     styles={{
-                        control: (baseStyles, state) => ({
+                        control: (baseStyles) => ({
                             ...baseStyles,
                             borderRadius: "5px",
                             borderColor: '#00a0a0',
@@ -36,11 +36,11 @@ export default function ({ id, label, options }: SelectMenuItem) {
                             flexWrap: "nowrap",
                             ":hover": { borderColor: "#ffffff" },
                         }),
-                        singleValue: (baseStyles, state) => ({
+                        singleValue: (baseStyles) => ({
                             ...baseStyles,
                             color: "#ffffff",
                         }),
-                        menu: (baseStyles, state) => ({
+                        menu: (baseStyles) => ({
                             ...baseStyles,
                             background: "#000000",
                             border: "solid 2px #005050"

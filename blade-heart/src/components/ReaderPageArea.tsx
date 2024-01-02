@@ -1,7 +1,14 @@
+import { useState } from 'preact/hooks';
 import { Resizable } from 're-resizable';
 
+export default function ( { location } : { location:any } ) {
+    const urlPage: string = (location.pathname.split('/').length > 0
+            ? location.pathname.split('/')[location.pathname.split('/').length - 1]
+            : 'default-word');
+    const bhurl:string = urlPage + "/readerpagearea/width";
 
-export default function () {
+    const [ remWidth, setRemWidth ] = useState(localStorage.getItem(bhurl) || "50vw");
+
     const contentstyle = {
         display: "flex",
         alignItems: "center",
@@ -19,8 +26,7 @@ export default function () {
     } as const;
 
     function handleResizeStop(event: MouseEvent | TouchEvent, direction: string, refToElement: HTMLElement, delta: any) {
-        console.log("readerpagearea/width");
-        console.log(refToElement.offsetWidth);
+        localStorage.setItem(bhurl, refToElement.offsetWidth.toString() + "px");
     }
 
     return (
@@ -29,7 +35,7 @@ export default function () {
                 className="resizable re-readerpagearea"
                 style={contentstyle}
                 defaultSize={{
-                    width: '50vw',
+                    width: remWidth,
                     height: '100vh'
                 }}
                 minWidth={'200px'}
