@@ -11,7 +11,7 @@ export interface ClientAccount {
 }
 
 export function getIdData() {
-    const nullAccount = { name: "AyrlinDev" } as ClientAccount;
+    const nullAccount = { name: "Ayrlin Renata" } as ClientAccount;
 
     return {
         account: nullAccount

@@ -1,7 +1,6 @@
 import { getIdData } from '../routes/Root';
 import { useLocation } from 'react-router-dom';
 
-
 import ReaderPlayBar from '../components/ReaderPlayBar';
 import ReaderPageArea from '../components/ReaderPageArea';
 import ReaderNoteBar from '../components/ReaderNoteBar';
@@ -25,7 +24,7 @@ export default function MangaReader() {
                     <ReaderPageArea location={ location } />
                     <ReaderNoteBar  />
                 </div>
-                <ReaderMenu />
+                <ReaderMenu location={ location }/>
             </div>
         </>
     );

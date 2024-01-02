@@ -28,7 +28,7 @@
     border: solid 1px colors.$acc-dull;
     border-right: none;
 
-    transition: width 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out, background-color 0.25s ease-in-out;
 }
 
 .readermenu > .collapsebtn.collapsed {
@@ -36,11 +36,7 @@
 }
 
 .readermenu > .collapsebtn:hover {
-    color: colors.$acc-white;
-
-    border-color: colors.$acc-white;
-    border-top-width: 3px;
-    border-bottom-width: 3px;
+    background-color: colors.$acc-white;
 }
 
 .readermenu > .contentarea {
