@@ -1,20 +1,35 @@
 import { useState } from 'preact/hooks';
 import Select from 'react-select';
 
+export interface SelectOption {
+    label: string,
+    value: string
+}
+
 interface SelectMenuItem {
     id: string
     label: string
-    options: Array<string>
+    options: SelectOption[]
+    onChange?: (value: SelectOption) => void
 }
 
-export default function ({ id, label, options }: SelectMenuItem) {
+export default function ({ id, label, options, onChange }: SelectMenuItem) {
     const prefix: string = 'selectmenuitem/';
-    const [ selected, setSelected ] = useState(localStorage.getItem(prefix + id) || "");
+    const [selected, setSelected] = useState(() => {
+        const def = (localStorage.getItem(prefix + id) || "");
+        if (def) {
+            if (onChange) {
+                onChange(JSON.parse(def));
+            }
+        }
+        return def;
+    });
 
-    function handleChange(opt: { label: string, value: string }) {
+    function handleChange(opt: SelectOption) {
         const jOpt = JSON.stringify(opt);
         localStorage.setItem(prefix + id, jOpt);
         setSelected(jOpt);
+        if (onChange) onChange(opt);
     }
 
     return (
@@ -22,11 +37,7 @@ export default function ({ id, label, options }: SelectMenuItem) {
             <div class="selectmenuitem menuitem">
                 <div>{label}</div>
                 <Select className="select"
-                    options={
-                        options.map((stringItem: string) => ({
-                            value: stringItem.toLowerCase(),
-                            label: stringItem.charAt(0).toUpperCase() + stringItem.slice(1)
-                        }))}
+                    options={options}
                     styles={{
                         control: (baseStyles) => ({
                             ...baseStyles,
@@ -50,8 +61,8 @@ export default function ({ id, label, options }: SelectMenuItem) {
                             background: state.isFocused ? '#005050' : '#000000',
                         }),
                     }}
-                    defaultValue={selected? JSON.parse(selected) : { label: options[0], value: options[0] }} 
-                    onChange={ handleChange } />
+                    defaultValue={selected ? JSON.parse(selected) : { label: options[0], value: options[0] }}
+                    onChange={handleChange} />
             </div>
         </>
     )

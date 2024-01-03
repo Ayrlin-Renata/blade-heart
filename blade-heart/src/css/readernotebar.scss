@@ -1,0 +1,10 @@
+@use 'colors';
+
+.readernotebar {
+    overflow-y:scroll;
+    height: 100vh;
+}
+
+.readernotebar::-webkit-scrollbar {
+    display:none;
+}

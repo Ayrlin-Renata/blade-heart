@@ -1,0 +1,22 @@
+@use 'colors';
+
+.re-readerplaybar {
+    
+}
+
+.readerplaybar {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    direction: rtl;
+    
+    width: 100%;
+
+}
+
+.readerplaybar::-webkit-scrollbar {
+    width: 2em;
+}
+
+.readerplaybar::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+}

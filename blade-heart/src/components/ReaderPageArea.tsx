@@ -1,20 +1,21 @@
-import { useState } from 'preact/hooks';
+import { useState, useContext, useEffect } from 'preact/hooks';
 import { Resizable } from 're-resizable';
+import { MangaNavContext, MangaNavData, ReaderViewContext, ReaderViewData } from '../routes/MangaReader';
 
-export default function ( { location } : { location:any } ) {
-    const urlPage: string = (location.pathname.split('/').length > 0
-            ? location.pathname.split('/')[location.pathname.split('/').length - 1]
-            : 'default-word');
-    const bhurl:string = urlPage + "/readerpagearea/width";
+import { content as contentmeta } from '../assets/json/contentmeta.json';
+import { createRef } from 'preact';
 
-    const [ remWidth, setRemWidth ] = useState(localStorage.getItem(bhurl) || "50vw");
+export default function () {
+    const mangaNav: MangaNavData = useContext(MangaNavContext);
+    const readerView: ReaderViewData = useContext(ReaderViewContext);
+
+    const bhurl: string = mangaNav.title + "/readerpagearea/width";
+    const [remWidth] = useState(localStorage.getItem(bhurl) || "50vw");
 
     const contentstyle = {
         display: "flex",
-        alignItems: "center",
         justifyContent: "center",
-        border: "solid 1px #ddd",
-        background: "#f0f0f0"
+        background: "#000000"
     } as const;
 
     const handlestyle = {
@@ -25,8 +26,58 @@ export default function ( { location } : { location:any } ) {
         transition: "background-color 0.2s ease-in-out",
     } as const;
 
+    // @ts-ignore: need these unused params bc of the type definition 
     function handleResizeStop(event: MouseEvent | TouchEvent, direction: string, refToElement: HTMLElement, delta: any) {
         localStorage.setItem(bhurl, refToElement.offsetWidth.toString() + "px");
+        updateView();
+    }
+
+    function loadPages() {
+        if (!mangaNav.chapter || !mangaNav.language) {
+            return (<><div>Loading...</div></>)
+        }
+
+        const mediaData = contentmeta[mangaNav.title as keyof typeof contentmeta];
+        const chapData: object = mediaData.chapters
+            .find((ch) => ch.numeral === Number(mangaNav.chapter.value)) || {};
+
+        if (!chapData) {
+            console.error("could not find chapter", mangaNav.chapter.value);
+            return (<><div>Huh? Unable to load pages for {mangaNav.chapter.label}</div></>)
+        }
+
+        const langData = mediaData.languages.find((ld) => ld.lang.toLowerCase() === mangaNav.language.toLowerCase());
+        if (!langData) {
+            console.error("could not find", mangaNav.language, "language data for chapter", mangaNav.chapter.value);
+            return (<><div>Huh? Missing {mangaNav.language} language data for {mangaNav.chapter.label}</div></>)
+        }
+
+        return (
+            <>
+                {ingestChapterSources(langData, chapData)}
+            </>
+        )
+    }
+
+    const pagearea = createRef();
+
+    useEffect(() => {
+        updateView();
+    });
+
+    function updateView() {
+        const pae: HTMLDivElement = pagearea.current;
+        if (pae) {
+            const paeparent = pae.parentElement;
+            if (paeparent) {
+                paeparent.scrollTop = readerView.scroll;
+            }
+            if (readerView.height != pae.offsetHeight) {
+                readerView.height = pae.offsetHeight;
+                //console.log("RPA setReaderView",{...readerView});
+                readerView.setReaderView(readerView);
+            }
+        }
     }
 
     return (
@@ -47,8 +98,49 @@ export default function ( { location } : { location:any } ) {
                 handleStyles={{ right: handlestyle }}
                 onResizeStop={handleResizeStop}
             >
-                <div class="readerpagearea">PAGE AREA</div>
+                <div class="readerpagearea">
+                    <div class="pagecontainer" ref={pagearea}>{loadPages()}</div>
+                </div>
             </Resizable>
         </>
     )
+}
+
+
+function ingestChapterSources(lang: any, chapterData: any) {
+    const langsource = lang.sourceurl;
+    const { pagemethod, pagedata, numeral, imageext } = chapterData;
+    const imgs = [];
+    const pageClass = "mangapage";
+
+    switch (pagemethod) {
+        case "fetch-source": {
+            const pagestart = pagedata[0] as number;
+            const pageend = pagedata[1] as number;
+
+            for (let i = pagestart; i <= pageend; i++) {
+                const url = langsource + numeral + "/" + i.toString().padStart(4, '0') + "." + imageext;
+                imgs[i] = (<img src={url} class={pageClass}></img>);
+            }
+        } break;
+        case "patch-source": {
+            let i = 1;
+            for (const val of pagedata) {
+                if (typeof val === "string") {
+                    imgs[i] = (<img src={val} class={pageClass}></img>);
+                    i++;
+                } else if (Array.isArray(val)) {
+                    for (let j = val[0]; j <= val[1]; j++) {
+                        const url = langsource + numeral + "/" + j.toString().padStart(4, '0') + "." + imageext;
+                        imgs[i] = (<img src={url} class={pageClass}></img>);
+                        i++;
+                    }
+                }
+            }
+        } break;
+        default:
+            console.error('unknown page retrieval method:', pagemethod);
+            return (<><div>Huh? Someone messed up the directions for retrieving the pages.</div></>)
+    }
+    return (<>{imgs}</>);
 }

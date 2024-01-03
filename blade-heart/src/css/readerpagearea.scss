@@ -1,8 +1,23 @@
 @use 'colors';
 
 .readerpagearea {
-    width: 100%;
-    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
 
-    background: colors.$acc-dull;
+    width: 100%;
+    height: 100vh;
+
+    background: colors.$bg-darkest;
+}
+
+.readerpagearea > .pagecontainer {
+
+}
+
+.readerpagearea > .pagecontainer > img {
+    width: 100%;
+}
+
+.readerpagearea::-webkit-scrollbar {
+    display:none;
 }

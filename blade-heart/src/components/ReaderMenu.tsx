@@ -1,29 +1,36 @@
-import { useState } from 'preact/hooks';
+import { useState, useContext } from 'preact/hooks';
 
 import { content as listContent } from '../assets/json/contentlist.json';
 import { content as metaContent } from '../assets/json/contentmeta.json';
 
+import { MangaNavContext, MangaNavData, MangaChapter } from '../routes/MangaReader';
 import ReaderMenuHeader from './ReaderMenuHeader';
 import LabelMenuItem from './LabelMenuItem';
 import AccountMenuItem from './AccountMenuItem';
-import SelectMenuItem from './SelectMenuItem';
+import SelectMenuItem, { SelectOption } from './SelectMenuItem';
 import MenuDivider from './MenuDivider';
 
-export default function ( { location } : { location: any} ) {
-    const urlPage: string = (location.pathname.split('/').length > 0
-    ? location.pathname.split('/')[location.pathname.split('/').length - 1]
-    : 'default-word');
-    const mangaTitle = decodeURIComponent(urlPage);
-    const mangaInfo = listContent.find((obj) => obj.title === mangaTitle);
-    const mangaMeta: any = metaContent[urlPage as keyof typeof metaContent];
+export default function () {
+    const mangaNav: MangaNavData = useContext(MangaNavContext);
+    const [ collapsed, setCollapsed ] = useState("false");
+    const collapsedBool: boolean = collapsed === "true";
+
+    const mangaInfo = listContent.find((obj) => obj.title === mangaNav.title);
+    const mangaMeta: any = metaContent[mangaNav.title as keyof typeof metaContent];
     if(!mangaInfo || !mangaMeta) {
         console.warn("manga info not found!");
         return (<div class="readermenu">{"manga info not found!"}</div>);
     }
-    
-    const [ collapsed, setCollapsed ] = useState("false");
 
-    const collapsedBool: boolean = collapsed === "true";
+    function updateChapter(opt: MangaChapter) {
+        mangaNav.chapter = opt;
+        mangaNav.setMangaNav(mangaNav);
+    }
+
+    function updateLanguage(opt: SelectOption) {
+        mangaNav.language = opt.value;
+        mangaNav.setMangaNav(mangaNav);
+    }
 
     return (
         <>
@@ -34,14 +41,16 @@ export default function ( { location } : { location: any} ) {
                     <AccountMenuItem />
                     <MenuDivider />
                     <LabelMenuItem id="mangatitle" 
-                        content={ mangaTitle } 
+                        content={ mangaNav.title } 
                         subContent={ mangaInfo.subtitle } />
-                    <SelectMenuItem id={ mangaTitle + "/mangalanguage" }  
+                    <SelectMenuItem id={ mangaNav.title + "/mangalanguage" }  
                         label="Language" 
-                        options={mangaInfo.languages} />
-                    <SelectMenuItem id={ mangaTitle + "/mangachapter" }  
+                        options={mangaInfo.languages.map((lang:string) => { return { label:lang, value:lang } })} 
+                        onChange={ updateLanguage }/>
+                    <SelectMenuItem id={ mangaNav.title + "/mangachapter" }  
                         label="Chapter" 
-                        options={mangaMeta.chapters.map((obj:any) => obj.authornumber + ": " + obj.name)} />
+                        options={mangaMeta.chapters.map((chap:any) => { return { label:chap.authornumber + ": " + chap.name, value:chap.numeral} })} 
+                        onChange={ updateChapter }/>
                 </div>
 
             </div>

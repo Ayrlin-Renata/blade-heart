@@ -5,7 +5,9 @@
 @import "menudivider.scss";
 
 @import "readermenu.scss";
+@import "readerplaybar.scss";
 @import "readerpagearea.scss";
+@import "readernotebar.scss";
 
 .mangareader {
     height: 100vh;
@@ -19,6 +21,10 @@
 
 .resizable.re-readerpagearea {
     margin-left: 3px; 
+}
+
+.resizable.re-readerplaybar {
+    margin-left: 0.5em; 
 }
 
 .resizable > div > .righthandle:hover {
