@@ -1,10 +1,6 @@
 @use 'colors';
 
-#notebar {
-    width: 20em;
-}
-
-.notewrapper {
+.readernote {
     position: relative;
     height: 0px;
 
@@ -12,18 +8,6 @@
 
     transition: top 0.5s ease-in-out;
 }
-
-.notemeta {
-    display:none;
-}
-
-// .notemetaid {
-
-// }
-
-// .notemetapos {
-
-// }
 
 .noteicon {
     background-color: colors.$acc-secondary;
@@ -45,6 +29,11 @@
     transition: margin-left 0.3s ease-in-out, border-right-width 0.3s ease-in-out;
 }
 
+.noteicon:hover {
+    border-color: colors.$acc-white;
+    border-right-width: 1.5em;
+}
+
 .noteicon > button {
     width: 2.7em;
     height: 2.7em;
@@ -52,7 +41,7 @@
     margin: 0px;
     padding: 0.5em;
     
-    color: colors.$acc-white;
+    color: colors.$acc-dark;
     background: none;
     
     border: none;

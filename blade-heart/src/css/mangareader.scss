@@ -19,9 +19,10 @@
     overflow-y: scroll;
 
     height: 100vh;
+    margin-left: 1em;
 }
 
-.mainscreen>.maininner {
+.mainscreen > .maininner {
     direction: ltr;
     display: flex;
     flex-direction: row;
@@ -40,17 +41,17 @@
     width: 0em;
 }
 
-.draggable {
-    //position: absolute;
-    // width: 100px;
-    // height: 400px;
+// .draggable {
+//     //position: absolute;
+//     // width: 100px;
+//     // height: 400px;
 
-    // margin: 0 auto;
+//     // margin: 0 auto;
 
-    // background: #fff;
+//     // background: #fff;
     
-    transform: translate(0px, 0px);
-}
+//     transform: translate(0px, 0px);
+// }
 
 .mainscreen::-webkit-scrollbar {
     width: 2em;

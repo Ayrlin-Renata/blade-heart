@@ -38,8 +38,8 @@ export default function () {
                     width: remWidth,
                     height: 'fit-content'
                 }}
-                minWidth={'10vw'}
-                maxWidth={'30vw'}
+                minWidth={'64px'}
+                maxWidth={'20vw'}
                 enable={{ top: false, right: true, bottom: false, left: false, topRight: false, bottomRight: false, bottomLeft: false, topLeft: false }}
                 handleClasses={{ right: "righthandle" }}
                 handleStyles={{ right: handlestyle }}

@@ -1,10 +1,10 @@
+import { createRef } from "preact";
 import { useContext, useEffect } from "preact/hooks";
 import { MangaNavContext, MangaNavData, ReaderViewContext, ReaderViewData } from "../routes/MangaReader";
 
 import { content as contentnotes } from '../assets/json/notes.json';
 
-import ChatIcon from '@mui/icons-material/Chat';
-import { createRef } from "preact";
+import ReaderNote from './ReaderNote.tsx';
 
 export default function () {
     const mangaNav: MangaNavData = useContext(MangaNavContext);
@@ -34,6 +34,11 @@ export default function () {
     function placeItems() {
         var heightBasis = 0;
 
+        // const mediaData = contentmeta[mangaNav.title as keyof typeof contentmeta];
+        // const chapData = mediaData.chapters.find((s) => Number(mangaNav.chapter.value) === s.numeral);
+        // heightBasis = readerView.height/(chapData?.pagedata[1] || 1);
+
+        // console.log(heightBasis,readerView.height,(chapData?.pagedata[1] || 1));
         const mhImage = document.querySelector('.pagecontainer > img');
         if (mhImage) {
             heightBasis = (mhImage as HTMLElement).offsetHeight;
@@ -45,19 +50,12 @@ export default function () {
         const noteList = notebarRef.current?.children;
         if (noteList) {
             for (const wrapper of noteList) {
-                const notemeta = wrapper.getElementsByClassName("notemeta");
-                if (notemeta[0]) {
-                    // //const noteid = notemeta[0].getElementsByClassName("notemetaid");
-                    const notepos = notemeta[0].getElementsByClassName("notemetapos");
-                    // //const nid = noteid[0].innerHTML as string;
-                    const npos = notepos[0].innerHTML as string;
-                    (wrapper as HTMLElement).style.top = notePosToPx(npos, heightBasis) + "px";
-                }
+                (wrapper as HTMLElement).style.top = notePosToPx(wrapper.dataset.pos, heightBasis) + "px";
             }
         }
     }
 
-    function notePosToPx(npos: number | string, heightBasis: number) {
+    function notePosToPx(npos: number, heightBasis: number) {
         const pos = Number(npos);
         return (pos * heightBasis) / 100;
     }
@@ -81,48 +79,14 @@ export default function () {
 
 function ingestChapterNotes(chapData: any) {
     const noteList = [];
-    var idx = 1;
 
     for (const note of chapData.notes) {
-        switch (note.type) {
-            case "text": {
-                const thisidx: number = idx;
-                //console.log(note);
-                noteList[thisidx] = (
-                    <>
-                        <div class="notewrapper">
-                            <div class="notemeta">
-                                <div class="notemetaid">{thisidx}</div>
-                                <div class="notemetapos">{note.position}</div>
-                            </div>
-                            <div id={"note" + thisidx + "icon"} class="noteicon notetypetext">
-                                <button onClick={() => {
-                                    const cid = "note" + thisidx + "card";
-                                    const iid = "note" + thisidx + "icon";
-                                    const card = document.getElementById(cid);
-                                    const icon = document.getElementById(iid);
-                                    if (card?.classList.contains("noteexp")) {
-                                        card?.classList.remove("noteexp");
-                                        icon?.classList.remove("noteexp");
-                                    } else {
-                                        card?.classList.add("noteexp");
-                                        icon?.classList.add("noteexp");
-                                    }
-                                }}><ChatIcon /></button>
-                            </div>
-                            <div id={"note" + thisidx + "card"} class="notecard notetypetext">
-                                <h3 class="ntitle"> {note.content.title} </h3>
-                                <hr class="nhr" />
-                                <p class="ntext"> {note.content.text} </p>
-                            </div>
-                        </div>
-                    </>
-                );
+        noteList.push(
+            <>
+                <ReaderNote type="text" pos={note.position} content={note.content}></ReaderNote>
+            </>
+        );
 
-            } break;
-        }
-        idx++;
     }
-    //console.log("noteList return",noteList);
     return (<> {noteList} </>)
 }
