@@ -1,23 +1,40 @@
 @use 'colors';
 
+.re-readerpagearea {
+    height: fit-content !important;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 .readerpagearea {
     overflow-x: hidden;
     overflow-y: scroll;
 
     width: 100%;
-    height: 100vh;
+    height: fit-content;
 
     background: colors.$bg-darkest;
 }
 
-.readerpagearea > .pagecontainer {
+// .readerpagearea > .pagecontainer {
 
-}
+// }
 
-.readerpagearea > .pagecontainer > img {
+.readerpagearea>.pagecontainer>img {
     width: 100%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
+    -ms-user-drag: none;
+    user-drag: none;
 }
 
 .readerpagearea::-webkit-scrollbar {
-    display:none;
+    display: none;
 }

@@ -15,18 +15,59 @@
 }
 
 .mainscreen {
+    direction: rtl;
+    overflow-y: scroll;
+
+    height: 100vh;
+}
+
+.mainscreen>.maininner {
+    direction: ltr;
     display: flex;
     flex-direction: row;
 }
 
+.notespacer {
+    //font-size: large;
+    min-width: 17em;
+    //width: 17em;
+
+    transition: min-width 0.5s ease-in-out;
+}
+
+.notespacer.collapsed {
+    min-width: 0em;
+    width: 0em;
+}
+
+.draggable {
+    //position: absolute;
+    // width: 100px;
+    // height: 400px;
+
+    // margin: 0 auto;
+
+    // background: #fff;
+    
+    transform: translate(0px, 0px);
+}
+
+.mainscreen::-webkit-scrollbar {
+    width: 2em;
+}
+
+.mainscreen::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+}
+
 .resizable.re-readerpagearea {
-    margin-left: 3px; 
+    margin-right: 3px;
 }
 
 .resizable.re-readerplaybar {
-    margin-left: 0.5em; 
+    margin-right: 0.5em;
 }
 
-.resizable > div > .righthandle:hover {
+.resizable>div>.righthandle:hover {
     background: colors.$acc-white;
 }

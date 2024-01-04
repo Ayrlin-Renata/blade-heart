@@ -7,7 +7,6 @@ import { createRef } from 'preact';
 
 export default function () {
     const mangaNav: MangaNavData = useContext(MangaNavContext);
-    const readerView: ReaderViewData = useContext(ReaderViewContext);
 
     const bhurl: string = mangaNav.title + "/readerpagearea/width";
     const [remWidth] = useState(localStorage.getItem(bhurl) || "50vw");
@@ -15,11 +14,12 @@ export default function () {
     const contentstyle = {
         display: "flex",
         justifyContent: "center",
+        height: "fit-content",
         background: "#000000"
     } as const;
 
     const handlestyle = {
-        height: "100vh",
+        height: "100%",
         width: "15px",
         marginTop: "-1px",
         borderRadius: "2px",
@@ -54,27 +54,23 @@ export default function () {
 
         return (
             <>
-                {ingestChapterSources(langData, chapData)}
+                { ingestChapterSources(langData, chapData) }
             </>
         )
     }
 
-    const pagearea = createRef();
+    const pageContainerRef = createRef();
 
+    const readerView: ReaderViewData = useContext(ReaderViewContext);
     useEffect(() => {
         updateView();
-    });
+    })
 
     function updateView() {
-        const pae: HTMLDivElement = pagearea.current;
-        if (pae) {
-            const paeparent = pae.parentElement;
-            if (paeparent) {
-                paeparent.scrollTop = readerView.scroll;
-            }
-            if (readerView.height != pae.offsetHeight) {
-                readerView.height = pae.offsetHeight;
-                //console.log("RPA setReaderView",{...readerView});
+        if(pageContainerRef.current) {
+            if(pageContainerRef.current.offsetHeight != readerView.height) {
+                readerView.prevHeight = readerView.height;
+                readerView.height = pageContainerRef.current.offsetHeight;
                 readerView.setReaderView(readerView);
             }
         }
@@ -87,19 +83,17 @@ export default function () {
                 style={contentstyle}
                 defaultSize={{
                     width: remWidth,
-                    height: '100vh'
+                    height: 'fit-content'
                 }}
                 minWidth={'200px'}
                 maxWidth={'60vw'}
-                minHeight={'200px'}
-                maxHeight={'100vh'}
                 enable={{ top: false, right: true, bottom: false, left: false, topRight: false, bottomRight: false, bottomLeft: false, topLeft: false }}
                 handleClasses={{ right: "righthandle" }}
                 handleStyles={{ right: handlestyle }}
-                onResizeStop={handleResizeStop}
+                onResizeStop={ handleResizeStop }
             >
                 <div class="readerpagearea">
-                    <div class="pagecontainer" ref={pagearea}>{loadPages()}</div>
+                    <div class="pagecontainer" ref={ pageContainerRef }>{ loadPages() }</div>
                 </div>
             </Resizable>
         </>

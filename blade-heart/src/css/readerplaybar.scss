@@ -1,7 +1,7 @@
 @use 'colors';
 
 .re-readerplaybar {
-    
+    height: auto !important;
 }
 
 .readerplaybar {
@@ -10,13 +10,5 @@
     direction: rtl;
     
     width: 100%;
-
-}
-
-.readerplaybar::-webkit-scrollbar {
-    width: 2em;
-}
-
-.readerplaybar::-webkit-scrollbar-thumb {
-    border-radius: 6px;
+    height: fit-content;
 }

@@ -10,10 +10,13 @@ import AccountMenuItem from './AccountMenuItem';
 import SelectMenuItem, { SelectOption } from './SelectMenuItem';
 import MenuDivider from './MenuDivider';
 
-export default function () {
+interface ReaderMenu {
+    isCollapsed: boolean, 
+    onCollapse: Function,
+}
+
+export default function ( { isCollapsed, onCollapse } : ReaderMenu ) {
     const mangaNav: MangaNavData = useContext(MangaNavContext);
-    const [ collapsed, setCollapsed ] = useState("false");
-    const collapsedBool: boolean = collapsed === "true";
 
     const mangaInfo = listContent.find((obj) => obj.title === mangaNav.title);
     const mangaMeta: any = metaContent[mangaNav.title as keyof typeof metaContent];
@@ -35,8 +38,8 @@ export default function () {
     return (
         <>
             <div class="readermenu">
-                <button class={ collapsedBool? "collapsebtn collapsed" : "collapsebtn" } onClick={() => setCollapsed((!collapsedBool).toString())}>{collapsedBool? '‹' : '›'}</button>
-                <div class={ collapsedBool? "contentarea collapsed" : "contentarea" } >
+                <button class={ isCollapsed? "collapsebtn collapsed" : "collapsebtn" } onClick={() => onCollapse((!isCollapsed).toString())}>{isCollapsed? '‹' : '›'}</button>
+                <div class={ isCollapsed? "contentarea collapsed" : "contentarea" } >
                     <ReaderMenuHeader />
                     <AccountMenuItem />
                     <MenuDivider />
