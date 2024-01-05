@@ -1,17 +1,23 @@
 @use 'colors';
 
 .readernote {
+    opacity:1;
+
     position: relative;
     height: 0px;
 
     background: colors.$bg-dark;
 
-    transition: top 0.5s ease-in-out;
+    transition: top 0.5s ease-in-out, 
+        visibility 0.5s ease-in-out, 
+        opacity 0.5s ease-in-out;
 }
 
 .readernote.hidden {
-    display:none;
+    opacity: 0;
+    visibility:hidden;
 }
+
 
 .noteicon {
     background-color: colors.$acc-secondary;
@@ -39,7 +45,7 @@
 }
 
 .noteicon > button {
-    width: 2.7em;
+    width: 2.8em;
     height: 2.7em;
     
     margin: 0px;

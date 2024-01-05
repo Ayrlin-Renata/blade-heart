@@ -12,7 +12,6 @@ interface SliderMenuItem {
 }
 
 export default function ({ id, label, offText, onText, onChange }: SliderMenuItem) {
-    const smid: string = 'slidermenuitem/' + id;
     const menuPref: MenuPrefData = useContext(MenuPrefContext);
 
     function handleChange(state: boolean) {
@@ -26,7 +25,7 @@ export default function ({ id, label, offText, onText, onChange }: SliderMenuIte
         <>
             <div class="slidermenuitem menuitem">
                 <div>{label}</div>
-                <Slider id={smid}
+                <Slider id={id}
                     offText={offText}
                     onText={onText}
                     onChange={ handleChange }/>

@@ -19,6 +19,7 @@ import ChatIcon from '@mui/icons-material/Chat';
 import SignpostIcon from '@mui/icons-material/Signpost';
 import SettingsIcon from '@mui/icons-material/Settings';
 import SliderMenuItem from './SliderMenuItem.tsx';
+import ButtonMenuItem from './ButtonMenuItem.tsx';
 
 interface ReaderMenu {
     isCollapsed: boolean,
@@ -82,12 +83,26 @@ export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
                         <PanelSwitcher>
                             <SPanel id={ids.notes}
                                 icon={<ChatIcon />}>
-                                <LabelMenuItem
-                                    id={ids.notes + "/label/title"}
+                                <LabelMenuItem id={ids.notes + "/label/title"}
                                     content="notes"
                                     subContent="preferences panel" />
-                                <SliderMenuItem
-                                    id={ids.notes + "/slider/category/extra"}
+                                <SliderMenuItem id={ids.notes + "/slider/category/language"}
+                                    offText="hide"
+                                    onText="show"
+                                    label="Language" />
+                                <SliderMenuItem id={ids.notes + "/slider/category/translation"}
+                                    offText="hide"
+                                    onText="show"
+                                    label="Translation" />
+                                <SliderMenuItem id={ids.notes + "/slider/category/pronunciation"}
+                                    offText="hide"
+                                    onText="show"
+                                    label="Pronunciation" />
+                                <SliderMenuItem id={ids.notes + "/slider/category/context"}
+                                    offText="hide"
+                                    onText="show"
+                                    label="Context" />
+                                <SliderMenuItem id={ids.notes + "/slider/category/extra"}
                                     offText="hide"
                                     onText="show"
                                     label="Extras" />
@@ -106,6 +121,18 @@ export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
                                 <LabelMenuItem id={ids.settings + "/label/title"}
                                     content="settings"
                                     subContent="preferences panel" />
+                                <ButtonMenuItem id={ids.settings + "/slider/console/localStorageList"}
+                                    label="[DEV] localStorage"
+                                    button="LIST"
+                                    onClick={function test() { 
+                                        console.log(Array
+                                            .from({ length: localStorage.length}, (_,i) => i)
+                                            .map((jndex) => ({ key: localStorage.key(jndex), value: localStorage.getItem(localStorage.key(jndex)||"")}) ))
+                                        }}/>
+                                <ButtonMenuItem id={ids.settings + "/slider/console/localStorageClear"}
+                                    label="[DEV] localStorage"
+                                    button="CLEAR"
+                                    onClick={ () => localStorage.clear() }/>
                             </SPanel>
                         </PanelSwitcher>
                     </>)}

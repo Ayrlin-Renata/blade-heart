@@ -10,12 +10,11 @@ interface SliderProps {
 }
 
 export default function Slider({ id, onChange, offText: lefttext, onText: righttext }: SliderProps) {
-    const lsprefix = "sliders/";
     const [active, setActive] = useState(() => initActiveState());
     const activeBool: boolean = active === "true";
 
     function initActiveState() {
-        const startVal = localStorage.getItem(lsprefix + id) 
+        const startVal = localStorage.getItem(id) 
             || defaults.slider[id as keyof typeof defaults.slider] 
             || "false";
         //setActive(startVal);
@@ -32,7 +31,7 @@ export default function Slider({ id, onChange, offText: lefttext, onText: rightt
 
     useEffect(() => {
         //console.log("slider:", lsprefix, id, active);
-        localStorage.setItem(lsprefix + id, active.toString());
+        localStorage.setItem(id, active.toString());
     }, [active]);
 
     return (

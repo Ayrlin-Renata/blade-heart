@@ -14,7 +14,7 @@ export default function ({ type, pos, note }: ReaderNote) {
     const expanded = expand === "true";
 
     function toggleExpand() {
-        console.log(expanded);
+        //console.log(expanded);
         setExpand((!expanded).toString());
     }
 

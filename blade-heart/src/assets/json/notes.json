@@ -31,6 +31,16 @@
             },
             {
               "type": "text",
+              "category": "language",
+              "position": 150,
+              "content": {
+                "title": "TEST LANG",
+                "text": "this is a regular text note that has a bunch of text. i want it to be at least a couple sentences long so that I can figure out what is a good size even for a larger amount of text lmao. "
+              },
+              "credit": ["ayrlin"]
+            },
+            {
+              "type": "text",
               "category": "extra",
               "position": 60,
               "content": {
