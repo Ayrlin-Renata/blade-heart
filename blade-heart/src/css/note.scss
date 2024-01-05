@@ -9,6 +9,10 @@
     transition: top 0.5s ease-in-out;
 }
 
+.readernote.hidden {
+    display:none;
+}
+
 .noteicon {
     background-color: colors.$acc-secondary;
 
@@ -53,20 +57,29 @@
     border-right-width: 5em;
 }
 
-.notecard.noteexp {
+.notecardwrapper.noteexp {
     transform: translateX(0);
 
     height: fit-content;
 }
 
-.notecard {
+.notecardwrapper {
     transform: translateX(200%);
 
-    background: colors.$bg-dark;
-
-    margin-bottom: 1em;
     margin-left: 3.5em;
     margin-right: 1em;
+
+    transition: transform 0.3s ease-in-out, height 0.5s ease-in-out;
+}
+
+.notecardwrapper:transitionend {
+    height: 0px;
+}
+
+.notecard {
+    background: colors.$bg-dark;
+
+    //margin-bottom: 1em;
 
     width:fit-content;
     min-width: 15em;
@@ -77,12 +90,15 @@
     border-radius: 10px;
     border-top-right-radius: 0px;
     border-top-left-radius: 0px;
-
-    transition: transform 0.3s ease-in-out, height 0.5s ease-in-out;
 }
 
-.notecard:transitionend {
-    height: 0px;
+.notecardwrapper > .credit {
+    margin-top: 0.2em;
+    margin-left: 1.5em;
+
+    color: colors.$acc-primary;
+
+    font-size: small;
 }
 
 .notetypetext {

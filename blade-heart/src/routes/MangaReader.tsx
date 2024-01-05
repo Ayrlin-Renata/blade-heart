@@ -12,6 +12,8 @@ import ReaderMenu from '../components/ReaderMenu';
 
 import '../css/mangareader.scss'
 
+// MangaNav
+
 export const MangaNavContext = createContext({
     readerLocation: null,
     title: "",
@@ -33,6 +35,16 @@ export interface MangaChapter {
     value: string
 }
 
+function updateNavTitle(location: any) {
+    const urlPage: string = (location.pathname.split('/').length > 0
+        ? location.pathname.split('/')[location.pathname.split('/').length - 1]
+        : 'default-word');
+    return decodeURIComponent(urlPage);
+}
+
+
+// ReaderView
+
 export const ReaderViewContext = createContext({
     height: 0,
     prevHeight: 0,
@@ -47,15 +59,49 @@ export interface ReaderViewData {
     setReaderView: (readerView: ReaderViewData) => void,
 }
 
+
+// MenuPref
+
+export const MenuPrefContext = createContext({
+    prefs: [],
+    setMenuPref: () => { },
+} as MenuPrefData);
+
+export interface MenuPrefData {
+    prefs: MenuPref[]
+    setMenuPref: (menuPref: MenuPrefData) => void,
+}
+
+export interface MenuPref {
+    id: string,
+    value: any
+}
+
+export function replaceInMenuPref(mPref: MenuPrefData, pf: MenuPref) {
+    const tpf = mPref.prefs.find((spf) => (spf.id == pf.id) );
+    if(tpf) {
+        tpf.value = pf.value;
+    } else {
+        mPref.prefs.push(pf);
+    }
+    //return mPref;
+}
+
+
+// react-router data 
+
 export async function loader() {
     const idData = await getIdData();
     return { idData }
 }
 
 export default function MangaReader() {
-    const [ menuCollapsed, setMenuCollapsed ] = useState("false");
+
+    //Menu Collapsed State
+    const [menuCollapsed, setMenuCollapsed] = useState("false");
     const menuCollapsedBool: boolean = menuCollapsed === "true";
 
+    //MangaNav
     const location = useLocation();
     const [mangaNav, setMangaNav] = useState({
         readerLocation: location,
@@ -70,6 +116,7 @@ export default function MangaReader() {
         setMangaNav({ ...mNav });
     }
 
+    //ReaderView
     const [readerView, setReaderView] = useState({
         height: 0,
         prevHeight: 0,
@@ -78,8 +125,18 @@ export default function MangaReader() {
     });
 
     function updateReaderViewContext(rView: ReaderViewData) {
-        //console.log("updateReaderViewContext", {...rView});
         setReaderView({ ...rView });
+    }
+
+    //MenuPref
+    const [menuPref, setMenuPref] = useState({
+        prefs: [] as MenuPref[],
+        setMenuPref: updateMenuPrefContext,
+    });
+
+    function updateMenuPrefContext(mPref: MenuPrefData) {
+        //console.log( "mPref", mPref.prefs[0]);
+        setMenuPref({ ...mPref });
     }
 
     //console.log({...readerView});
@@ -110,30 +167,25 @@ export default function MangaReader() {
     return (
         <>
             <div id="mangareader">
-                <ReaderViewContext.Provider value={readerView}>
-                    <MangaNavContext.Provider value={mangaNav}>
-                        <div class="mainscreen">
-                            {/* <div class="draggable" >TEST</div> */}
-                            <div class="maininner">
-                                <ReaderPlayBar />
-                                <ReaderPageArea />
-                                <ReaderNoteBar />
-                                <div class={ menuCollapsedBool? "notespacer collapsed" : "notespacer"}></div>
+                <MenuPrefContext.Provider value={menuPref}>
+                    <ReaderViewContext.Provider value={readerView}>
+                        <MangaNavContext.Provider value={mangaNav}>
+                            <div class="mainscreen">
+                                {/* <div class="draggable" >TEST</div> */}
+                                <div class="maininner">
+                                    <ReaderPlayBar />
+                                    <ReaderPageArea />
+                                    <ReaderNoteBar />
+                                    <div class={menuCollapsedBool ? "notespacer collapsed" : "notespacer"}></div>
+                                </div>
                             </div>
-                        </div>
-                        <ReaderMenu isCollapsed={ menuCollapsedBool } onCollapse={ setMenuCollapsed }/>
-                    </MangaNavContext.Provider>
-                </ReaderViewContext.Provider>
+                            <ReaderMenu isCollapsed={menuCollapsedBool} onCollapse={setMenuCollapsed} />
+                        </MangaNavContext.Provider>
+                    </ReaderViewContext.Provider>
+                </MenuPrefContext.Provider>
             </div>
         </>
     );
-}
-
-function updateNavTitle(location: any) {
-    const urlPage: string = (location.pathname.split('/').length > 0
-        ? location.pathname.split('/')[location.pathname.split('/').length - 1]
-        : 'default-word');
-    return decodeURIComponent(urlPage);
 }
 
 // function dragMoveListener(event:any) {

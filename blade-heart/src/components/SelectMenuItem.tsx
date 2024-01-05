@@ -32,6 +32,14 @@ export default function ({ id, label, options, onChange }: SelectMenuItem) {
         if (onChange) onChange(opt);
     }
 
+    var defaultOption = null;
+    if(selected) {
+        defaultOption = JSON.parse(selected);
+    } else {
+        defaultOption = options[0];
+        handleChange(defaultOption);
+    }
+
     return (
         <>
             <div class="selectmenuitem menuitem">
@@ -61,7 +69,7 @@ export default function ({ id, label, options, onChange }: SelectMenuItem) {
                             background: state.isFocused ? '#005050' : '#000000',
                         }),
                     }}
-                    defaultValue={selected ? JSON.parse(selected) : { label: options[0], value: options[0] }}
+                    defaultValue={ defaultOption }
                     onChange={handleChange} />
             </div>
         </>

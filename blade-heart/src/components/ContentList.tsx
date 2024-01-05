@@ -12,7 +12,10 @@ export default function ContentList() {
             <div class="bh-contenttitle">
                 <h1>media projects</h1>
                 <div class="sort">
-                    <Slider id="contentlist/sort" callback={ onSortSlider } lefttext="reccomended" righttext="chronological"/>
+                    <Slider id="contentlist/sort" 
+                        onChange={ onSortSlider } 
+                        offText="reccomended" 
+                        onText="chronological"/>
                 </div>
             </div>
             <div class="bh-contentlist">

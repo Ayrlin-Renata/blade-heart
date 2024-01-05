@@ -13,6 +13,21 @@
                 "title": "TEST TITLE",
                 "text": "this is a regular text note that has a bunch of text. i want it to be at least a couple sentences long so that I can figure out what is a good size even for a larger amount of text lmao. "
               }
+            }
+          ]
+        },
+        {
+          "numeral": 35,
+          "notes": [
+            {
+              "type": "text",
+              "category": "extra",
+              "position": 50,
+              "content": {
+                "title": "TEST TITLE",
+                "text": "this is a regular text note that has a bunch of text. i want it to be at least a couple sentences long so that I can figure out what is a good size even for a larger amount of text lmao. "
+              },
+              "credit": ["ayrlin"]
             },
             {
               "type": "text",
@@ -21,7 +36,9 @@
               "content": {
                 "title": "A SECOND TEST LOL",
                 "text": "222 this is a regular text note that has a bunch of text. i want it to be at least a couple sentences long so that I can figure out what is a good size even for a larger amount of text lmao. "
-              }
+              },
+              "credit": ["ayrlin", "ayrlin2"],
+              "tags": ["tagtest"]
             },
             {
               "type": "text",
@@ -44,7 +61,7 @@
             {
               "type": "text",
               "category": "extra",
-              "position": 2310,
+              "position": 310,
               "content": {
                 "title": "page24",
                 "text": "222 thiwlar text note that has a bunch of text. i want it to be at least a couple sentences long so that I can figure out what is a good size even for a larger amount of text lmao. "
@@ -53,7 +70,7 @@
             {
               "type": "text",
               "category": "extra",
-              "position": 2390,
+              "position": 390,
               "content": {
                 "title": "page23",
                 "text": "t. i want it to be at least a couple sentences long so that I can figure out what is a good size even for a larger amount of text lmao. "

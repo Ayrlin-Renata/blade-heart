@@ -83,7 +83,7 @@ function ingestChapterNotes(chapData: any) {
     for (const note of chapData.notes) {
         noteList.push(
             <>
-                <ReaderNote type="text" pos={note.position} content={note.content}></ReaderNote>
+                <ReaderNote type="text" pos={note.position} note={note}></ReaderNote>
             </>
         );
 

@@ -1,0 +1,43 @@
+@use 'colors';
+
+.panelswitcher {
+    //margin-top: 1em;
+}
+
+.panelswitcher > .tabs {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    height: min-content;
+    width: 100%;
+
+    margin-top: 1em;
+
+    background: colors.$grad-bg-dark-bottom;
+}
+
+.panelswitcher > .tabs > button {
+    flex-grow: 2;
+
+    width: 6em;
+    height: 3em;
+    min-width: 6em;
+
+    padding: 0.4em;
+    margin: 0px 3px;
+
+    color:  colors.$acc-primary;
+    background: colors.$grad-bg-dark-bottom;
+
+    border: none;
+    border-bottom: solid 1px colors.$acc-bright; 
+}
+
+.panelswitcher > .tabs > button:hover {
+    border-bottom: solid 1px colors.$acc-white; 
+}
+
+.panelswitcher > .tabs > button.selected {
+    color: colors.$acc-bright;
+}
