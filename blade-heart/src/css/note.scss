@@ -1,36 +1,32 @@
 @use 'colors';
 
-#notebar {
-    width: 20em;
-}
+@import 'notedefinition.scss';
 
-.notewrapper {
+.readernote {
+    opacity:1;
+
     position: relative;
     height: 0px;
 
     background: colors.$bg-dark;
 
-    transition: top 0.5s ease-in-out;
+    transition: top 0.5s ease-in-out, 
+        visibility 0.5s ease-in-out, 
+        opacity 0.5s ease-in-out;
 }
 
-.notemeta {
-    display:none;
+.readernote.hidden {
+    opacity: 0;
+    visibility:hidden;
 }
 
-// .notemetaid {
-
-// }
-
-// .notemetapos {
-
-// }
 
 .noteicon {
     background-color: colors.$acc-secondary;
 
     margin-left: 0px;
     margin-right: 2em;
-    margin-bottom: -2.56em;
+    margin-bottom: -2.67em;
 
     width:fit-content;
     height:fit-content;
@@ -45,39 +41,59 @@
     transition: margin-left 0.3s ease-in-out, border-right-width 0.3s ease-in-out;
 }
 
+.noteicon:hover {
+    border-color: colors.$acc-white;
+    border-right-width: 1.5em;
+}
+
 .noteicon > button {
-    width: 2.7em;
+    width: 2.8em;
     height: 2.7em;
     
     margin: 0px;
-    padding: 0.5em;
+    padding: 0.2em;
+    padding-left: 0.1em;
+    padding-bottom: 0em;
     
-    color: colors.$acc-white;
+    color: colors.$acc-darkest;
     background: none;
     
     border: none;
     border-radius: 5px;
 }
 
+.noteicon > button > * {
+    width:1.2em;
+    height:1.2em;
+
+    margin-top: 0.1em;
+} 
+
 .noteicon.noteexp {
     margin-left: 1.1em;
     border-right-width: 5em;
 }
 
-.notecard.noteexp {
+.notecardwrapper.noteexp {
     transform: translateX(0);
 
     height: fit-content;
 }
 
-.notecard {
+.notecardwrapper {
     transform: translateX(200%);
 
-    background: colors.$bg-dark;
-
-    margin-bottom: 1em;
     margin-left: 3.5em;
     margin-right: 1em;
+
+    transition: transform 0.3s ease-in-out, height 0.5s ease-in-out;
+}
+
+.notecard {
+    background: colors.$bg-dark;
+
+    padding: 0px;
+    overflow: hidden;
 
     width:fit-content;
     min-width: 15em;
@@ -89,19 +105,19 @@
     border-top-right-radius: 0px;
     border-top-left-radius: 0px;
 
-    transition: transform 0.3s ease-in-out, height 0.5s ease-in-out;
+    background: colors.$grad-bg-dark-bottom;
 }
 
-.notecard:transitionend {
-    height: 0px;
+.notecardwrapper > .credit {
+    margin-top: 0.2em;
+    margin-left: 1.5em;
+
+    color: colors.$acc-primary;
+
+    font-size: small;
 }
 
-.notetypetext {
-    padding: 0px;
-    overflow: hidden;
-}
-
-.notetypetext > .ntitle {
+.notecard > .ntitle {
     color: colors.$bg-dark;
     font-size: x-large;
     background-color: colors.$acc-secondary;
@@ -109,34 +125,65 @@
     text-align: left;
 
     margin-top: 0px;
-    margin-bottom: 0.2em;
+    margin-bottom: 0em;
+    padding-top: 0.1em;
     padding-left: 0.8em;
     padding-bottom: 0.1em;
 
     transform: translateY(-0.18em);
 }
 
-.notetypetext > .nhr {
-    display:none;
-    border-color: colors.$acc-secondary;
-    border-width: 2px;
-    border-style: none;
-    border-bottom-style: solid;
-    background:none;
-
-    margin: 0px;
-    margin-left: 1.2em;
-    margin-right: 1.2em;
-}
-
-.notetypetext > .ntext {
-    margin-top: 0.5em;
-
-    padding-top: 0.1em;
-    padding-bottom: 0.4em;
+.ntext {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    padding-top: 0.5em;
+    padding-bottom: 1em;
     padding-left: 1.2em;
     padding-right: 1.1em;
 
     line-height: 1.2;
     text-align: start;
+
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    white-space: pre-wrap;
+
+    text-indent: 0;
+}
+
+.notecard.notetypeembed {
+    width: -webkit-fill-available;
+}
+
+.notetypeembed > .ntext {
+    margin-top: 0px;
+    padding-top: 0.5em;
+    padding-bottom: 1em;
+
+    background: colors.$grad-bg-dark-bottom;
+}
+
+.embedframe {
+    width: -webkit-fill-available;
+
+    margin-top: -5px;
+    padding-top: 0px;
+}
+
+.notetypeembed > .embedframe > iframe {
+    width: -webkit-fill-available;
+    height: 50vh;
+    min-width: 20em;
+    min-height: 20em;
+
+    margin-bottom: -0.5em;
+}
+
+.notetypedefinition > .embedframe > iframe {
+    width: -webkit-fill-available;
+    height: 50vh;
+    min-width: 20em;
+    min-height: 20em;
+
+    margin-bottom: -0.5em;
 }

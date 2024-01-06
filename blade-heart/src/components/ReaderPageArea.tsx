@@ -86,7 +86,7 @@ export default function () {
                     height: 'fit-content'
                 }}
                 minWidth={'200px'}
-                maxWidth={'60vw'}
+                maxWidth={'80vw'}
                 enable={{ top: false, right: true, bottom: false, left: false, topRight: false, bottomRight: false, bottomLeft: false, topLeft: false }}
                 handleClasses={{ right: "righthandle" }}
                 handleStyles={{ right: handlestyle }}

@@ -15,12 +15,12 @@ import MangaReader, { loader as readerLoader} from "./routes/MangaReader";
 //router
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/blade-heart",
     element: <Root />,
     errorElement: <ErrorPage />,
   },
   {
-    path: "manhua/:manhuaName",
+    path: "/blade-heart/manhua/:manhuaName",
     element: <MangaReader />,
     loader: readerLoader,
     errorElement: <ErrorPage />,

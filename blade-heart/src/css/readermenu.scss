@@ -1,4 +1,13 @@
+@use 'colors';
+
 @import "readermenuheader.scss";
+@import "panelswitcher.scss";
+
+@import "labelmenuitem.scss";
+@import "slidermenuitem.scss";
+@import "selectmenuitem.scss";
+@import "buttonmenuitem.scss";
+@import "inputmenuitem.scss";
 
 .readermenu {
     display: flex;

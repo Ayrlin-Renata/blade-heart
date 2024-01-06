@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 export default function ({ children, type, title, desc } : { children: any, type: string, title: string, desc: string }) {
     const navigate = useNavigate(); 
     function doNav() {
-        navigate('/' + type + '/' + title);
+        navigate('/blade-heart/' + type + '/' + title);
     }
     
     return (

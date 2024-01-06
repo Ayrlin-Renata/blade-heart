@@ -14,9 +14,8 @@ interface SelectMenuItem {
 }
 
 export default function ({ id, label, options, onChange }: SelectMenuItem) {
-    const prefix: string = 'selectmenuitem/';
     const [selected, setSelected] = useState(() => {
-        const def = (localStorage.getItem(prefix + id) || "");
+        const def = (localStorage.getItem(id) || "");
         if (def) {
             if (onChange) {
                 onChange(JSON.parse(def));
@@ -27,9 +26,17 @@ export default function ({ id, label, options, onChange }: SelectMenuItem) {
 
     function handleChange(opt: SelectOption) {
         const jOpt = JSON.stringify(opt);
-        localStorage.setItem(prefix + id, jOpt);
+        localStorage.setItem(id, jOpt);
         setSelected(jOpt);
         if (onChange) onChange(opt);
+    }
+
+    var defaultOption = null;
+    if(selected) {
+        defaultOption = JSON.parse(selected);
+    } else {
+        defaultOption = options[0];
+        handleChange(defaultOption);
     }
 
     return (
@@ -61,7 +68,7 @@ export default function ({ id, label, options, onChange }: SelectMenuItem) {
                             background: state.isFocused ? '#005050' : '#000000',
                         }),
                     }}
-                    defaultValue={selected ? JSON.parse(selected) : { label: options[0], value: options[0] }}
+                    defaultValue={ defaultOption }
                     onChange={handleChange} />
             </div>
         </>

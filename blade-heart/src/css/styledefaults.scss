@@ -7,7 +7,11 @@ div {
 
 a {
     color: colors.$acc-bright;
-    text-decoration: none;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: colors.$acc-white;
 }
 
 img {

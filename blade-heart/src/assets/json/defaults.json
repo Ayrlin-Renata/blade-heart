@@ -1,5 +1,11 @@
 {
     "slider": {
-        "contentlist/sort": "true"
+        "contentlist/sort": "true",
+        "Second Eruption/panel/notes/slider/category/language": "true",
+        "Second Eruption/panel/notes/slider/category/translation": "true",
+        "Second Eruption/panel/notes/slider/category/pronunciation": "true",
+        "Second Eruption/panel/notes/slider/category/context": "true",
+        "Second Eruption/panel/notes/slider/category/extra": "false",
+        "Second Eruption/panel/behaviours/select/test": "{\"label\":\"recommended\",\"value\":\"recommended\"}"
     }
 }
