@@ -1,9 +1,5 @@
 @use 'colors';
 
-.panelswitcher {
-    //margin-top: 1em;
-}
-
 .panelswitcher > .tabs {
     display:flex;
     flex-direction: row;
@@ -40,4 +36,8 @@
 
 .panelswitcher > .tabs > button.selected {
     color: colors.$acc-bright;
+}
+
+.spanel > .dictionaryembed {
+    margin: 2em;
 }

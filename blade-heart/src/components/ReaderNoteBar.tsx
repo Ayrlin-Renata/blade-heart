@@ -79,11 +79,11 @@ export default function () {
 
 function ingestChapterNotes(chapData: any) {
     const noteList = [];
-
+    (chapData.notes as Array<any>).sort((n1,n2) => { return n1.position - n2.position });
     for (const note of chapData.notes) {
         noteList.push(
             <>
-                <ReaderNote type="text" pos={note.position} note={note}></ReaderNote>
+                <ReaderNote type={note.type} pos={note.position} note={note}></ReaderNote>
             </>
         );
 

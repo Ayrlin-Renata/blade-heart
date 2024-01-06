@@ -5,11 +5,11 @@ interface SPanel {
     children: any,
 }
 
-export default function ( {id, icon, children} : SPanel) {
+export default function ( {children} : SPanel) {
 
     return (
-        <>
+        <div class="spanel">
             { children  } 
-        </>
+        </div>
     )
 }

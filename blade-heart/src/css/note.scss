@@ -1,5 +1,7 @@
 @use 'colors';
 
+@import 'notedefinition.scss';
+
 .readernote {
     opacity:1;
 
@@ -24,7 +26,7 @@
 
     margin-left: 0px;
     margin-right: 2em;
-    margin-bottom: -2.56em;
+    margin-bottom: -2.67em;
 
     width:fit-content;
     height:fit-content;
@@ -49,14 +51,23 @@
     height: 2.7em;
     
     margin: 0px;
-    padding: 0.5em;
+    padding: 0.2em;
+    padding-left: 0.1em;
+    padding-bottom: 0em;
     
-    color: colors.$acc-dark;
+    color: colors.$acc-darkest;
     background: none;
     
     border: none;
     border-radius: 5px;
 }
+
+.noteicon > button > * {
+    width:1.2em;
+    height:1.2em;
+
+    margin-top: 0.1em;
+} 
 
 .noteicon.noteexp {
     margin-left: 1.1em;
@@ -78,14 +89,11 @@
     transition: transform 0.3s ease-in-out, height 0.5s ease-in-out;
 }
 
-.notecardwrapper:transitionend {
-    height: 0px;
-}
-
 .notecard {
     background: colors.$bg-dark;
 
-    //margin-bottom: 1em;
+    padding: 0px;
+    overflow: hidden;
 
     width:fit-content;
     min-width: 15em;
@@ -96,6 +104,8 @@
     border-radius: 10px;
     border-top-right-radius: 0px;
     border-top-left-radius: 0px;
+
+    background: colors.$grad-bg-dark-bottom;
 }
 
 .notecardwrapper > .credit {
@@ -107,12 +117,7 @@
     font-size: small;
 }
 
-.notetypetext {
-    padding: 0px;
-    overflow: hidden;
-}
-
-.notetypetext > .ntitle {
+.notecard > .ntitle {
     color: colors.$bg-dark;
     font-size: x-large;
     background-color: colors.$acc-secondary;
@@ -120,34 +125,65 @@
     text-align: left;
 
     margin-top: 0px;
-    margin-bottom: 0.2em;
+    margin-bottom: 0em;
+    padding-top: 0.1em;
     padding-left: 0.8em;
     padding-bottom: 0.1em;
 
     transform: translateY(-0.18em);
 }
 
-.notetypetext > .nhr {
-    display:none;
-    border-color: colors.$acc-secondary;
-    border-width: 2px;
-    border-style: none;
-    border-bottom-style: solid;
-    background:none;
-
-    margin: 0px;
-    margin-left: 1.2em;
-    margin-right: 1.2em;
-}
-
-.notetypetext > .ntext {
-    margin-top: 0.5em;
-
-    padding-top: 0.1em;
-    padding-bottom: 0.4em;
+.ntext {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    padding-top: 0.5em;
+    padding-bottom: 1em;
     padding-left: 1.2em;
     padding-right: 1.1em;
 
     line-height: 1.2;
     text-align: start;
+
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    white-space: pre-wrap;
+
+    text-indent: 0;
+}
+
+.notecard.notetypeembed {
+    width: -webkit-fill-available;
+}
+
+.notetypeembed > .ntext {
+    margin-top: 0px;
+    padding-top: 0.5em;
+    padding-bottom: 1em;
+
+    background: colors.$grad-bg-dark-bottom;
+}
+
+.embedframe {
+    width: -webkit-fill-available;
+
+    margin-top: -5px;
+    padding-top: 0px;
+}
+
+.notetypeembed > .embedframe > iframe {
+    width: -webkit-fill-available;
+    height: 50vh;
+    min-width: 20em;
+    min-height: 20em;
+
+    margin-bottom: -0.5em;
+}
+
+.notetypedefinition > .embedframe > iframe {
+    width: -webkit-fill-available;
+    height: 50vh;
+    min-width: 20em;
+    min-height: 20em;
+
+    margin-bottom: -0.5em;
 }

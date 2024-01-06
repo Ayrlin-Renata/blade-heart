@@ -1,10 +1,10 @@
-import { useContext } from 'preact/hooks';
+import { useContext, useState } from 'preact/hooks';
 
 import { content as listContent } from '../assets/json/contentlist.json';
 import { content as metaContent } from '../assets/json/contentmeta.json';
 
 import {
-    MangaChapter, 
+    MangaChapter,
     MangaNavContext, MangaNavData,
 } from '../routes/MangaReader';
 import ReaderMenuHeader from './ReaderMenuHeader';
@@ -16,10 +16,15 @@ import PanelSwitcher from './PanelSwitcher.tsx';
 import SPanel from './SPanel.tsx';
 
 import ChatIcon from '@mui/icons-material/Chat';
-import SignpostIcon from '@mui/icons-material/Signpost';
+import CallSplitIcon from '@mui/icons-material/CallSplit';
 import SettingsIcon from '@mui/icons-material/Settings';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+
 import SliderMenuItem from './SliderMenuItem.tsx';
 import ButtonMenuItem from './ButtonMenuItem.tsx';
+import InputMenuItem from './InputMenuItem.tsx';
+
+import DictionaryNoteEmbed from './DictionaryNoteEmbed.tsx';
 
 interface ReaderMenu {
     isCollapsed: boolean,
@@ -46,6 +51,8 @@ export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
         mangaNav.setMangaNav(mangaNav);
     }
 
+    const [dictionarySearch, setDictionarySearch] = useState("");
+
 
     const ids = {
         language: (mangaNav.title + "/mangalanguage"),
@@ -53,6 +60,7 @@ export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
         notes: (mangaNav.title + "/panel/notes"),
         behaviours: (mangaNav.title + "/panel/behaviours"),
         settings: (mangaNav.title + "/panel/settings"),
+        dictionary: (mangaNav.title + "/panel/dictionary"),
     };
     const behaviourPresets = ["custom", "recommended"];
 
@@ -108,7 +116,7 @@ export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
                                     label="Extras" />
                             </SPanel>
                             <SPanel id={ids.behaviours}
-                                icon={<SignpostIcon />}>
+                                icon={<CallSplitIcon />}>
                                 <LabelMenuItem id={ids.behaviours + "/label/title"}
                                     content="behaviours"
                                     subContent="preferences panel" />
@@ -121,18 +129,31 @@ export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
                                 <LabelMenuItem id={ids.settings + "/label/title"}
                                     content="settings"
                                     subContent="preferences panel" />
-                                <ButtonMenuItem id={ids.settings + "/slider/console/localStorageList"}
+                                <ButtonMenuItem id={ids.settings + "/button/console/localStorageList"}
                                     label="[DEV] localStorage"
                                     button="LIST"
-                                    onClick={function test() { 
+                                    onClick={function test() {
                                         console.log(Array
-                                            .from({ length: localStorage.length}, (_,i) => i)
-                                            .map((jndex) => ({ key: localStorage.key(jndex), value: localStorage.getItem(localStorage.key(jndex)||"")}) ))
-                                        }}/>
-                                <ButtonMenuItem id={ids.settings + "/slider/console/localStorageClear"}
+                                            .from({ length: localStorage.length }, (_, i) => i)
+                                            .map((jndex) => ({ key: localStorage.key(jndex), value: localStorage.getItem(localStorage.key(jndex) || "") })))
+                                    }} />
+                                <ButtonMenuItem id={ids.settings + "/button/console/localStorageClear"}
                                     label="[DEV] localStorage"
                                     button="CLEAR"
-                                    onClick={ () => localStorage.clear() }/>
+                                    onClick={() => localStorage.clear()} />
+                            </SPanel>
+                            <SPanel id={ids.dictionary}
+                                icon={<MenuBookIcon />}>
+                                <LabelMenuItem id={ids.dictionary + "/label/title"}
+                                    content="dictionary"
+                                    subContent="lookup panel" />
+                                <InputMenuItem id={ids.dictionary + "/input/dictionary"}
+                                    label="Search"
+                                    onEnter={(value) => {
+                                        setDictionarySearch(value);
+                                    }} 
+                                    autoClear/>
+                                <DictionaryNoteEmbed term={dictionarySearch} />
                             </SPanel>
                         </PanelSwitcher>
                     </>)}
