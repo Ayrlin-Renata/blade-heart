@@ -18,12 +18,12 @@ export const MangaNavContext = createContext({
     readerLocation: null,
     title: "",
     language: "",
-    chapter: { label: "", value: "" },
+    chapter: { label: "", numeral: "", pageCount: NaN },
     setMangaNav: () => { }
 } as MangaNavData);
 
 export interface MangaNavData {
-    readerLocation: any,
+    readerLocation: Location | null,
     title: string,
     language: string,
     chapter: MangaChapter,
@@ -32,7 +32,8 @@ export interface MangaNavData {
 
 export interface MangaChapter {
     label: string,
-    value: string
+    numeral: string,
+    pageCount: number
 }
 
 function updateNavTitle(location: any) {
@@ -107,7 +108,7 @@ export default function MangaReader() {
         readerLocation: location,
         title: updateNavTitle(location),
         language: "",
-        chapter: { label: "", value: "" },
+        chapter: { label: "", numeral: "", pageCount: NaN },
         setMangaNav: updateMangaNavContext
     });
 

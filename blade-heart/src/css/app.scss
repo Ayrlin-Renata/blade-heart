@@ -9,7 +9,7 @@
 @import "pagefooter.scss";
 @import "sociallink.scss";
 @import "contentlist.scss";
-
+@import "sharebutton.scss";
 
 //technical
 @import "errorpage.scss";
@@ -46,6 +46,18 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.fullpage > .bh-contenttitle > h1 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#contentlist\/sort {
+  background: colors.$acc-dull;
+}
+
+#contentlist\/sort > .bar {
+  background: colors.$acc-bright;
 }
 
 @media screen and (min-width: 1000px) {

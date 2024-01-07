@@ -4,7 +4,6 @@ import { content as listContent } from '../assets/json/contentlist.json';
 import { content as metaContent } from '../assets/json/contentmeta.json';
 
 import {
-    MangaChapter,
     MangaNavContext, MangaNavData,
 } from '../routes/MangaReader';
 import ReaderMenuHeader from './ReaderMenuHeader';
@@ -41,8 +40,8 @@ export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
         return (<div class="readermenu">{"manga info not found!"}</div>);
     }
 
-    function updateChapter(opt: MangaChapter) {
-        mangaNav.chapter = opt;
+    function updateChapter(opt: SelectOption) {
+        mangaNav.chapter = { ...opt, numeral: opt.value, pageCount: NaN };
         mangaNav.setMangaNav(mangaNav);
     }
 
@@ -141,6 +140,10 @@ export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
                                     label="[DEV] localStorage"
                                     button="CLEAR"
                                     onClick={() => localStorage.clear()} />
+                                <ButtonMenuItem id={ids.settings + "/button/console/mangaNavList"}
+                                    label="[DEV] mangaNav"
+                                    button="LIST"
+                                    onClick={() => console.log(mangaNav)} />
                             </SPanel>
                             <SPanel id={ids.dictionary}
                                 icon={<MenuBookIcon />}>

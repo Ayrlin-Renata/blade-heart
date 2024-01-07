@@ -1,0 +1,53 @@
+@use 'colors';
+
+.multiicon {
+    display: flex;
+    flex-direction:column;
+
+    max-width: 2em;
+    max-height: 2em;
+    width: 2em;
+    height: 2em;
+}
+
+.multiicon>.primary {
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.multiicon>.fg {
+    margin-top: -100%;
+}
+
+.multiicon>.left {
+    margin-left: 5%;
+    margin-top: -70%;
+
+    min-width: 70%;
+    min-height: 70%;
+    max-width: 70%;
+    max-height: 70%;
+}
+
+.multiicon>.right {
+    align-self: self-end;
+    margin-right: 5%;
+    margin-top: -80%;
+    margin-bottom: 20%;
+
+    min-width: 60%;
+    min-height: 60%;
+    max-width: 60%;
+    max-height: 60%;
+}
+
+.multiicon>*>* {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.multiicon>.bg>* {
+    stroke: colors.$bg-darkest;
+    stroke-width: 15%;
+    //box-shadow: 0px 0px 5px colors.$bg-darkest;
+}

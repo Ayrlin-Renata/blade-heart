@@ -3,7 +3,7 @@ import { Resizable } from 're-resizable';
 import { MangaNavContext, MangaNavData, ReaderViewContext, ReaderViewData } from '../routes/MangaReader';
 
 import { content as contentmeta } from '../assets/json/contentmeta.json';
-import { createRef } from 'preact';
+import { VNode, createRef } from 'preact';
 
 export default function () {
     const mangaNav: MangaNavData = useContext(MangaNavContext);
@@ -39,22 +39,28 @@ export default function () {
 
         const mediaData = contentmeta[mangaNav.title as keyof typeof contentmeta];
         const chapData: object = mediaData.chapters
-            .find((ch) => ch.numeral === Number(mangaNav.chapter.value)) || {};
+            .find((ch) => ch.numeral === Number(mangaNav.chapter.numeral)) || {};
 
         if (!chapData) {
-            console.error("could not find chapter", mangaNav.chapter.value);
-            return (<><div>Huh? Unable to load pages for {mangaNav.chapter.label}</div></>)
+            console.error("could not find chapter", mangaNav.chapter.numeral);
+            return (<><div class=".noteserror">Huh? Unable to load pages for {mangaNav.chapter.label}</div></>)
         }
 
         const langData = mediaData.languages.find((ld) => ld.lang.toLowerCase() === mangaNav.language.toLowerCase());
         if (!langData) {
-            console.error("could not find", mangaNav.language, "language data for chapter", mangaNav.chapter.value);
-            return (<><div>Huh? Missing {mangaNav.language} language data for {mangaNav.chapter.label}</div></>)
+            console.error("could not find", mangaNav.language, "language data for chapter", mangaNav.chapter.numeral);
+            return (<><div class=".noteserror">Huh? Missing {mangaNav.language} language data for {mangaNav.chapter.label}</div></>)
+        }
+
+        const pages: Array<VNode<any>> = ingestChapterSources(langData, chapData) as Array<VNode<any>>;
+        if (mangaNav.chapter.pageCount != pages.length) {
+            mangaNav.chapter.pageCount = pages.length;
+            mangaNav.setMangaNav(mangaNav);
         }
 
         return (
             <>
-                { ingestChapterSources(langData, chapData) }
+                {pages}
             </>
         )
     }
@@ -67,8 +73,8 @@ export default function () {
     })
 
     function updateView() {
-        if(pageContainerRef.current) {
-            if(pageContainerRef.current.offsetHeight != readerView.height) {
+        if (pageContainerRef.current) {
+            if (pageContainerRef.current.offsetHeight != readerView.height) {
                 readerView.prevHeight = readerView.height;
                 readerView.height = pageContainerRef.current.offsetHeight;
                 readerView.setReaderView(readerView);
@@ -90,10 +96,13 @@ export default function () {
                 enable={{ top: false, right: true, bottom: false, left: false, topRight: false, bottomRight: false, bottomLeft: false, topLeft: false }}
                 handleClasses={{ right: "righthandle" }}
                 handleStyles={{ right: handlestyle }}
-                onResizeStop={ handleResizeStop }
+                onResizeStop={handleResizeStop}
             >
                 <div class="readerpagearea">
-                    <div class="pagecontainer" ref={ pageContainerRef }>{ loadPages() }</div>
+                    <div class="pagecontainer" ref={pageContainerRef}>{loadPages()}</div>
+                    <div class="pagebottom">
+                        <button class="nextchapter">NEXT CHAPTER</button>
+                    </div>
                 </div>
             </Resizable>
         </>
@@ -101,10 +110,10 @@ export default function () {
 }
 
 
-function ingestChapterSources(lang: any, chapterData: any) {
+function ingestChapterSources(lang: any, chapterData: any): Array<VNode<any>> {
     const langsource = lang.sourceurl;
     const { pagemethod, pagedata, numeral, imageext } = chapterData;
-    const imgs = [];
+    const imgs: Array<VNode<any>> = [] as Array<VNode<any>>;
     const pageClass = "mangapage";
 
     switch (pagemethod) {
@@ -114,19 +123,19 @@ function ingestChapterSources(lang: any, chapterData: any) {
 
             for (let i = pagestart; i <= pageend; i++) {
                 const url = langsource + numeral + "/" + i.toString().padStart(4, '0') + "." + imageext;
-                imgs[i] = (<img src={url} class={pageClass}></img>);
+                imgs[i] = (<img id={"page" + (i)} src={url} class={pageClass}></img>);
             }
         } break;
         case "patch-source": {
             let i = 1;
             for (const val of pagedata) {
                 if (typeof val === "string") {
-                    imgs[i] = (<img src={val} class={pageClass}></img>);
+                    imgs[i] = (<img id={"page" + (i)} src={val} class={pageClass}></img>);
                     i++;
                 } else if (Array.isArray(val)) {
                     for (let j = val[0]; j <= val[1]; j++) {
                         const url = langsource + numeral + "/" + j.toString().padStart(4, '0') + "." + imageext;
-                        imgs[i] = (<img src={url} class={pageClass}></img>);
+                        imgs[i] = (<img id={"page" + (i)} src={url} class={pageClass}></img>);
                         i++;
                     }
                 }
@@ -134,7 +143,8 @@ function ingestChapterSources(lang: any, chapterData: any) {
         } break;
         default:
             console.error('unknown page retrieval method:', pagemethod);
-            return (<><div>Huh? Someone messed up the directions for retrieving the pages.</div></>)
+            return [(<div>Huh? Someone messed up the directions for retrieving the pages.</div>)] as Array<VNode<any>>
     }
-    return (<>{imgs}</>);
+
+    return imgs.filter((im) => im) as Array<VNode<any>>;
 }

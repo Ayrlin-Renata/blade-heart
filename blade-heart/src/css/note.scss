@@ -69,12 +69,12 @@
     margin-top: 0.1em;
 } 
 
-.noteicon.noteexp {
+.readernote.noteexp > .noteicon {
     margin-left: 1.1em;
     border-right-width: 5em;
 }
 
-.notecardwrapper.noteexp {
+.readernote.noteexp > .notecardwrapper {
     transform: translateX(0);
 
     height: fit-content;

@@ -6,7 +6,7 @@ export default function PageFooter() {
     return (
         <>
             <div class="bh-pagefooter">
-                <p>a web app by Ayrlin Renata.</p>
+                <p>a web app by Ayrlin Renata. </p>
                 <div class="socials">
                     <SocialLink site="Xwitter" handle="@ayrlinrenata" href="https://twitter.com/ayrlinrenata">
                         <TwitterIcon />
@@ -18,7 +18,8 @@ export default function PageFooter() {
                         <SportsEsportsIcon />
                     </SocialLink>
                 </div>
-                <p>Images on this site may bear resemblance to, or be official works depicting Hoyoverse / Cognosphere's copyrighted characters and IP, which belong to Hoyoverse / Cognosphere Ltd.</p>
+                <p>if you somehow stumbled onto this site and think i am doing a good, you can support me by yelling at me on social media occationally, which makes me feel appreciated and needed. :3 </p>
+                <p>Images on this site may bear resemblance to, or be official works depicting Hoyoverse / Cognosphere's copyrighted characters, images, comics, and IP, which belong to Hoyoverse / Cognosphere Ltd.</p>
             </div>
         </>
     )

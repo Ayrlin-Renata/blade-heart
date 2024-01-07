@@ -1,0 +1,75 @@
+@use 'colors';
+
+.pagelabel {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items:end;
+
+    position: relative;
+    width: -webkit-fill-available;
+
+    margin-top: -0.5em;
+    margin-bottom: 0.5em;
+    margin-right: 1em;
+
+    height: 0px;
+
+}
+
+.pagelabel::before {
+    content: "";
+    align-self: baseline;
+    flex-grow: 2;
+    
+    //height: 0.5em;
+    
+    margin-left: 3em;
+
+    border-bottom: solid 1px colors.$acc-dark;
+}
+
+.pagelabel>.pagenumber {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+
+    margin-bottom: -0.2em;
+
+    color: colors.$acc-secondary;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.pagenumber>.text {
+    margin-right: 0.5em;
+
+    font-size: small;
+}
+
+.pagenumber>.number {
+    margin-bottom: -0.1em;
+
+    font-size: x-large;
+
+    color: colors.$acc-primary;
+}
+
+.pagelabel>.links {
+    display: flex;
+    margin-left: 0.5em;
+    margin-bottom: -0.7em;
+
+    align-items:end;
+}
+
+.pagelabel>.links>.sharebutton {
+    color: colors.$acc-secondary;
+}
+
+.pagelabel>.links>.sharebutton:hover {
+    color: colors.$acc-bright;
+}

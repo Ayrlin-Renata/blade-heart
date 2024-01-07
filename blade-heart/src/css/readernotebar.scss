@@ -1,6 +1,7 @@
 @use 'colors';
 
 @import 'note.scss';
+@import 'pagelabel.scss';
 
 .readernotebar {
     overflow-y:hidden;
@@ -16,3 +17,5 @@
 .readernotebar::-webkit-scrollbar {
     display:none;
 }
+
+.readernotebar > .pagelabelcontainer {}
