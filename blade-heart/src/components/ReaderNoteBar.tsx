@@ -22,7 +22,7 @@ export default function () {
     const chapData: any = mediaData.chapters
         .find((ch) => ch.numeral === Number(mangaNav.chapter.numeral));
 
-    if (chapData == null) {
+    if (chapData != undefined && chapData == null) {
         console.warn("could not find notes for chapter", mangaNav.chapter.numeral);
         return (<div class="notebarerror">Huh? Unable to load notes for {mangaNav.chapter.label}</div>)
     }
@@ -32,25 +32,25 @@ export default function () {
         : NaN;
 
     // NOTES
-
-    const noteKeys = Array.from({ length: chapData.notes.length }, (_, i) => (mangaNav.chapter.numeral + "." + i));
-
     const noteList = [];
-    (chapData.notes as Array<any>).sort((n1, n2) => { return n1.position - n2.position });
+    if (chapData) {
+        const noteKeys = Array.from({ length: chapData.notes.length }, (_, i) => (mangaNav.chapter.numeral + "." + i));
 
-    var idx = 0;
-    for (const note of chapData.notes) {
-        noteList.push(
-            <>
-                <ReaderNote key={noteKeys[idx]}
-                    type={note.type}
-                    pos={notePosToPx(note.position)}
-                    note={note} />
-            </>
-        );
-        idx++;
+        (chapData.notes as Array<any>).sort((n1, n2) => { return n1.position - n2.position });
+
+        var idx = 0;
+        for (const note of chapData.notes) {
+            noteList.push(
+                <>
+                    <ReaderNote key={noteKeys[idx]}
+                        type={note.type}
+                        pos={notePosToPx(note.position)}
+                        note={note} />
+                </>
+            );
+            idx++;
+        }
     }
-
     const notebarRef = createRef();
 
     function notePosToPx(npos: number) {
@@ -66,8 +66,8 @@ export default function () {
 
     const pageLabels = Array.from({ length: mangaNav.chapter.pageCount },
         (_, i) => (
-            <PageLabel pos={notePosToPx((i+1) * 100)} index={i+1} />
-            
+            <PageLabel pos={notePosToPx((i + 1) * 100)} index={i + 1} />
+
         ));
 
 
