@@ -1,6 +1,6 @@
 
 
-import { useContext, useMemo, useState } from 'preact/hooks';
+import { useContext, useState } from 'preact/hooks';
 import { MangaNavContext, MenuPrefContext } from '../routes/MangaReader';
 
 import ReaderNoteContent from './ReaderNoteContent.tsx';
@@ -15,6 +15,7 @@ export default function ({ type, pos, note }: ReaderNote) {
     const [expand, setExpand] = useState("false");
     const expanded = expand === "true";
 
+    //@ts-ignore needed for definition
     function toggleExpand( event: any, state: boolean ) {
         //console.log("texp",expand,expand === "true", state);
         setExpand((!(state)).toString());

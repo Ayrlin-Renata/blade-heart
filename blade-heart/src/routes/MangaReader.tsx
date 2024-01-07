@@ -23,7 +23,7 @@ export const MangaNavContext = createContext({
 } as MangaNavData);
 
 export interface MangaNavData {
-    readerLocation: Location | null,
+    readerLocation: any,
     title: string,
     language: string,
     chapter: MangaChapter,
@@ -110,7 +110,7 @@ export default function MangaReader() {
         language: "",
         chapter: { label: "", numeral: "", pageCount: NaN },
         setMangaNav: updateMangaNavContext
-    });
+    } as MangaNavData);
 
     function updateMangaNavContext(mNav: MangaNavData) {
         mNav.title = updateNavTitle(mNav.readerLocation);
