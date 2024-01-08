@@ -4,6 +4,7 @@ import { MangaNavContext, MangaNavData, ReaderViewContext, ReaderViewData } from
 
 import { content as contentmeta } from '../assets/json/contentmeta.json';
 import { VNode, createRef } from 'preact';
+import { useNavigate } from 'react-router-dom';
 
 export default function () {
     const mangaNav: MangaNavData = useContext(MangaNavContext);
@@ -69,8 +70,15 @@ export default function () {
 
     const readerView: ReaderViewData = useContext(ReaderViewContext);
     useEffect(() => {
-        updateView();
-    })
+        console.log("useeffect")
+        if (pageContainerRef.current
+            && pageContainerRef.current.children.length > 0
+            && pageContainerRef.current.offsetHeight > 200) {
+            updateView();
+        }
+    }, [mangaNav])
+
+    console.log("render")
 
     function updateView() {
         if (pageContainerRef.current) {
@@ -81,6 +89,7 @@ export default function () {
             }
         }
     }
+    const navigate = useNavigate(); 
 
     return (
         <>
@@ -101,7 +110,12 @@ export default function () {
                 <div class="readerpagearea">
                     <div class="pagecontainer" ref={pageContainerRef}>{loadPages()}</div>
                     <div class="pagebottom">
-                        <button class="nextchapter">NEXT CHAPTER</button>
+                        <button class="nextchapter"
+                            onClick={ () => {
+                                const dest = mangaNav.readerLocation.pathname;
+                                console.log(dest);
+                                //navigate();
+                            }}>NEXT CHAPTER</button>
                     </div>
                 </div>
             </Resizable>
