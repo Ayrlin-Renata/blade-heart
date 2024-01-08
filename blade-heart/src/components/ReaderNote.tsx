@@ -1,7 +1,7 @@
 
 
 import { useContext, useState } from 'preact/hooks';
-import { MangaNavContext, MenuPrefContext } from '../routes/MangaReader';
+import { MangaNavContext, MenuPrefContext } from '../routes/ChapterReader.tsx';
 
 import ReaderNoteContent from './ReaderNoteContent.tsx';
 

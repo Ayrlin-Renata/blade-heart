@@ -1,5 +1,5 @@
 import { useContext } from 'preact/hooks';
-import { MenuPrefData, MenuPrefContext, replaceInMenuPref } from '../routes/MangaReader';
+import { MenuPrefData, MenuPrefContext, replaceInMenuPref } from '../routes/ChapterReader';
 import Slider from './Slider';
 
 

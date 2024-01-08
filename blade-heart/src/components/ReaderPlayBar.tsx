@@ -1,6 +1,6 @@
 import { useContext, useState } from 'preact/hooks';
 import { Resizable } from 're-resizable';
-import { MangaNavContext, MangaNavData } from '../routes/MangaReader';
+import { MangaNavContext, MangaNavData } from '../routes/ChapterReader';
 
 
 export default function () {

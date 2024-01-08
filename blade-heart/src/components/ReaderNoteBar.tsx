@@ -1,6 +1,6 @@
 import { createRef } from "preact";
-import { useContext } from "preact/hooks";
-import { MangaNavContext, MangaNavData, ReaderViewContext, ReaderViewData } from "../routes/MangaReader";
+import { useContext, useMemo } from "preact/hooks";
+import { MangaNavContext, MangaNavData, ReaderViewContext, ReaderViewData } from "../routes/ChapterReader.tsx";
 
 import { content as contentnotes } from '../assets/json/notes.json';
 
@@ -21,8 +21,9 @@ export default function () {
 
     const mediaData = contentnotes[mangaNav.id as keyof typeof contentnotes];
     const chapData: any = mediaData.chapters
-        .find((ch) => ch.numeral === Number(mangaNav.chapter.numeral));
+        .find((ch) => ch.numeral === mangaNav.chapter.numeral);
 
+    //    console.log("chapData",chapData);
     if (chapData != undefined && chapData == null) {
         console.warn("could not find notes for chapter", mangaNav.chapter.numeral);
         return (<div class="notebarerror">Huh? Unable to load notes for {mangaNav.chapter.label}</div>)
@@ -33,25 +34,30 @@ export default function () {
         : NaN;
 
     // NOTES
-    const noteList = [];
-    if (chapData) {
-        const noteKeys = Array.from({ length: chapData.notes.length }, (_, i) => (mangaNav.chapter.numeral + "." + i));
+    const populateNotes = useMemo(() => {
+        const nList = []
+        if (chapData) {
+            const noteKeys = Array.from({ length: chapData.notes.length }, (_, i) => (mangaNav.chapter.numeral + "." + i));
 
-        (chapData.notes as Array<any>).sort((n1, n2) => { return n1.position - n2.position });
+            (chapData.notes as Array<any>).sort((n1, n2) => { return n1.position - n2.position });
 
-        var idx = 0;
-        for (const note of chapData.notes) {
-            noteList.push(
-                <>
-                    <ReaderNote key={noteKeys[idx]}
-                        type={note.type}
-                        pos={notePosToPx(note.position)}
-                        note={note} />
-                </>
-            );
-            idx++;
+            var idx = 0;
+            for (const note of chapData.notes) {
+                nList.push(
+                    <>
+                        <ReaderNote key={noteKeys[idx]}
+                            type={note.type}
+                            pos={notePosToPx(note.position)}
+                            note={note} />
+                    </>
+                );
+                idx++;
+            }
         }
-    }
+        return nList;
+    }, [chapData])
+    const noteList = populateNotes;
+
     const notebarRef = createRef();
 
     function notePosToPx(npos: number) {
@@ -65,12 +71,16 @@ export default function () {
     const pagelabelRef = createRef();
 
 
-    const pageLabels = Array.from({ length: mangaNav.chapter.pageCount },
-        (_, i) => (
-            <PageLabel pos={notePosToPx((i + 1) * 100)} index={i + 1} />
 
-        ));
+    const renderPageLabels = useMemo(() => {
+        return Array.from({ length: mangaNav.chapter.pageCount },
+            (_, i) => (
+                <PageLabel pos={notePosToPx((i + 1) * 100)} index={i + 1} />
 
+            ));
+    }, [readerView.height])
+
+    const pageLabels = renderPageLabels;
 
     return (
         <>

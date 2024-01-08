@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect, useMemo } from 'preact/hooks';
 import { Resizable } from 're-resizable';
-import { MangaNavContext, MangaNavData, ReaderViewContext, ReaderViewData } from '../routes/MangaReader';
+import { MangaNavContext, MangaNavData, ReaderViewContext, ReaderViewData } from '../routes/ChapterReader';
 
 import { content as contentmeta } from '../assets/json/contentmeta.json';
 import { VNode, createRef } from 'preact';
@@ -40,7 +40,7 @@ export default function () {
         return useMemo(() => {
             const mediaData = contentmeta[mangaNav.id as keyof typeof contentmeta];
             const chapData: object = mediaData.chapters
-                .find((ch) => ch.numeral === Number(mangaNav.chapter.numeral)) || {};
+                .find((ch) => ch.numeral === mangaNav.chapter.numeral) || {};
 
             if (!chapData) {
                 console.error("could not find chapter", mangaNav.chapter.numeral);
@@ -77,7 +77,7 @@ export default function () {
     useEffect(() => {
         //console.log("afterImgLoad", pageContainerRef.current)
         function waitUpdateView() {
-            console.log('ref..', pageContainerRef.current.offsetHeight);
+            //console.log('ref..', pageContainerRef.current?.offsetHeight);
             if (pageContainerRef.current
                 && pageContainerRef.current.children.length > 0
                 && pageContainerRef.current.offsetHeight > 200) {

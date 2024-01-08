@@ -1,6 +1,7 @@
 
 import {
   createBrowserRouter,
+  Navigate,
   RouterProvider,
 } from "react-router-dom";
 
@@ -10,18 +11,22 @@ import './css/app.scss'
 //components
 import Root from './routes/Root'
 import ErrorPage from "./errorpage";
-import MangaReader, { loader as readerLoader} from "./routes/MangaReader";
+import ChapterReader, { loader as readerLoader } from "./routes/ChapterReader";
 
 //router
 const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Navigate to="/blade-heart" replace />,
+  },
   {
     path: "/blade-heart",
     element: <Root />,
     errorElement: <ErrorPage />,
   },
   {
-    path: "/blade-heart/manhua/:manhuaName",
-    element: <MangaReader />,
+    path: "/blade-heart/manhua/:manhuaId/:chapterId",
+    element: <ChapterReader />,
     loader: readerLoader,
     errorElement: <ErrorPage />,
   },
@@ -30,7 +35,7 @@ const router = createBrowserRouter([
 //
 // APP RENDER
 //
-export function App() {
+export default function Router() {
 
   return (
     <>

@@ -66,11 +66,17 @@ export default function ({ type, note, expanded, onClick }: ReaderNoteContent) {
                 </button>
             </div>
             <div class="notecardwrapper">
-                <div class={"notecard notetype" + type}>
-                    <h3 class="ntitle"> {note.content.title} </h3>
-                    {result.noteContent}
-                </div>
-                <div class="credit" style={(!note.credit) ? "display: none" : ""}> {"- " + (note.credit?.join(", ") || "")} </div>
+                {expanded ? useMemo(() => (
+                    <>
+                        <div class={"notecard notetype" + type}>
+                            <h3 class="ntitle"> {note.content.title} </h3>
+                            {result.noteContent}
+                        </div>
+                        <div class="credit" style={(!note.credit) ? "display: none" : ""}> {"- " + (note.credit?.join(", ") || "")} </div>
+                    </>
+                ),[result.noteContent])
+                    : ""
+                }
             </div>
         </>
     );

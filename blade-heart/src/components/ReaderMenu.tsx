@@ -1,11 +1,11 @@
 import { useContext, useState } from 'preact/hooks';
 
-import { content as listContent } from '../assets/json/contentlist.json';
-import { content as metaContent } from '../assets/json/contentmeta.json';
+import { content as contentlist } from '../assets/json/contentlist.json';
+import { content as contentmeta } from '../assets/json/contentmeta.json';
 
 import {
-    MangaNavContext, MangaNavData,
-} from '../routes/MangaReader';
+    MangaNavContext, MangaNavData, idify,
+} from '../routes/ChapterReader.tsx';
 import ReaderMenuHeader from './ReaderMenuHeader';
 import LabelMenuItem from './LabelMenuItem';
 import AccountMenuItem from './AccountMenuItem';
@@ -33,15 +33,21 @@ interface ReaderMenu {
 export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
     const mangaNav: MangaNavData = useContext(MangaNavContext);
 
-    const mangaInfo = listContent[mangaNav.id as keyof typeof listContent];
-    const mangaMeta: any = metaContent[mangaNav.id as keyof typeof metaContent];
+    const mangaInfo = contentlist[mangaNav.id as keyof typeof contentlist];
+    const mangaMeta: any = contentmeta[mangaNav.id as keyof typeof contentmeta];
     if (!mangaInfo || !mangaMeta) {
         console.warn("manga info not found!");
         return (<div class="readermenu">{"manga info not found!"}</div>);
     }
 
     function updateChapter(opt: SelectOption) {
-        mangaNav.chapter = { ...opt, numeral: opt.value, pageCount: NaN };
+        //console.log(opt)
+        mangaNav.chapter = {
+            id: opt.value["id" as keyof typeof opt.value] as string,
+            ...opt,
+            numeral: opt.value["numeral" as keyof typeof opt.value] as number,
+            pageCount: NaN
+        };
         mangaNav.setMangaNav(mangaNav);
     }
 
@@ -84,7 +90,7 @@ export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
                         <SelectMenuItem id={ids.chapter}
                             label="Chapter"
                             options={mangaMeta.chapters.map((chap: any) => {
-                                return { label: chap.authornumber + ": " + chap.name, value: chap.numeral }
+                                return { label: chap.authornumber + ": " + chap.name, value: { id: idify(chap.name), numeral: chap.numeral } }
                             })}
                             onChange={updateChapter} />
                         <PanelSwitcher>
@@ -154,8 +160,8 @@ export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
                                     label="Search"
                                     onEnter={(value) => {
                                         setDictionarySearch(value);
-                                    }} 
-                                    autoClear/>
+                                    }}
+                                    autoClear />
                                 <DictionaryNoteEmbed term={dictionarySearch} />
                             </SPanel>
                         </PanelSwitcher>
