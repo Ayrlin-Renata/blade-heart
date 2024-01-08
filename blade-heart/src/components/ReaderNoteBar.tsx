@@ -34,7 +34,7 @@ export default function () {
         : NaN;
 
     // NOTES
-    const populateNotes = useMemo(() => {
+    const noteList = useMemo(() => {
         const nList = []
         if (chapData) {
             const noteKeys = Array.from({ length: chapData.notes.length }, (_, i) => (mangaNav.chapter.numeral + "." + i));
@@ -55,8 +55,7 @@ export default function () {
             }
         }
         return nList;
-    }, [chapData])
-    const noteList = populateNotes;
+    }, [chapData,readerView.height])
 
     const notebarRef = createRef();
 
@@ -69,18 +68,13 @@ export default function () {
     // PAGELABELS
 
     const pagelabelRef = createRef();
-
-
-
-    const renderPageLabels = useMemo(() => {
+    const pageLabels = useMemo(() => {
         return Array.from({ length: mangaNav.chapter.pageCount },
             (_, i) => (
                 <PageLabel pos={notePosToPx((i + 1) * 100)} index={i + 1} />
 
             ));
     }, [readerView.height])
-
-    const pageLabels = renderPageLabels;
 
     return (
         <>
