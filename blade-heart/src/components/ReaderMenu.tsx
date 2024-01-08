@@ -33,8 +33,8 @@ interface ReaderMenu {
 export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
     const mangaNav: MangaNavData = useContext(MangaNavContext);
 
-    const mangaInfo = listContent.find((obj) => obj.title === mangaNav.title);
-    const mangaMeta: any = metaContent[mangaNav.title as keyof typeof metaContent];
+    const mangaInfo = listContent[mangaNav.id as keyof typeof listContent];
+    const mangaMeta: any = metaContent[mangaNav.id as keyof typeof metaContent];
     if (!mangaInfo || !mangaMeta) {
         console.warn("manga info not found!");
         return (<div class="readermenu">{"manga info not found!"}</div>);

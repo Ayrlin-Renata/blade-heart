@@ -10,6 +10,7 @@ import PageLabel from './PageLabel.tsx';
 export default function () {
     const mangaNav: MangaNavData = useContext(MangaNavContext);
     const readerView: ReaderViewData = useContext(ReaderViewContext);
+    //console.log(mangaNav, readerView);
     if (!(mangaNav.chapter)
         || !(mangaNav.chapter.numeral)
         || !(mangaNav.chapter.pageCount)
@@ -18,7 +19,7 @@ export default function () {
         return (<div class="notebarerror">Loading...</div>);
     }
 
-    const mediaData = contentnotes[mangaNav.title as keyof typeof contentnotes];
+    const mediaData = contentnotes[mangaNav.id as keyof typeof contentnotes];
     const chapData: any = mediaData.chapters
         .find((ch) => ch.numeral === Number(mangaNav.chapter.numeral));
 

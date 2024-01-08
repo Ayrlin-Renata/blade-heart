@@ -1,10 +1,9 @@
-import { useState, useContext, useEffect } from 'preact/hooks';
+import { useState, useContext, useEffect, useMemo } from 'preact/hooks';
 import { Resizable } from 're-resizable';
 import { MangaNavContext, MangaNavData, ReaderViewContext, ReaderViewData } from '../routes/MangaReader';
 
 import { content as contentmeta } from '../assets/json/contentmeta.json';
 import { VNode, createRef } from 'preact';
-import { useNavigate } from 'react-router-dom';
 
 export default function () {
     const mangaNav: MangaNavData = useContext(MangaNavContext);
@@ -38,47 +37,58 @@ export default function () {
             return (<><div>Loading...</div></>)
         }
 
-        const mediaData = contentmeta[mangaNav.title as keyof typeof contentmeta];
-        const chapData: object = mediaData.chapters
-            .find((ch) => ch.numeral === Number(mangaNav.chapter.numeral)) || {};
+        return useMemo(() => {
+            const mediaData = contentmeta[mangaNav.id as keyof typeof contentmeta];
+            const chapData: object = mediaData.chapters
+                .find((ch) => ch.numeral === Number(mangaNav.chapter.numeral)) || {};
 
-        if (!chapData) {
-            console.error("could not find chapter", mangaNav.chapter.numeral);
-            return (<><div class=".noteserror">Huh? Unable to load pages for {mangaNav.chapter.label}</div></>)
-        }
+            if (!chapData) {
+                console.error("could not find chapter", mangaNav.chapter.numeral);
+                return (<><div class=".noteserror">Huh? Unable to load pages for {mangaNav.chapter.label}</div></>)
+            }
 
-        const langData = mediaData.languages.find((ld) => ld.lang.toLowerCase() === mangaNav.language.toLowerCase());
-        if (!langData) {
-            console.error("could not find", mangaNav.language, "language data for chapter", mangaNav.chapter.numeral);
-            return (<><div class=".noteserror">Huh? Missing {mangaNav.language} language data for {mangaNav.chapter.label}</div></>)
-        }
+            const langData = mediaData.languages.find((ld) => ld.lang.toLowerCase() === mangaNav.language.toLowerCase());
+            if (!langData) {
+                console.error("could not find", mangaNav.language, "language data for chapter", mangaNav.chapter.numeral);
+                return (<><div class=".noteserror">Huh? Missing {mangaNav.language} language data for {mangaNav.chapter.label}</div></>)
+            }
 
-        const pages: Array<VNode<any>> = ingestChapterSources(langData, chapData) as Array<VNode<any>>;
-        if (mangaNav.chapter.pageCount != pages.length) {
-            mangaNav.chapter.pageCount = pages.length;
-            mangaNav.setMangaNav(mangaNav);
-        }
+            const loadCallback = () => {
+                //console.log("hi");
+            }
+            const pages: Array<VNode<any>> = ingestChapterSources(langData, chapData, loadCallback) as Array<VNode<any>>;
+            if (mangaNav.chapter.pageCount != pages.length) {
+                mangaNav.chapter.pageCount = pages.length;
+                mangaNav.setMangaNav(mangaNav);
+            }
 
-        return (
-            <>
-                {pages}
-            </>
-        )
+            return (
+                <>
+                    {pages}
+                </>
+            )
+        }, [mangaNav.chapter]);
     }
 
     const pageContainerRef = createRef();
 
     const readerView: ReaderViewData = useContext(ReaderViewContext);
-    useEffect(() => {
-        console.log("useeffect")
-        if (pageContainerRef.current
-            && pageContainerRef.current.children.length > 0
-            && pageContainerRef.current.offsetHeight > 200) {
-            updateView();
-        }
-    }, [mangaNav])
 
-    console.log("render")
+    useEffect(() => {
+        //console.log("afterImgLoad", pageContainerRef.current)
+        function waitUpdateView() {
+            console.log('ref..', pageContainerRef.current.offsetHeight);
+            if (pageContainerRef.current
+                && pageContainerRef.current.children.length > 0
+                && pageContainerRef.current.offsetHeight > 200) {
+                updateView();
+            } else {
+                //setTimeout(waitUpdateView,10000);
+            }
+        }
+        setTimeout(waitUpdateView,500)
+        //waitUpdateView();
+    }, [pageContainerRef])
 
     function updateView() {
         if (pageContainerRef.current) {
@@ -89,7 +99,10 @@ export default function () {
             }
         }
     }
-    const navigate = useNavigate(); 
+
+    //console.log("render")
+
+    //const navigate = useNavigate(); 
 
     return (
         <>
@@ -111,8 +124,8 @@ export default function () {
                     <div class="pagecontainer" ref={pageContainerRef}>{loadPages()}</div>
                     <div class="pagebottom">
                         <button class="nextchapter"
-                            onClick={ () => {
-                                const dest = mangaNav.readerLocation.pathname;
+                            onClick={() => {
+                                const dest = mangaNav.readerLocation?.pathname;
                                 console.log(dest);
                                 //navigate();
                             }}>NEXT CHAPTER</button>
@@ -124,7 +137,7 @@ export default function () {
 }
 
 
-function ingestChapterSources(lang: any, chapterData: any): Array<VNode<any>> {
+function ingestChapterSources(lang: any, chapterData: any, loadCallback: Function): Array<VNode<any>> {
     const langsource = lang.sourceurl;
     const { pagemethod, pagedata, numeral, imageext } = chapterData;
     const imgs: Array<VNode<any>> = [] as Array<VNode<any>>;
@@ -137,19 +150,19 @@ function ingestChapterSources(lang: any, chapterData: any): Array<VNode<any>> {
 
             for (let i = pagestart; i <= pageend; i++) {
                 const url = langsource + numeral + "/" + i.toString().padStart(4, '0') + "." + imageext;
-                imgs[i] = (<img id={"page" + (i)} src={url} class={pageClass}></img>);
+                imgs[i] = (<img id={"page" + (i)} src={url} class={pageClass} onLoad={loadCallback()}></img>);
             }
         } break;
         case "patch-source": {
             let i = 1;
             for (const val of pagedata) {
                 if (typeof val === "string") {
-                    imgs[i] = (<img id={"page" + (i)} src={val} class={pageClass}></img>);
+                    imgs[i] = (<img id={"page" + (i)} src={val} class={pageClass} onLoad={loadCallback()}></img>);
                     i++;
                 } else if (Array.isArray(val)) {
                     for (let j = val[0]; j <= val[1]; j++) {
                         const url = langsource + numeral + "/" + j.toString().padStart(4, '0') + "." + imageext;
-                        imgs[i] = (<img id={"page" + (i)} src={url} class={pageClass}></img>);
+                        imgs[i] = (<img id={"page" + (i)} src={url} class={pageClass} onLoad={loadCallback()}></img>);
                         i++;
                     }
                 }

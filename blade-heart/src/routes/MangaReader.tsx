@@ -3,12 +3,14 @@ import { useState } from 'preact/hooks';
 // import Interact, { Interaction, Inertia } from 'interactjs';
 
 import { getIdData } from '../routes/Root';
-import { useLocation } from 'react-router-dom';
+import { Location as RouterLocation, useLocation } from 'react-router-dom';
 
 import ReaderPlayBar from '../components/ReaderPlayBar';
 import ReaderPageArea from '../components/ReaderPageArea';
 import ReaderNoteBar from '../components/ReaderNoteBar';
 import ReaderMenu from '../components/ReaderMenu';
+
+import { content as contentlist } from "../assets/json/contentlist.json";
 
 import '../css/mangareader.scss'
 
@@ -17,14 +19,16 @@ import '../css/mangareader.scss'
 export const MangaNavContext = createContext({
     readerLocation: null,
     title: "",
+    id: "",
     language: "",
     chapter: { label: "", numeral: "", pageCount: NaN },
     setMangaNav: () => { }
 } as MangaNavData);
 
 export interface MangaNavData {
-    readerLocation: any,
+    readerLocation: RouterLocation | null,
     title: string,
+    id: string,
     language: string,
     chapter: MangaChapter,
     setMangaNav: (mangaNav: MangaNavData) => void,
@@ -35,14 +39,6 @@ export interface MangaChapter {
     numeral: string,
     pageCount: number
 }
-
-function updateNavTitle(location: any) {
-    const urlPage: string = (location.pathname.split('/').length > 0
-        ? location.pathname.split('/')[location.pathname.split('/').length - 1]
-        : 'default-word');
-    return decodeURIComponent(urlPage);
-}
-
 
 // ReaderView
 
@@ -79,8 +75,8 @@ export interface MenuPref {
 }
 
 export function replaceInMenuPref(mPref: MenuPrefData, pf: MenuPref) {
-    const tpf = mPref.prefs.find((spf) => (spf.id == pf.id) );
-    if(tpf) {
+    const tpf = mPref.prefs.find((spf) => (spf.id == pf.id));
+    if (tpf) {
         tpf.value = pf.value;
     } else {
         mPref.prefs.push(pf);
@@ -104,16 +100,24 @@ export default function MangaReader() {
 
     //MangaNav
     const location = useLocation();
+    const mangaid = getIdFromUrl(location);
+
     const [mangaNav, setMangaNav] = useState({
         readerLocation: location,
-        title: updateNavTitle(location),
+        title: contentlist[mangaid as keyof typeof contentlist].title,
+        id: mangaid,
         language: "",
         chapter: { label: "", numeral: "", pageCount: NaN },
         setMangaNav: updateMangaNavContext
     } as MangaNavData);
 
+    function getIdFromUrl(location: RouterLocation): string {
+        return location.pathname.split('/').pop() || "";
+    }
+
     function updateMangaNavContext(mNav: MangaNavData) {
-        mNav.title = updateNavTitle(mNav.readerLocation);
+        if (mNav.readerLocation)
+            mNav.id = getIdFromUrl(mNav.readerLocation);
         setMangaNav({ ...mNav });
     }
 

@@ -20,8 +20,9 @@ export default function ContentList() {
             </div>
             <div class="bh-contentlist">
                 {
-                    content.map((item) =>
-                        <MediaCard type={item.type} title={item.title} desc={item.desc}>
+                    //@ts-ignore needed for def
+                    Object.entries(content).map(([key, item]) =>
+                        <MediaCard {...item}>
                             <img src={item.cover}></img>
                         </MediaCard>
                     )

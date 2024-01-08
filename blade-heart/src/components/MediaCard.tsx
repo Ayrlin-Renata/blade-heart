@@ -1,9 +1,17 @@
 import { useNavigate } from 'react-router-dom';
 
-export default function ({ children, type, title, desc } : { children: any, type: string, title: string, desc: string }) {
+interface MediaCard {
+    children: any,
+    type: string,
+    title: string,
+    id: string,
+    desc: string
+}
+
+export default function ({ children, type, title, id, desc } : MediaCard) {
     const navigate = useNavigate(); 
     function doNav() {
-        navigate('/blade-heart/' + type + '/' + title);
+        navigate('/blade-heart/' + type + '/' + id);
     }
     
     return (
