@@ -39,6 +39,7 @@ export default function ({
         if (onMouseOut) onMouseOut(event);
     }
 
+    //@ts-ignore
     function handleMouse(event: MouseEvent, isDownEvent: boolean) {
         if (buttonRef.current) {
             if (isDownEvent)

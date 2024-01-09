@@ -5,8 +5,7 @@ import ShareIcon from '@mui/icons-material/Share';
 import LinkIcon from '@mui/icons-material/Link';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import ImageIcon from '@mui/icons-material/Image';
-import { useEffect, useMemo, useState } from "preact/hooks";
-import { createRef } from "preact";
+import { useMemo, useState } from "preact/hooks";
 import { saveAs } from "file-saver";
 
 interface PageLabel {
