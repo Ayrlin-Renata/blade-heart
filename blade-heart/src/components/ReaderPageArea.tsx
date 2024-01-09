@@ -150,19 +150,19 @@ function ingestChapterSources(lang: any, chapterData: any, loadCallback: Functio
 
             for (let i = pagestart; i <= pageend; i++) {
                 const url = langsource + numeral + "/" + i.toString().padStart(4, '0') + "." + imageext;
-                imgs[i] = (<img id={"page" + (i)} src={url} class={pageClass} onLoad={loadCallback()}></img>);
+                imgs[i] = (<img id={"page" + (i)} src={url} type={"image/"+imageext} class={pageClass} onLoad={loadCallback()}></img>);
             }
         } break;
         case "patch-source": {
             let i = 1;
             for (const val of pagedata) {
                 if (typeof val === "string") {
-                    imgs[i] = (<img id={"page" + (i)} src={val} class={pageClass} onLoad={loadCallback()}></img>);
+                    imgs[i] = (<img id={"page" + (i)} src={val} type={"image/"+imageext} class={pageClass} onLoad={loadCallback()}></img>);
                     i++;
                 } else if (Array.isArray(val)) {
                     for (let j = val[0]; j <= val[1]; j++) {
                         const url = langsource + numeral + "/" + j.toString().padStart(4, '0') + "." + imageext;
-                        imgs[i] = (<img id={"page" + (i)} src={url} class={pageClass} onLoad={loadCallback()}></img>);
+                        imgs[i] = (<img id={"page" + (i)} src={url} type={"image/"+imageext} class={pageClass} onLoad={loadCallback()}></img>);
                         i++;
                     }
                 }

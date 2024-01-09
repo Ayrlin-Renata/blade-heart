@@ -9,10 +9,11 @@ interface ReaderNoteContent {
     type: string,
     note: any,
     expanded: boolean,
+    transitioning: boolean,
     onClick: (event: MouseEvent, expanded: boolean) => void
 }
 
-export default function ({ type, note, expanded, onClick }: ReaderNoteContent) {
+export default function ({ type, note, expanded, transitioning, onClick }: ReaderNoteContent) {
 
     const result = useMemo(() => {
         var btnIcon: any = (<>{"??"}</>);
@@ -66,16 +67,16 @@ export default function ({ type, note, expanded, onClick }: ReaderNoteContent) {
                 </button>
             </div>
             <div class="notecardwrapper">
-                {expanded ? useMemo(() => (
-                    <>
-                        <div class={"notecard notetype" + type}>
-                            <h3 class="ntitle"> {note.content.title} </h3>
-                            {result.noteContent}
-                        </div>
-                        <div class="credit" style={(!note.credit) ? "display: none" : ""}> {"- " + (note.credit?.join(", ") || "")} </div>
-                    </>
-                ),[result.noteContent])
-                    : ""
+                {!expanded && !transitioning ?
+                    "" : useMemo(() => (
+                        <>
+                            <div class={"notecard notetype" + type}>
+                                <h3 class="ntitle"> {note.content.title} </h3>
+                                {result.noteContent}
+                            </div>
+                            <div class="credit" style={(!note.credit) ? "display: none" : ""}> {"- " + (note.credit?.join(", ") || "")} </div>
+                        </>
+                    ), [result.noteContent])
                 }
             </div>
         </>

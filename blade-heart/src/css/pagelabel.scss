@@ -15,7 +15,7 @@
 
     height: 0px;
 
-    transition: top 0.5s ease-in-out;
+    transition: top 0.25s ease-in-out;
 }
 
 .pagelabel::before {
@@ -59,7 +59,7 @@
     color: colors.$acc-primary;
 }
 
-.pagelabel>.links {
+.pagelabel>.linkbox>.links {
     display: flex;
     flex-wrap: wrap;
 
@@ -69,10 +69,38 @@
     align-items:end;
 }
 
-.pagelabel>.links>.sharebutton {
+.links>.sharebutton {
     color: colors.$acc-secondary;
 }
 
-.pagelabel>.links>.sharebutton:hover {
+.links>.sharebutton:hover {
     color: colors.$acc-bright;
+}
+
+.linkbox {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.linkbox>.feedback {
+    position: relative;
+    top: 1em;
+    align-self: center;
+    
+    height: 0px;
+    min-width: 5em;
+
+    margin-left: 0.5em;
+
+    color: colors.$acc-primary;
+
+    pointer-events: none;
+
+    transition: color 1s ease-in-out;
+}
+
+.feedback.flash {
+    color:colors.$acc-white;
+    transition: none;
 }

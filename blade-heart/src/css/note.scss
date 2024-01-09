@@ -3,21 +3,21 @@
 @import 'notedefinition.scss';
 
 .readernote {
-    opacity:1;
+    opacity: 1;
 
     position: relative;
     height: 0px;
 
     background: colors.$bg-dark;
 
-    transition: top 0.5s ease-in-out, 
-        visibility 0.5s ease-in-out, 
-        opacity 0.5s ease-in-out;
+    transition: top 0.25s ease-in-out,
+        visibility 0.25s ease-in-out,
+        opacity 0.25s ease-in-out;
 }
 
 .readernote.hidden {
     opacity: 0;
-    visibility:hidden;
+    visibility: hidden;
 }
 
 
@@ -26,55 +26,59 @@
 
     margin-left: 0px;
     margin-right: 2em;
-    margin-bottom: -2.67em;
+    margin-bottom: -2.675em;
 
-    width:fit-content;
-    height:fit-content;
+    width: fit-content;
+    height: fit-content;
 
-    border:solid;
+    border: solid;
     border-width: 5px;
     border-left-width: 2px;
     border-right-width: 15px;
     border-color: colors.$acc-primary;
     border-radius: 10px;
 
-    transition: margin-left 0.3s ease-in-out, border-right-width 0.3s ease-in-out;
+    transition: margin-left 0.3s ease-in-out, 
+        border-right-width 0.3s ease-in-out,
+        border-color 0.3s ease-in-out;
+        //background-color 0.3s ease-in-out;
 }
 
 .noteicon:hover {
+    //background-color: colors.$acc-primary;
     border-color: colors.$acc-white;
     border-right-width: 1.5em;
 }
 
-.noteicon > button {
+.noteicon>button {
     width: 2.8em;
     height: 2.7em;
-    
+
     margin: 0px;
     padding: 0.2em;
     padding-left: 0.1em;
     padding-bottom: 0em;
-    
+
     color: colors.$acc-darkest;
     background: none;
-    
+
     border: none;
     border-radius: 5px;
 }
 
-.noteicon > button > * {
-    width:1.2em;
-    height:1.2em;
+.noteicon>button>* {
+    width: 1.2em;
+    height: 1.2em;
 
     margin-top: 0.1em;
-} 
+}
 
-.readernote.noteexp > .noteicon {
+.readernote.noteexp>.noteicon {
     margin-left: 1.1em;
     border-right-width: 5em;
 }
 
-.readernote.noteexp > .notecardwrapper {
+.readernote.noteexp>.notecardwrapper {
     transform: translateX(0);
 
     height: fit-content;
@@ -95,10 +99,10 @@
     padding: 0px;
     overflow: hidden;
 
-    width:fit-content;
+    width: fit-content;
     min-width: 15em;
 
-    border:solid;
+    border: solid;
     border-width: 2px;
     border-color: colors.$acc-secondary;
     border-radius: 10px;
@@ -106,9 +110,10 @@
     border-top-left-radius: 0px;
 
     background: colors.$grad-bg-dark-bottom;
+    transition: height 0.25s ease-in-out;
 }
 
-.notecardwrapper > .credit {
+.notecardwrapper>.credit {
     margin-top: 0.2em;
     margin-left: 1.5em;
 
@@ -117,7 +122,7 @@
     font-size: small;
 }
 
-.notecard > .ntitle {
+.notecard>.ntitle {
     color: colors.$bg-dark;
     font-size: x-large;
     background-color: colors.$acc-secondary;
@@ -155,7 +160,7 @@
     width: -webkit-fill-available;
 }
 
-.notetypeembed > .ntext {
+.notetypeembed>.ntext {
     margin-top: 0px;
     padding-top: 0.5em;
     padding-bottom: 1em;
@@ -170,7 +175,7 @@
     padding-top: 0px;
 }
 
-.notetypeembed > .embedframe > iframe {
+.notetypeembed>.embedframe>iframe {
     width: -webkit-fill-available;
     height: 50vh;
     min-width: 20em;
@@ -179,7 +184,7 @@
     margin-bottom: -0.5em;
 }
 
-.notetypedefinition > .embedframe > iframe {
+.notetypedefinition>.embedframe>iframe {
     width: -webkit-fill-available;
     height: 50vh;
     min-width: 20em;

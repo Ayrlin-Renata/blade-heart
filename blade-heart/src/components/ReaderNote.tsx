@@ -4,6 +4,7 @@ import { useContext, useState } from 'preact/hooks';
 import { MangaNavContext, MenuPrefContext } from '../routes/ChapterReader.tsx';
 
 import ReaderNoteContent from './ReaderNoteContent.tsx';
+import { createRef } from 'preact';
 
 interface ReaderNote {
     type: string,
@@ -12,13 +13,21 @@ interface ReaderNote {
 }
 
 export default function ({ type, pos, note }: ReaderNote) {
-    const [expand, setExpand] = useState("false");
-    const expanded = expand === "true";
+    const [expanded, setExpanded] = useState(false);
+    const [transitioning, setTransitioning] = useState(false);
+
+    const noteRef = createRef(); 
 
     //@ts-ignore needed for definition
     function toggleExpand( event: any, state: boolean ) {
         //console.log("texp",expand,expand === "true", state);
-        setExpand((!(state)).toString());
+        var transitionTime = 300; //ms default
+
+        setTransitioning(true);
+        setTimeout(() => {
+            setTransitioning(false)
+        }, transitionTime)
+        setExpanded(!state);
     }
 
     const menuPref = useContext(MenuPrefContext);
@@ -31,11 +40,19 @@ export default function ({ type, pos, note }: ReaderNote) {
 
     return (
         <>
-            <div class={"readernote " + (isCategoryShown ? "" : "hidden") + " " + (expanded ? "noteexp" : "")}
+            <div class={"readernote " 
+                + (isCategoryShown ? "" : "hidden") + " " 
+                + (expanded ? "noteexp" : "")}
                 data-type={type} 
                 data-pos={pos}
-                style={ "top:" + pos + "px;" }>
-                <ReaderNoteContent type={type} note={note} expanded={expanded} onClick={ toggleExpand }/>
+                style={ "top:" + pos + "px;" }
+                ref={noteRef}>
+                <ReaderNoteContent 
+                    type={type} 
+                    note={note} 
+                    expanded={expanded} 
+                    transitioning={transitioning} 
+                    onClick={ toggleExpand }/>
             </div>
         </>
     );
