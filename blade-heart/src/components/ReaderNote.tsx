@@ -31,11 +31,11 @@ export default function ({ type, pos, note }: ReaderNote) {
     }
 
     const menuPref = useContext(MenuPrefContext);
-    const mediaNav = useContext(MangaNavContext);
+    const mangaNav = useContext(MangaNavContext);
     const shownCategories = menuPref.prefs
         .filter((pref) => (
             pref.value == true
-            && pref.id.startsWith(mediaNav.title + "/panel/notes/slider/category/")));
+            && pref.id.startsWith(mangaNav.manga.id + "/panel/notes/slider/category/")));
     const isCategoryShown: boolean = shownCategories.some((pref) => (pref.id.endsWith(note.category)));
 
     return (

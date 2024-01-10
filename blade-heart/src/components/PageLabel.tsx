@@ -22,7 +22,7 @@ export default function ({ pos, index }: PageLabel) {
 
     const mangaNav = useContext(MangaNavContext);
 
-    const pgSrcObj = buildPageSrc(index,mangaNav.chapter.numeral,mangaNav.language,mangaNav.id)
+    const pgSrcObj = buildPageSrc(index,mangaNav.chapter.numeral,mangaNav.language.id,mangaNav.manga.id)
     const copyImageLink = pgSrcObj.src;
     const copyImageLinkType = pgSrcObj.type;
 

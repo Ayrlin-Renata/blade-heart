@@ -7,7 +7,7 @@ export default function () {
     const mangaNav: MangaNavData = useContext(MangaNavContext);
     // const readerView: ReaderViewData = useContext(ReaderViewContext);
 
-    const bhurl: string = mangaNav.title + "/readerplaybar/width";
+    const bhurl: string = mangaNav.manga.id + "/readerplaybar/width";
     const [remWidth] = useState(localStorage.getItem(bhurl) || "50px");
 
     const contentstyle = {

@@ -4,11 +4,12 @@ import { MangaNavContext, MangaNavData, ReaderViewContext, ReaderViewData } from
 
 import { createRef } from 'preact';
 import { MangaMetaChapter, MangaMetaLanguage, getMangaMeta, buildPageSrcFromValues } from '../utils/jsonutils';
+import { useLocation } from 'react-router-dom';
 
 export default function () {
     const mangaNav: MangaNavData = useContext(MangaNavContext);
 
-    const bhurl: string = mangaNav.title + "/readerpagearea/width";
+    const bhurl: string = mangaNav.manga.id + "/readerpagearea/width";
     const [remWidth] = useState(localStorage.getItem(bhurl) || "50vw");
 
     const contentstyle = {
@@ -38,15 +39,15 @@ export default function () {
         }
 
         return useMemo(() => {
-            const mangaMeta = getMangaMeta(mangaNav.id);
-            const chapMeta = mangaMeta?.lang(mangaNav.language)?.chap(mangaNav.chapter.numeral);
+            const mangaMeta = getMangaMeta(mangaNav.manga.id);
+            const chapMeta = mangaMeta?.lang(mangaNav.language.id)?.chap(mangaNav.chapter.numeral);
 
             if (!chapMeta) {
                 console.error("could not find chapter", mangaNav.chapter.numeral);
                 return (<><div class=".noteserror">Huh? Unable to load pages for {mangaNav.chapter.label}</div></>)
             }
 
-            const langMeta = mangaMeta?.lang(mangaNav.language);
+            const langMeta = mangaMeta?.lang(mangaNav.language.id);
             if (!langMeta) {
                 console.error("could not find", mangaNav.language, "language data for chapter", mangaNav.chapter.numeral);
                 return (<><div class=".noteserror">Huh? Missing {mangaNav.language} language data for {mangaNav.chapter.label}</div></>)
@@ -102,6 +103,7 @@ export default function () {
     //console.log("render")
 
     //const navigate = useNavigate(); 
+    const loc = useLocation();
 
     return (
         <>
@@ -124,7 +126,8 @@ export default function () {
                     <div class="pagebottom">
                         <button class="nextchapter"
                             onClick={() => {
-                                const dest = mangaNav.readerLocation?.pathname;
+
+                                const dest = loc.pathname;
                                 console.log(dest);
                                 //navigate();
                             }}>NEXT CHAPTER</button>

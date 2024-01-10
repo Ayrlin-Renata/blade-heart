@@ -32,7 +32,7 @@ export default function ({ id, label, options, onChange }: SelectMenuItem) {
     }
 
     var defaultOption = null;
-    if(selected) {
+    if (selected) {
         defaultOption = JSON.parse(selected);
     } else {
         defaultOption = options[0];
@@ -68,8 +68,25 @@ export default function ({ id, label, options, onChange }: SelectMenuItem) {
                             background: state.isFocused ? '#005050' : '#000000',
                         }),
                     }}
-                    defaultValue={ defaultOption }
-                    onChange={handleChange} />
+                    defaultValue={defaultOption}
+                    onChange={handleChange}
+                    //@ts-ignore
+                    maxMenuHeight={"50vh"}
+                    onMenuOpen={
+                        () => {
+                            setTimeout(() => {
+                                const selectedEl: any = document.querySelector('[aria-selected="true"]');
+                                if (selectedEl) {
+                                    //selectedEl.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+                                    selectedEl.parentElement?.scrollTo({
+                                        top: selectedEl.offsetTop,
+                                        behavior:'instant'
+                                    })
+                                }
+                            }, 20);
+                        }
+                    }
+                />
             </div>
         </>
     )

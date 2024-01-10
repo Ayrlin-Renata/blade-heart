@@ -23,7 +23,7 @@ export default function () {
         return (<div class="notebarerror">Loading...</div>);
     }
 
-    const mediaData = contentnotes[mangaNav.id as keyof typeof contentnotes];
+    const mediaData = contentnotes[mangaNav.manga.id as keyof typeof contentnotes];
     const chapData: any = mediaData.chapters
         .find((ch) => ch.numeral === mangaNav.chapter.numeral);
 

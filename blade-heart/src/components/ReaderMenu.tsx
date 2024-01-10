@@ -3,7 +3,7 @@ import { useContext, useState } from 'preact/hooks';
 import { content as contentlist } from '../assets/json/contentlist.json';
 
 import {
-    MangaNavContext, MangaNavData,
+    MangaNavContext, MangaNavData, updateChapter, updateLanguage,
 } from '../routes/ChapterReader.tsx';
 import ReaderMenuHeader from './ReaderMenuHeader';
 import LabelMenuItem from './LabelMenuItem';
@@ -25,6 +25,7 @@ import InputMenuItem from './InputMenuItem.tsx';
 import DictionaryNoteEmbed from './DictionaryNoteEmbed.tsx';
 import { idify } from '../utils/ayrutils.tsx';
 import { getMangaMeta } from '../utils/jsonutils.tsx';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 interface ReaderMenu {
     isCollapsed: boolean,
@@ -34,9 +35,11 @@ interface ReaderMenu {
 export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
     const mangaNav: MangaNavData = useContext(MangaNavContext);
 
-    const mangaInfo = contentlist[mangaNav.id as keyof typeof contentlist];
-    const mangaMeta = getMangaMeta(mangaNav.id);
-    const langMeta = mangaMeta?.lang(mangaNav.language);
+    const mangaInfo = contentlist[mangaNav.manga.id as keyof typeof contentlist];
+
+    const mangaMeta = getMangaMeta(mangaNav.manga.id);
+    const langMeta = mangaMeta.lang(mangaNav.language.id);
+
     if (!mangaInfo || !mangaMeta || !langMeta) {
         console.warn("manga info not found!");
         console.warn({
@@ -48,35 +51,30 @@ export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
         return (<div class="readermenu">{"manga info not found!"}</div>);
     }
 
-    function updateChapter(opt: SelectOption) {
-        //console.log(opt)
-        const value = JSON.parse(opt.value);
-        mangaNav.chapter = {
-            id: value.id as string,
-            label: opt.label,
-            numeral: value.numeral as number,
-            pageCount: langMeta?.chap(value.numeral)?.getPageCount() || 0
-        };
-        mangaNav.setMangaNav(mangaNav);
-    }
-
-    function updateLanguage(opt: SelectOption) {
-        mangaNav.language = opt.value;
-        mangaNav.setMangaNav(mangaNav);
-    }
-
     const [dictionarySearch, setDictionarySearch] = useState("");
 
 
     const ids = {
-        language: (mangaNav.title + "/mangalanguage"),
-        chapter: (mangaNav.title + "/mangachapter"),
-        notes: (mangaNav.title + "/panel/notes"),
-        behaviours: (mangaNav.title + "/panel/behaviours"),
-        settings: (mangaNav.title + "/panel/settings"),
-        dictionary: (mangaNav.title + "/panel/dictionary"),
+        language: (mangaNav.manga.id + "/mangalanguage"),
+        chapter: (mangaNav.manga.id + "/mangachapter"),
+        notes: (mangaNav.manga.id + "/panel/notes"),
+        behaviours: (mangaNav.manga.id + "/panel/behaviours"),
+        settings: (mangaNav.manga.id + "/panel/settings"),
+        dictionary: (mangaNav.manga.id + "/panel/dictionary"),
     };
     const behaviourPresets = ["custom", "recommended"];
+
+    const loc = useLocation();
+    const navigate = useNavigate();
+
+    function updateLang(opt: SelectOption): void {
+        updateLanguage(opt.value, loc, navigate);
+    }
+
+    function updateChap(opt: SelectOption): void {
+        updateChapter(JSON.parse(opt.value).id, loc, navigate)
+    }
+
 
     return (
         <>
@@ -88,15 +86,15 @@ export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
                         <AccountMenuItem />
                         <MenuDivider />
                         <LabelMenuItem id="mangatitle"
-                            content={mangaNav.title}
+                            content={mangaNav.manga.label}
                             subContent={mangaInfo.subtitle} />
                         <SelectMenuItem id={ids.language}
                             label="Language"
                             options={Object.keys(mangaMeta.languages)
                                 .map((lang: string) => {
-                                return { label: mangaMeta.languages[lang].name, value: lang }
-                            })}
-                            onChange={updateLanguage} />
+                                    return { label: mangaMeta.languages[lang].name, value: lang }
+                                })}
+                            onChange={updateLang} />
                         <SelectMenuItem id={ids.chapter}
                             label="Chapter"
                             options={Object.keys(langMeta.chapters)
@@ -110,7 +108,7 @@ export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
                                         })
                                     }
                                 })}
-                            onChange={updateChapter} />
+                            onChange={updateChap} />
                         <PanelSwitcher>
                             <SPanel id={ids.notes}
                                 icon={<ChatIcon />}>

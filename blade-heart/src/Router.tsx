@@ -25,7 +25,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/blade-heart/manhua/:manhuaId/:chapterId",
+    path: "/blade-heart/manhua/:manhuaId/:langId/:chapterId",
     element: <ChapterReader />,
     loader: readerLoader,
     errorElement: <ErrorPage />,

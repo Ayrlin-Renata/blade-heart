@@ -1,4 +1,5 @@
 import { content as contentmeta } from '../assets/json/contentmeta.json';
+import { idify } from './ayrutils';
 
 export interface MangaMeta {
     title: string,
@@ -80,7 +81,7 @@ export function getMangaMeta(id: string): (MangaMeta) {
     return mangaMeta;
 }
 
-function firstKey(o: any): any {
+export function firstKey(o: any): any {
     return Object.keys(o)[0];
 }
 
@@ -141,4 +142,13 @@ export function buildPageSrcFromValues(
         default: { }
     }
     return "";
+}
+
+export function numeralFromChapId(mangaId: string, langId: string, chapId: string) {
+    const mangaMeta = getMangaMeta(mangaId);
+    const langMeta = mangaMeta.lang(langId);
+    const foundChap = Object.entries(langMeta.chapters)
+    //@ts-ignore
+        .find(([ key, chap ] : any) => { return idify(chap.name) == chapId});
+    return Number(foundChap?.[0])
 }

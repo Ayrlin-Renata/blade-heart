@@ -1,9 +1,9 @@
 import { createContext } from 'preact';
-import { useEffect, useState } from 'preact/hooks';
+import { useState } from 'preact/hooks';
 // import Interact, { Interaction, Inertia } from 'interactjs';
 
 import { getIdData } from './Root';
-import { Location as RouterLocation, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, NavigateFunction, Location } from 'react-router-dom';
 
 import ReaderPlayBar from '../components/ReaderPlayBar';
 import ReaderPageArea from '../components/ReaderPageArea';
@@ -13,28 +13,34 @@ import ReaderMenu from '../components/ReaderMenu';
 import { content as contentlist } from "../assets/json/contentlist.json";
 
 import '../css/mangareader.scss'
+import { getMangaMeta, numeralFromChapId } from '../utils/jsonutils';
+import { getIdsFromUrl } from '../utils/urlutils';
 
 // MangaNav
 
 export const MangaNavContext = createContext({
-    readerLocation: null,
-    title: "",
-    id: "",
-    language: "",
+    manga: { id: "", label: "" },
+    language: { id: "", label: "" },
     chapter: { id: "", label: "", numeral: NaN, pageCount: NaN },
-    setMangaNav: () => { }
 } as MangaNavData);
 
 export interface MangaNavData {
-    readerLocation: RouterLocation | null,
-    title: string,
-    id: string,
-    language: string,
-    chapter: MangaChapter,
-    setMangaNav: (mangaNav: MangaNavData) => void,
+    manga: MangaData,
+    language: LanguageData,
+    chapter: ChapterData,
 }
 
-export interface MangaChapter {
+export interface MangaData {
+    id: string,
+    label: string,
+}
+
+export interface LanguageData {
+    id: string,
+    label: string,
+}
+
+export interface ChapterData {
     id: string,
     label: string,
     numeral: number,
@@ -113,37 +119,36 @@ export default function MangaReader() {
 
     //MangaNav
     const location = useLocation();
-    const { mangaid, chapterid } = getIdsFromUrl(location);
+    const { mangaid, langid, chapterid } = getIdsFromUrl(location);
 
-    const [mangaNav, setMangaNav] = useState({
-        readerLocation: location,
-        title: contentlist[mangaid as keyof typeof contentlist].title,
-        id: mangaid,
-        language: "",
-        chapter: { id: chapterid, label: "", numeral: NaN, pageCount: NaN },
-        setMangaNav: updateMangaNavContext
-    } as MangaNavData);
+    const langMeta = getMangaMeta(mangaid).lang(langid);
+    const chapNumeral = numeralFromChapId(mangaid, langid, chapterid);
+    const chapMeta = langMeta.chap(chapNumeral);
 
-    function getIdsFromUrl(location: RouterLocation): { prepath: string, mangaid: string, chapterid: string } {
-        const parts = location.pathname.split('/');
-        const mid = parts.slice(-2, -1).toString();
-        const cid = parts.slice(-1).toString();
-        return { prepath: parts.slice(0, -2).join('/'), mangaid: mid, chapterid: cid }
+    const updateNavData = {
+        manga: {
+            id: mangaid,
+            label: contentlist[mangaid as keyof typeof contentlist].title,
+        },
+        language: {
+            id: langid,
+            label: langMeta.name,
+        },
+        chapter: {
+            id: chapterid,
+            label: chapMeta.authornumber + ": " + chapMeta.name,
+            numeral: chapNumeral,
+            pageCount: chapMeta.getPageCount()
+        },
+    } as MangaNavData;
+
+    const [mangaNav, setMangaNav] = useState(updateNavData);
+
+    if (mangaNav.manga.id !== mangaid
+        || mangaNav.language.id !== langid
+        || mangaNav.chapter.id !== chapterid) {
+        setMangaNav({ ...updateNavData });
     }
-
-    function updateMangaNavContext(mNav: MangaNavData) {
-        setMangaNav({ ...mNav });
-    }
-
-    const navigate = useNavigate();
-    useEffect(() => {
-        const ids = getIdsFromUrl(location);
-        if (mangaNav.chapter.id) {
-            if (mangaNav.chapter.id != ids.chapterid) {
-                navigate(ids.prepath + "/" + ids.mangaid + "/" + mangaNav.chapter.id);
-            }
-        }
-    }, [mangaNav]);
 
     //MenuPref
     const [menuPref, setMenuPref] = useState({
@@ -203,6 +208,28 @@ export default function MangaReader() {
             </div>
         </>
     );
+}
+
+export async function updateChapter(chapid: string, loc: Location, navigate: NavigateFunction) {
+    const locIds = getIdsFromUrl(loc);
+    const dest = [
+        locIds.prepath,
+        locIds.mangaid,
+        locIds.langid,
+        chapid,
+    ].join('/');
+    navigate(dest);
+}
+
+export async function updateLanguage(langid: string, loc: Location, navigate: NavigateFunction) {
+    const locIds = getIdsFromUrl(loc);
+    const dest = [
+        locIds.prepath,
+        locIds.mangaid,
+        langid,
+        locIds.chapterid
+    ].join('/');
+    navigate(dest);
 }
 
 // function dragMoveListener(event:any) {

@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'preact/hooks';
 import { idify } from '../utils/ayrutils.tsx';
-import { getMangaMeta } from '../utils/jsonutils.tsx';
+import { firstKey, getMangaMeta } from '../utils/jsonutils.tsx';
 
 interface MediaCard {
     children: any,
@@ -14,11 +14,15 @@ interface MediaCard {
 export default function ({ children, type, title, id, desc } : MediaCard) {
     const navigate = useNavigate(); 
     const [broken, setBroken] = useState(false);
-    const chapterid = idify(getMangaMeta(id)?.lang()?.chap()?.name || "");
+
+    const mangaMeta = getMangaMeta(id);
+    const langMeta = mangaMeta.lang();
+    const langid = firstKey(mangaMeta.languages);
+    const chapterid = idify(langMeta.chap().name || "");
     if(!chapterid) setBroken(true);
     
     function doNav() {
-        navigate('/blade-heart/' + type + '/' + id + '/' + chapterid);
+        navigate('/blade-heart/' + type + '/' + id + '/' + langid + '/' + chapterid);
     }
 
     function noNav() {
