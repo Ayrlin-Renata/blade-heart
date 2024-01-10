@@ -16,6 +16,10 @@ export default function () {
         || !(mangaNav.chapter.pageCount)
         || !(readerView.height)
         || readerView.height < 100) {
+            console.warn({
+                mangaNav_chapter: mangaNav.chapter,
+                readerView_height: readerView.height,
+            })
         return (<div class="notebarerror">Loading...</div>);
     }
 

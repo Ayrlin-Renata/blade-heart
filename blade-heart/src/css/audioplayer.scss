@@ -19,6 +19,9 @@
 
     border: solid 3px colors.$acc-primary;
     border-radius: 2em;
+
+    transition: color 0.25s ease-in-out,
+        border-color 0.25s ease-in-out;
 }
 
 .audioplayer > .icon > button:hover {

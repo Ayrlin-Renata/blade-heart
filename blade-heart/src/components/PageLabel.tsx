@@ -5,8 +5,10 @@ import ShareIcon from '@mui/icons-material/Share';
 import LinkIcon from '@mui/icons-material/Link';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import ImageIcon from '@mui/icons-material/Image';
-import { useMemo, useState } from "preact/hooks";
+import { useContext, useMemo, useState } from "preact/hooks";
 import { saveAs } from "file-saver";
+import { buildPageSrc } from "../utils/jsonutils";
+import { MangaNavContext } from "../routes/ChapterReader";
 
 interface PageLabel {
     pos: number,
@@ -17,9 +19,12 @@ export default function ({ pos, index }: PageLabel) {
     const host = location.hostname == "localhost" ? `${location.hostname}:${location.port}` : location.hostname;
     const url = `${location.protocol}//${host}${location.pathname}`;
     const sharePageLink = url + "#page" + index;
-    const img = (document.getElementById("page" + index) as HTMLImageElement);
-    const copyImageLink = img.src;
-    const copyImageLinkType = img.getAttribute('type') || "type/png";
+
+    const mangaNav = useContext(MangaNavContext);
+
+    const pgSrcObj = buildPageSrc(index,mangaNav.chapter.numeral,mangaNav.language,mangaNav.id)
+    const copyImageLink = pgSrcObj.src;
+    const copyImageLinkType = pgSrcObj.type;
 
     const [feedbackText, setFeedbackText] = useState("");
     const [flash, setFlash] = useState(false);

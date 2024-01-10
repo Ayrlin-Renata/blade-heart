@@ -1,10 +1,9 @@
 import { useContext, useState } from 'preact/hooks';
 
 import { content as contentlist } from '../assets/json/contentlist.json';
-import { content as contentmeta } from '../assets/json/contentmeta.json';
 
 import {
-    MangaNavContext, MangaNavData, idify,
+    MangaNavContext, MangaNavData,
 } from '../routes/ChapterReader.tsx';
 import ReaderMenuHeader from './ReaderMenuHeader';
 import LabelMenuItem from './LabelMenuItem';
@@ -24,6 +23,8 @@ import ButtonMenuItem from './ButtonMenuItem.tsx';
 import InputMenuItem from './InputMenuItem.tsx';
 
 import DictionaryNoteEmbed from './DictionaryNoteEmbed.tsx';
+import { idify } from '../utils/ayrutils.tsx';
+import { getMangaMeta } from '../utils/jsonutils.tsx';
 
 interface ReaderMenu {
     isCollapsed: boolean,
@@ -34,19 +35,27 @@ export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
     const mangaNav: MangaNavData = useContext(MangaNavContext);
 
     const mangaInfo = contentlist[mangaNav.id as keyof typeof contentlist];
-    const mangaMeta: any = contentmeta[mangaNav.id as keyof typeof contentmeta];
-    if (!mangaInfo || !mangaMeta) {
+    const mangaMeta = getMangaMeta(mangaNav.id);
+    const langMeta = mangaMeta?.lang(mangaNav.language);
+    if (!mangaInfo || !mangaMeta || !langMeta) {
         console.warn("manga info not found!");
+        console.warn({
+            mangaNav: mangaNav,
+            mangaInfo: mangaInfo,
+            mangaMeta: mangaMeta,
+            langMeta: langMeta
+        });
         return (<div class="readermenu">{"manga info not found!"}</div>);
     }
 
     function updateChapter(opt: SelectOption) {
         //console.log(opt)
+        const value = JSON.parse(opt.value);
         mangaNav.chapter = {
-            id: opt.value["id" as keyof typeof opt.value] as string,
-            ...opt,
-            numeral: opt.value["numeral" as keyof typeof opt.value] as number,
-            pageCount: NaN
+            id: value.id as string,
+            label: opt.label,
+            numeral: value.numeral as number,
+            pageCount: langMeta?.chap(value.numeral)?.getPageCount() || 0
         };
         mangaNav.setMangaNav(mangaNav);
     }
@@ -83,15 +92,24 @@ export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
                             subContent={mangaInfo.subtitle} />
                         <SelectMenuItem id={ids.language}
                             label="Language"
-                            options={mangaInfo.languages.map((lang: string) => {
-                                return { label: lang, value: lang }
+                            options={Object.keys(mangaMeta.languages)
+                                .map((lang: string) => {
+                                return { label: mangaMeta.languages[lang].name, value: lang }
                             })}
                             onChange={updateLanguage} />
                         <SelectMenuItem id={ids.chapter}
                             label="Chapter"
-                            options={mangaMeta.chapters.map((chap: any) => {
-                                return { label: chap.authornumber + ": " + chap.name, value: { id: idify(chap.name), numeral: chap.numeral } }
-                            })}
+                            options={Object.keys(langMeta.chapters)
+                                .map(key => { return { key: key, chap: langMeta.chapters[key] } })
+                                .map(({ key, chap }) => {
+                                    return {
+                                        label: chap.authornumber + ": " + chap.name,
+                                        value: JSON.stringify({
+                                            id: idify(chap.name) || "",
+                                            numeral: Number(key)
+                                        })
+                                    }
+                                })}
                             onChange={updateChapter} />
                         <PanelSwitcher>
                             <SPanel id={ids.notes}

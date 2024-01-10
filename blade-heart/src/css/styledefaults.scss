@@ -8,6 +8,8 @@ div {
 a {
     color: colors.$acc-bright;
     text-decoration: underline;
+
+    transition: color 0.25s ease-in-out;
 }
 
 a:hover {

@@ -5,4 +5,10 @@ import preact from '@preact/preset-vite'
 export default defineConfig({
   base:'/blade-heart',
   plugins: [preact()],
+  resolve: {
+    alias: {
+      '~': './src',
+      '@utils': './src/utils',
+    },
+  },
 })

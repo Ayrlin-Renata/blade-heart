@@ -2,8 +2,8 @@ import { useState, useContext, useEffect, useMemo } from 'preact/hooks';
 import { Resizable } from 're-resizable';
 import { MangaNavContext, MangaNavData, ReaderViewContext, ReaderViewData } from '../routes/ChapterReader';
 
-import { content as contentmeta } from '../assets/json/contentmeta.json';
-import { VNode, createRef } from 'preact';
+import { createRef } from 'preact';
+import { MangaMetaChapter, MangaMetaLanguage, getMangaMeta, buildPageSrcFromValues } from '../utils/jsonutils';
 
 export default function () {
     const mangaNav: MangaNavData = useContext(MangaNavContext);
@@ -33,22 +33,21 @@ export default function () {
     }
 
     function loadPages() {
-        if (!mangaNav.chapter || !mangaNav.language) {
+        if (!mangaNav.chapter || !mangaNav.language || !mangaNav.chapter.numeral) {
             return (<><div>Loading...</div></>)
         }
 
         return useMemo(() => {
-            const mediaData = contentmeta[mangaNav.id as keyof typeof contentmeta];
-            const chapData: object = mediaData.chapters
-                .find((ch) => ch.numeral === mangaNav.chapter.numeral) || {};
+            const mangaMeta = getMangaMeta(mangaNav.id);
+            const chapMeta = mangaMeta?.lang(mangaNav.language)?.chap(mangaNav.chapter.numeral);
 
-            if (!chapData) {
+            if (!chapMeta) {
                 console.error("could not find chapter", mangaNav.chapter.numeral);
                 return (<><div class=".noteserror">Huh? Unable to load pages for {mangaNav.chapter.label}</div></>)
             }
 
-            const langData = mediaData.languages.find((ld) => ld.lang.toLowerCase() === mangaNav.language.toLowerCase());
-            if (!langData) {
+            const langMeta = mangaMeta?.lang(mangaNav.language);
+            if (!langMeta) {
                 console.error("could not find", mangaNav.language, "language data for chapter", mangaNav.chapter.numeral);
                 return (<><div class=".noteserror">Huh? Missing {mangaNav.language} language data for {mangaNav.chapter.label}</div></>)
             }
@@ -56,18 +55,18 @@ export default function () {
             const loadCallback = () => {
                 //console.log("hi");
             }
-            const pages: Array<VNode<any>> = ingestChapterSources(langData, chapData, loadCallback) as Array<VNode<any>>;
-            if (mangaNav.chapter.pageCount != pages.length) {
-                mangaNav.chapter.pageCount = pages.length;
-                mangaNav.setMangaNav(mangaNav);
-            }
+            const pages = ingestChapterSources(langMeta, chapMeta, mangaNav, loadCallback);
+            // if (mangaNav.chapter.pageCount != pages.length) {
+            //     mangaNav.chapter.pageCount = pages.length;
+            //     mangaNav.setMangaNav(mangaNav);
+            // }
 
             return (
                 <>
                     {pages}
                 </>
             )
-        }, [mangaNav.chapter]);
+        }, [mangaNav.chapter, mangaNav.language]);
     }
 
     const pageContainerRef = createRef();
@@ -86,7 +85,7 @@ export default function () {
                 //setTimeout(waitUpdateView,10000);
             }
         }
-        setTimeout(waitUpdateView,500)
+        setTimeout(waitUpdateView, 500)
         //waitUpdateView();
     }, [pageContainerRef])
 
@@ -137,32 +136,39 @@ export default function () {
 }
 
 
-function ingestChapterSources(lang: any, chapterData: any, loadCallback: Function): Array<VNode<any>> {
+function ingestChapterSources(lang: MangaMetaLanguage, chap: MangaMetaChapter, mangaNav: MangaNavData, loadCallback: Function) {
     const langsource = lang.sourceurl;
-    const { pagemethod, pagedata, numeral, imageext } = chapterData;
-    const imgs: Array<VNode<any>> = [] as Array<VNode<any>>;
+    const { pagemethod, pagedata, imageext } = chap;
+
+    const imgs = [];
     const pageClass = "mangapage";
 
+    function buildImg(index: number, url: string) {
+        return (<img id={"page" + (index)} src={url} type={"image/" + imageext} class={pageClass} onLoad={loadCallback()}></img>);
+    }
+
     switch (pagemethod) {
+        case "local":
         case "fetch-source": {
-            const pagestart = pagedata[0] as number;
-            const pageend = pagedata[1] as number;
+            const isLocal: boolean = pagemethod === "local";
+            const pagestart = (pagedata[0] as number) + (isLocal ? -1 : 0);
+            const pageend = (pagedata[1] as number) + (isLocal ? -1 : 0);
 
             for (let i = pagestart; i <= pageend; i++) {
-                const url = langsource + numeral + "/" + i.toString().padStart(4, '0') + "." + imageext;
-                imgs[i] = (<img id={"page" + (i)} src={url} type={"image/"+imageext} class={pageClass} onLoad={loadCallback()}></img>);
+                const url = buildPageSrcFromValues(i, pagemethod, langsource, mangaNav.chapter.numeral, imageext) || "";
+                imgs[i] = buildImg(i, url);
             }
         } break;
         case "patch-source": {
             let i = 1;
             for (const val of pagedata) {
                 if (typeof val === "string") {
-                    imgs[i] = (<img id={"page" + (i)} src={val} type={"image/"+imageext} class={pageClass} onLoad={loadCallback()}></img>);
+                    imgs[i] = buildImg(i, val);
                     i++;
                 } else if (Array.isArray(val)) {
                     for (let j = val[0]; j <= val[1]; j++) {
-                        const url = langsource + numeral + "/" + j.toString().padStart(4, '0') + "." + imageext;
-                        imgs[i] = (<img id={"page" + (i)} src={url} type={"image/"+imageext} class={pageClass} onLoad={loadCallback()}></img>);
+                        const url = langsource + mangaNav.chapter.numeral + "/" + j.toString().padStart(4, '0') + "." + imageext;
+                        imgs[i] = buildImg(i, url);
                         i++;
                     }
                 }
@@ -170,8 +176,8 @@ function ingestChapterSources(lang: any, chapterData: any, loadCallback: Functio
         } break;
         default:
             console.error('unknown page retrieval method:', pagemethod);
-            return [(<div>Huh? Someone messed up the directions for retrieving the pages.</div>)] as Array<VNode<any>>
+            return [(<div>Huh? Someone messed up the directions for retrieving the pages.</div>)]
     }
 
-    return imgs.filter((im) => im) as Array<VNode<any>>;
+    return imgs.filter((im) => im);
 }

@@ -6,8 +6,7 @@
             "id":"second-eruption",
             "subtitle":"A Honkai Impact 3rd manhua.",
             "desc":"literal peak manga",
-            "cover":"https://d2tpbmzklky1cl.cloudfront.net/manga/static/comic/book/1005/35/0001.jpg",
-            "languages":["EN"]
+            "cover":"https://d2tpbmzklky1cl.cloudfront.net/manga/static/comic/book/1005/35/0001.jpg"
         },
         "second-test":{
             "type":"manhua",
@@ -15,8 +14,7 @@
             "subtitle":"Second Test",
             "id":"second-test",
             "desc":"literal peak manga",
-            "cover":"https://d2tpbmzklky1cl.cloudfront.net/manga/static/comic/book/1005/1/0001.jpg",
-            "languages":["EN","CN","JP"]
+            "cover":"https://d2tpbmzklky1cl.cloudfront.net/manga/static/comic/book/1005/1/0001.jpg"
         }
     }
 }

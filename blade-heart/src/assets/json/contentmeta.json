@@ -3,757 +3,1361 @@
         "second-eruption": {
             "title": "Second Eruption",
             "author": "miHoYo",
-            "languages": [
-                {
-                    "lang": "en",
-                    "name": "English",
+            "languages": {
+                "en": {
+                    "name": "English (Source)",
+                    "translator": "alloy_bron",
+                    "sourcecredit": "https://mangadex.org/title/b82bc828-0f22-43d9-835d-d5ff1cb0d680/honkai-impact-3rd",
+                    "sourceurl": "/blade-heart/src/assets/manhua/second-eruption/en/",
+                    "chapters": {
+                        "1": {
+                            "authornumber": "00",
+                            "name": "Prelude to War",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                24
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "2": {
+                            "authornumber": "01",
+                            "name": "The Ghost",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                16
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "3": {
+                            "authornumber": "02",
+                            "name": "The Girl",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                16
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "4": {
+                            "authornumber": "03",
+                            "name": "The War Begins",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                14
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "5": {
+                            "authornumber": "04",
+                            "name": "The Alliance",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                28
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "6": {
+                            "authornumber": "05",
+                            "name": "The Tear",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "7": {
+                            "authornumber": "06",
+                            "name": "The Awakening",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "8": {
+                            "authornumber": "07",
+                            "name": "The Void",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                24
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "9": {
+                            "authornumber": "08",
+                            "name": "The Herrscher",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "10": {
+                            "authornumber": "09",
+                            "name": "Welt of Humanity",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                23
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "11": {
+                            "authornumber": "10",
+                            "name": "Void Against Reason",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "12": {
+                            "authornumber": "11",
+                            "name": "The Clown",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                27
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "13": {
+                            "authornumber": "12",
+                            "name": "Young Ziggy",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                27
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "14": {
+                            "authornumber": "13",
+                            "name": "The Ride",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "15": {
+                            "authornumber": "14",
+                            "name": "The Game",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                19
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "16": {
+                            "authornumber": "15",
+                            "name": "The Present",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "17": {
+                            "authornumber": "16",
+                            "name": "The Promise",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "18": {
+                            "authornumber": "17",
+                            "name": "Undying Dreams",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                25
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "19": {
+                            "authornumber": "18",
+                            "name": "The Revelation",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                42
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "20": {
+                            "authornumber": "19",
+                            "name": "Throne of Sin",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                19
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "21": {
+                            "authornumber": "20",
+                            "name": "The Kings",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "22": {
+                            "authornumber": "21",
+                            "name": "The Plan",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "23": {
+                            "authornumber": "22",
+                            "name": "The Launch",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                22
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "24": {
+                            "authornumber": "23",
+                            "name": "Moonflight",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                16
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "25": {
+                            "authornumber": "24",
+                            "name": "The Herrschers",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "26": {
+                            "authornumber": "25",
+                            "name": "Their Battle",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                17
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "27": {
+                            "authornumber": "26",
+                            "name": "The Ninja",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "28": {
+                            "authornumber": "27",
+                            "name": "Event Horizon",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "29": {
+                            "authornumber": "28",
+                            "name": "Chandrasekhar",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                23
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "30": {
+                            "authornumber": "29",
+                            "name": "Her Return",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                30
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "31": {
+                            "authornumber": "30",
+                            "name": "Her Angels",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "32": {
+                            "authornumber": "31",
+                            "name": "Counter-Offensive",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                17
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "33": {
+                            "authornumber": "32",
+                            "name": "Eve of War",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "34": {
+                            "authornumber": "33",
+                            "name": "The Soulium",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "35": {
+                            "authornumber": "34",
+                            "name": "Blade Heart",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                17
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "36": {
+                            "authornumber": "35",
+                            "name": "Blown Away",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "37": {
+                            "authornumber": "36",
+                            "name": "Fenghuang Down",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "38": {
+                            "authornumber": "37",
+                            "name": "Obsession",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "39": {
+                            "authornumber": "38",
+                            "name": "The Progeny",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                22
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "40": {
+                            "authornumber": "39",
+                            "name": "Price to Pay",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "41": {
+                            "authornumber": "40",
+                            "name": "Cocolia",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                19
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "42": {
+                            "authornumber": "41",
+                            "name": "Field of Megiddo",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "43": {
+                            "authornumber": "42",
+                            "name": "Fire and Ice",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                17
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "44": {
+                            "authornumber": "43",
+                            "name": "Fists of Taixuan",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "45": {
+                            "authornumber": "44",
+                            "name": "The Soul",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                24
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "46": {
+                            "authornumber": "45",
+                            "name": "Deus",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                23
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "47": {
+                            "authornumber": "46",
+                            "name": "Edge of Taixuan",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                17
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "48": {
+                            "authornumber": "47",
+                            "name": "Broken Link",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "49": {
+                            "authornumber": "48",
+                            "name": "The New Toy",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "50": {
+                            "authornumber": "49",
+                            "name": "It's a Dream",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "51": {
+                            "authornumber": "50",
+                            "name": "Happy Family",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                24
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "52": {
+                            "authornumber": "51",
+                            "name": "The Hug",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                23
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "53": {
+                            "authornumber": "52",
+                            "name": "Final Gambit",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "54": {
+                            "authornumber": "53",
+                            "name": "Benares",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "55": {
+                            "authornumber": "54",
+                            "name": "Féond Gefyldan",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "56": {
+                            "authornumber": "55",
+                            "name": "Wake Up Call",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "57": {
+                            "authornumber": "56",
+                            "name": "Ālea Iacta Est",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "58": {
+                            "authornumber": "57",
+                            "name": "The Gathering",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                22
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "59": {
+                            "authornumber": "58",
+                            "name": "The Pain",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                27
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "60": {
+                            "authornumber": "59",
+                            "name": "Infinity Corridor",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                23
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "61": {
+                            "authornumber": "60",
+                            "name": "The Mantis",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "62": {
+                            "authornumber": "61",
+                            "name": "The Berserk",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                22
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "63": {
+                            "authornumber": "62",
+                            "name": "Core Cascade",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                27
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "64": {
+                            "authornumber": "62-2",
+                            "name": "Guardian Angel",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                23
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "65": {
+                            "authornumber": "62-3",
+                            "name": "Ich líebe dích",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                27
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "66": {
+                            "authornumber": "63",
+                            "name": "Epilogue",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                22
+                            ],
+                            "imageext": "jpg"
+                        }
+                    }
+                },
+                "en_lq": {
+                    "name": "English (Low Quality)",
                     "translator": "alloy_bron",
                     "sourcecredit": "manga.honkaiimpact3.com",
-                    "sourceurl": "https://d2tpbmzklky1cl.cloudfront.net/manga/static/comic/book/1005/"
+                    "sourceurl": "https://d2tpbmzklky1cl.cloudfront.net/manga/static/comic/book/1005/",
+                    "chapters": {
+                        "1": {
+                            "authornumber": "00",
+                            "name": "Prelude to War",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                24
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "2": {
+                            "authornumber": "01",
+                            "name": "The Ghost",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                16
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "3": {
+                            "authornumber": "02",
+                            "name": "The Girl",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                16
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "4": {
+                            "authornumber": "03",
+                            "name": "The War Begins",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                14
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "5": {
+                            "authornumber": "04",
+                            "name": "The Alliance",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                28
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "6": {
+                            "authornumber": "05",
+                            "name": "The Tear",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "7": {
+                            "authornumber": "06",
+                            "name": "The Awakening",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "8": {
+                            "authornumber": "07",
+                            "name": "The Void",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                24
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "9": {
+                            "authornumber": "08",
+                            "name": "The Herrscher",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "10": {
+                            "authornumber": "09",
+                            "name": "Welt of Humanity",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                23
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "11": {
+                            "authornumber": "10",
+                            "name": "Void Against Reason",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "12": {
+                            "authornumber": "11",
+                            "name": "The Clown",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                27
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "13": {
+                            "authornumber": "12",
+                            "name": "Young Ziggy",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                27
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "14": {
+                            "authornumber": "13",
+                            "name": "The Ride",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "15": {
+                            "authornumber": "14",
+                            "name": "The Game",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                19
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "16": {
+                            "authornumber": "15",
+                            "name": "The Present",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "17": {
+                            "authornumber": "16",
+                            "name": "The Promise",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "18": {
+                            "authornumber": "17",
+                            "name": "Undying Dreams",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                25
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "19": {
+                            "authornumber": "18",
+                            "name": "The Revelation",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                42
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "20": {
+                            "authornumber": "19",
+                            "name": "Throne of Sin",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                19
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "21": {
+                            "authornumber": "20",
+                            "name": "The Kings",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "22": {
+                            "authornumber": "21",
+                            "name": "The Plan",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "23": {
+                            "authornumber": "22",
+                            "name": "The Launch",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                22
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "24": {
+                            "authornumber": "23",
+                            "name": "Moonflight",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                16
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "25": {
+                            "authornumber": "24",
+                            "name": "The Herrschers",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "26": {
+                            "authornumber": "25",
+                            "name": "Their Battle",
+                            "pagemethod": "patch-source",
+                            "pagedata": [
+                                "https://upload.wikimedia.org/wikipedia/commons/b/b1/Missing-image-232x150.png",
+                                [
+                                    2,
+                                    10
+                                ],
+                                [
+                                    12,
+                                    19
+                                ]
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "27": {
+                            "authornumber": "26",
+                            "name": "The Ninja",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "28": {
+                            "authornumber": "27",
+                            "name": "Event Horizon",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "29": {
+                            "authornumber": "28",
+                            "name": "Chandrasekhar",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                23
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "30": {
+                            "authornumber": "29",
+                            "name": "Her Return",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                30
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "31": {
+                            "authornumber": "30",
+                            "name": "Her Angels",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "32": {
+                            "authornumber": "31",
+                            "name": "Counter-Offensive",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                17
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "33": {
+                            "authornumber": "32",
+                            "name": "Eve of War",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "34": {
+                            "authornumber": "33",
+                            "name": "The Soulium",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "35": {
+                            "authornumber": "34",
+                            "name": "Blade Heart",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                17
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "36": {
+                            "authornumber": "35",
+                            "name": "Blown Away",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "37": {
+                            "authornumber": "36",
+                            "name": "Fenghuang Down",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "38": {
+                            "authornumber": "37",
+                            "name": "Obsession",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "39": {
+                            "authornumber": "38",
+                            "name": "The Progeny",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                22
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "40": {
+                            "authornumber": "39",
+                            "name": "Price to Pay",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "41": {
+                            "authornumber": "40",
+                            "name": "Cocolia",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                19
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "42": {
+                            "authornumber": "41",
+                            "name": "Field of Megiddo",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "43": {
+                            "authornumber": "42",
+                            "name": "Fire and Ice",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                17
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "44": {
+                            "authornumber": "43",
+                            "name": "Fists of Taixuan",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "45": {
+                            "authornumber": "44",
+                            "name": "The Soul",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                24
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "46": {
+                            "authornumber": "45",
+                            "name": "Deus",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                23
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "47": {
+                            "authornumber": "46",
+                            "name": "Edge of Taixuan",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                17
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "48": {
+                            "authornumber": "47",
+                            "name": "Broken Link",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "49": {
+                            "authornumber": "48",
+                            "name": "The New Toy",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "50": {
+                            "authornumber": "49",
+                            "name": "It's a Dream",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "51": {
+                            "authornumber": "50",
+                            "name": "Happy Family",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                24
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "52": {
+                            "authornumber": "51",
+                            "name": "The Hug",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                23
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "53": {
+                            "authornumber": "52",
+                            "name": "Final Gambit",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "54": {
+                            "authornumber": "53",
+                            "name": "Benares",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "55": {
+                            "authornumber": "54",
+                            "name": "Féond Gefyldan",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "56": {
+                            "authornumber": "55",
+                            "name": "Wake Up Call",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "57": {
+                            "authornumber": "56",
+                            "name": "Ālea Iacta Est",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "58": {
+                            "authornumber": "57",
+                            "name": "The Gathering",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                22
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "59": {
+                            "authornumber": "58",
+                            "name": "The Pain",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                27
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "60": {
+                            "authornumber": "59",
+                            "name": "Infinity Corridor",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                23
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "61": {
+                            "authornumber": "60",
+                            "name": "The Mantis",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "62": {
+                            "authornumber": "61",
+                            "name": "The Berserk",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                22
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "63": {
+                            "authornumber": "62",
+                            "name": "Core Cascade",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                27
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "64": {
+                            "authornumber": "62-2",
+                            "name": "Guardian Angel",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                23
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "65": {
+                            "authornumber": "62-3",
+                            "name": "Ich líebe dích",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                27
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "66": {
+                            "authornumber": "63",
+                            "name": "Epilogue",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                22
+                            ],
+                            "imageext": "jpg"
+                        },
+                        "67": {
+                            "authornumber": "EX",
+                            "name": "[Extra: Wallpapers]",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                34
+                            ],
+                            "imageext": "jpg"
+                        }
+                    }
                 }
-            ],
-            "chapters": [
-                {
-                    "numeral": 1,
-                    "authornumber": "00",
-                    "name": "Prelude to War",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        24
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 2,
-                    "authornumber": "01",
-                    "name": "The Ghost",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        16
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 3,
-                    "authornumber": "02",
-                    "name": "The Girl",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        16
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 4,
-                    "authornumber": "03",
-                    "name": "The War Begins",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        14
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 5,
-                    "authornumber": "04",
-                    "name": "The Alliance",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        28
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 6,
-                    "authornumber": "05",
-                    "name": "The Tear",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        20
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 7,
-                    "authornumber": "06",
-                    "name": "The Awakening",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        20
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 8,
-                    "authornumber": "07",
-                    "name": "The Void",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        24
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 9,
-                    "authornumber": "08",
-                    "name": "The Herrscher",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        18
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 10,
-                    "authornumber": "09",
-                    "name": "Welt of Humanity",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        23
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 11,
-                    "authornumber": "10",
-                    "name": "Void Against Reason",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        20
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 12,
-                    "authornumber": "11",
-                    "name": "The Clown",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        27
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 13,
-                    "authornumber": "12",
-                    "name": "Young Ziggy",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        27
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 14,
-                    "authornumber": "13",
-                    "name": "The Ride",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        20
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 15,
-                    "authornumber": "14",
-                    "name": "The Game",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        19
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 16,
-                    "authornumber": "15",
-                    "name": "The Present",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        20
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 17,
-                    "authornumber": "16",
-                    "name": "The Promise",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        18
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 18,
-                    "authornumber": "17",
-                    "name": "Undying Dreams",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        25
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 19,
-                    "authornumber": "18",
-                    "name": "The Revelation",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        42
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 20,
-                    "authornumber": "19",
-                    "name": "Throne of Sin",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        19
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 21,
-                    "authornumber": "20",
-                    "name": "The Kings",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        21
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 22,
-                    "authornumber": "21",
-                    "name": "The Plan",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        21
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 23,
-                    "authornumber": "22",
-                    "name": "The Launch",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        22
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 24,
-                    "authornumber": "23",
-                    "name": "Moonflight",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        16
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 25,
-                    "authornumber": "24",
-                    "name": "The Herrschers",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        21
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 26,
-                    "authornumber": "25",
-                    "name": "Their Battle",
-                    "pagemethod": "patch-source",
-                    "pagedata": [
-                        "https://upload.wikimedia.org/wikipedia/commons/b/b1/Missing-image-232x150.png",
-                        [
-                            2,
-                            19
-                        ]
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 27,
-                    "authornumber": "26",
-                    "name": "The Ninja",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        20
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 28,
-                    "authornumber": "27",
-                    "name": "Event Horizon",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        18
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 29,
-                    "authornumber": "28",
-                    "name": "Chandrasekhar",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        23
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 30,
-                    "authornumber": "29",
-                    "name": "Her Return",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        30
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 31,
-                    "authornumber": "30",
-                    "name": "Her Angels",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        20
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 32,
-                    "authornumber": "31",
-                    "name": "Counter-Offensive",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        17
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 33,
-                    "authornumber": "32",
-                    "name": "Eve of War",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        18
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 34,
-                    "authornumber": "33",
-                    "name": "The Soulium",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        20
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 35,
-                    "authornumber": "34",
-                    "name": "Blade Heart",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        17
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 36,
-                    "authornumber": "35",
-                    "name": "Blown Away",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        18
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 37,
-                    "authornumber": "36",
-                    "name": "Fenghuang Down",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        20
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 38,
-                    "authornumber": "37",
-                    "name": "Obsession",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        20
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 39,
-                    "authornumber": "38",
-                    "name": "The Progeny",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        22
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 40,
-                    "authornumber": "39",
-                    "name": "Price to Pay",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        18
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 41,
-                    "authornumber": "40",
-                    "name": "Cocolia",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        19
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 42,
-                    "authornumber": "41",
-                    "name": "Field of Megiddo",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        18
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 43,
-                    "authornumber": "42",
-                    "name": "Fire and Ice",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        17
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 44,
-                    "authornumber": "43",
-                    "name": "Fists of Taixuan",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        20
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 45,
-                    "authornumber": "44",
-                    "name": "The Soul",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        24
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 46,
-                    "authornumber": "45",
-                    "name": "Deus",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        23
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 47,
-                    "authornumber": "46",
-                    "name": "Edge of Taixuan",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        17
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 48,
-                    "authornumber": "47",
-                    "name": "Broken Link",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        20
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 49,
-                    "authornumber": "48",
-                    "name": "The New Toy",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        21
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 50,
-                    "authornumber": "49",
-                    "name": "It's a Dream",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        20
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 51,
-                    "authornumber": "50",
-                    "name": "Happy Family",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        24
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 52,
-                    "authornumber": "51",
-                    "name": "The Hug",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        23
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 53,
-                    "authornumber": "52",
-                    "name": "Final Gambit",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        21
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 54,
-                    "authornumber": "53",
-                    "name": "Benares",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        21
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 55,
-                    "authornumber": "54",
-                    "name": "Féond Gefyldan",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        21
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 56,
-                    "authornumber": "55",
-                    "name": "Wake Up Call",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        21
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 57,
-                    "authornumber": "56",
-                    "name": "Ālea Iacta Est",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        21
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 58,
-                    "authornumber": "57",
-                    "name": "The Gathering",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        22
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 59,
-                    "authornumber": "58",
-                    "name": "The Pain",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        27
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 60,
-                    "authornumber": "59",
-                    "name": "Infinity Corridor",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        23
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 61,
-                    "authornumber": "60",
-                    "name": "The Mantis",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        18
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 62,
-                    "authornumber": "61",
-                    "name": "The Berserk",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        22
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 63,
-                    "authornumber": "62",
-                    "name": "Core Cascade",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        27
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 64,
-                    "authornumber": "62-2",
-                    "name": "Guardian Angel",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        23
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 65,
-                    "authornumber": "62-3",
-                    "name": "Ich líebe dích",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        27
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 66,
-                    "authornumber": "63",
-                    "name": "Epilogue",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        22
-                    ],
-                    "imageext": "jpg"
-                },
-                {
-                    "numeral": 67,
-                    "authornumber": "EX",
-                    "name": "[Extra: Wallpapers]",
-                    "pagemethod": "fetch-source",
-                    "pagedata": [
-                        1,
-                        34
-                    ],
-                    "imageext": "jpg"
-                }
-            ]
+            }
         }
     }
 }

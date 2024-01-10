@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import { content as contentmeta } from '../assets/json/contentmeta.json';
 import { useState } from 'preact/hooks';
-import { idify } from '../routes/ChapterReader';
+import { idify } from '../utils/ayrutils.tsx';
+import { getMangaMeta } from '../utils/jsonutils.tsx';
 
 interface MediaCard {
     children: any,
@@ -14,7 +14,7 @@ interface MediaCard {
 export default function ({ children, type, title, id, desc } : MediaCard) {
     const navigate = useNavigate(); 
     const [broken, setBroken] = useState(false);
-    const chapterid = idify(contentmeta[id as keyof typeof contentmeta]?.chapters[0]?.name);
+    const chapterid = idify(getMangaMeta(id)?.lang()?.chap()?.name || "");
     if(!chapterid) setBroken(true);
     
     function doNav() {

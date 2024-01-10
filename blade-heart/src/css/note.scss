@@ -45,7 +45,7 @@
 }
 
 .noteicon:hover {
-    //background-color: colors.$acc-primary;
+    background-color: colors.$acc-dull;
     border-color: colors.$acc-white;
     border-right-width: 1.5em;
     border-left-width: 0.3em;
@@ -68,8 +68,8 @@
     transition: color 0.3s ease-in-out;
 }
 
-.noteicon>button:hover {
-    color: colors.$acc-primary;
+.noteicon:hover>button {
+    color: colors.$acc-white;
 }
 
 .noteicon>button>* {
