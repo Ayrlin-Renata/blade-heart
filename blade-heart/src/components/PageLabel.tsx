@@ -51,7 +51,7 @@ export default function ({ pos, index }: PageLabel) {
         flashFeedbackText("Image Link Copied!");
     }
     function copyImageClick(success:boolean) {
-        flashFeedbackText(success? "Image Link Copied!" : "Denied! Try right-click!");
+        flashFeedbackText(success? "Image Copied!" : "Denied! Try right-click!");
     }
     function dlImageClick() {
         saveAs(copyImageLink);

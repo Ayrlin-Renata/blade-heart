@@ -57,9 +57,10 @@ export default function ({
         if (!toClipboardImageSrc) return;
         var noerror = false;
         try {
-        const img = await fetch(toClipboardImageSrc.src);
-        const imgBlob = await img.blob();
-        const type = toClipboardImageSrc.type;
+            const img = await fetch(toClipboardImageSrc.src);
+            const imgBlob = await img.blob();
+            const type = toClipboardImageSrc.type;
+            console.log(imgBlob)
             navigator.clipboard.write([
                 new ClipboardItem({
                     [type]: imgBlob, // change image type accordingly
@@ -68,8 +69,8 @@ export default function ({
             noerror = true;
         } catch (error) {
             console.error(error);
-        } 
-        if(toClipboardCallback) toClipboardCallback(noerror);
+        }
+        if (toClipboardCallback) toClipboardCallback(noerror);
     }
 
     return (

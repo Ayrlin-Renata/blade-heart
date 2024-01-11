@@ -25,17 +25,21 @@
     width: 2.4em;
     height: 2.4em;
     
-    margin-left: 0px;
+    margin-left: 0.4em;
     margin-right: 2em;
-    margin-bottom: -2.53em;
+    margin-bottom: -2.5em;
 
-    background-color: colors.$acc-secondary;
+    background: colors.$bg-dark;
 
-    border: solid 1px;
+    border: solid 0px;
     border-right-width: 0.6em;
+    border-left-width: 0.2em;
     border-color: colors.$acc-primary;
     border-radius: 5px;
     border-top-left-radius: 0px;
+    border-bottom-right-radius: 10px;
+
+    outline: solid 2px colors.$acc-darkest;
 
     transition: margin-left 0.3s ease-in-out, 
         border-right-width 0.3s ease-in-out,
@@ -44,11 +48,16 @@
         //background-color 0.3s ease-in-out;
 }
 
+// .noteicon:before {
+//     content: '';
+//     border: solid 3px red;
+// }
+
 .noteicon:hover {
-    background-color: colors.$acc-dull;
+    background: colors.$grad-bg-dark-right;
     border-color: colors.$acc-white;
     border-right-width: 1.5em;
-    border-left-width: 0.3em;
+    border-left-width: 0.4em;
 }
 
 .noteicon>button {
@@ -60,11 +69,12 @@
     padding-left: 0.1em;
     padding-bottom: 0em;
 
-    color: colors.$acc-darkest;
+    color: colors.$acc-primary;
     background: none;
 
     border: none;
     border-radius: 5px;
+    //border-bottom-left-radius: 10px;
     transition: color 0.3s ease-in-out;
 }
 
@@ -81,9 +91,11 @@
 
 .readernote.noteexp>.noteicon {
     margin-left: 0.6em;
+
+    background: colors.$grad-bg-dark-right;
+    
     border-right-width: 5em;
     border-left-width: 0.5em;
-    
 }
 
 .readernote.noteexp>.notecardwrapper {
@@ -116,6 +128,8 @@
     border-radius: 10px;
     border-top-right-radius: 0px;
     border-top-left-radius: 0px;
+
+    outline: solid 2px colors.$acc-dark;
 
     background: colors.$grad-bg-dark-bottom;
     transition: height 0.25s ease-in-out;
