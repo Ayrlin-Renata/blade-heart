@@ -1,0 +1,65 @@
+@use '@/css/colors';
+
+.re-readerpagearea {
+    height: fit-content !important;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.readerpagearea {
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    width: 100%;
+    height: fit-content;
+
+    background: colors.$bg-darkest;
+}
+
+// .readerpagearea > .pagecontainer {
+
+// }
+
+.readerpagearea>.pagecontainer>img {
+    width: 100%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
+    -ms-user-drag: none;
+    user-drag: none;
+}
+
+.readerpagearea>.pagebottom {
+    width:100%;
+    height: 20vh;
+}
+
+.readerpagearea>.pagebottom>.nextchapter {
+    width:100%;
+    height: 4em;
+    margin: 1em auto;
+
+    color: colors.$acc-bright;
+    background: colors.$grad-bg-dark-bottom;
+
+    font-size: xx-large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+    border: solid 1px colors.$acc-bright;
+    border-radius: 5px;
+}
+
+.readerpagearea>.pagebottom>.nextchapter:hover {
+    color: colors.$acc-white;
+    border-color: colors.$acc-white;
+}
+
+.readerpagearea::-webkit-scrollbar {
+    display: none;
+}

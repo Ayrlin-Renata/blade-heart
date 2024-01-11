@@ -1,6 +1,8 @@
 import { useRouteError } from "react-router-dom";
 import BladeHeartIcon from './components/BladeHeartIcon';
 
+import '@/css/errorpage.scss'
+
 export default function ErrorPage() {
   const error: any = useRouteError();
   console.error(error);

@@ -1,0 +1,106 @@
+@use '@/css/colors';
+
+.pagelabel {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items:end;
+
+    position: relative;
+    width: -webkit-fill-available;
+
+    margin-top: -0.5em;
+    margin-bottom: 0.5em;
+    margin-right: 1em;
+
+    height: 0px;
+
+    transition: top 0.25s ease-in-out;
+}
+
+.pagelabel::before {
+    content: "";
+    align-self: baseline;
+    flex-grow: 2;
+    
+    //height: 0.5em;
+    
+    margin-left: 4em;
+
+    border-bottom: solid 1px colors.$acc-dark;
+}
+
+.pagelabel>.pagenumber {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+
+    margin-bottom: -0.2em;
+
+    color: colors.$acc-secondary;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.pagenumber>.text {
+    margin-right: 0.5em;
+
+    font-size: small;
+}
+
+.pagenumber>.number {
+    margin-bottom: -0.1em;
+
+    font-size: x-large;
+
+    color: colors.$acc-primary;
+}
+
+.pagelabel>.linkbox>.links {
+    display: flex;
+    flex-wrap: wrap;
+
+    margin-left: 0.5em;
+    margin-bottom: -0.7em;
+
+    align-items:end;
+}
+
+.links>.sharebutton {
+    color: colors.$acc-secondary;
+}
+
+.links>.sharebutton:hover {
+    color: colors.$acc-bright;
+}
+
+.linkbox {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.linkbox>.feedback {
+    position: relative;
+    top: 1em;
+    align-self: center;
+    
+    height: 0px;
+    min-width: 5em;
+
+    margin-left: 0.5em;
+
+    color: colors.$acc-primary;
+
+    pointer-events: none;
+
+    transition: color 1s ease-in-out;
+}
+
+.feedback.flash {
+    color:colors.$acc-white;
+    transition: none;
+}

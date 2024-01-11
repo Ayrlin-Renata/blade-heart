@@ -1,0 +1,14 @@
+@use '@/css/colors';
+
+.re-readerplaybar {
+    height: auto !important;
+}
+
+.readerplaybar {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    direction: rtl;
+    
+    width: 100%;
+    height: fit-content;
+}

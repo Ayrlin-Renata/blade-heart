@@ -2,6 +2,8 @@ import { useState, useEffect } from 'preact/hooks';
 
 import defaults from '../assets/json/defaults.json';
 
+import '@/css/slider.scss'
+
 interface SliderProps {
     id: string;
     onChange?: (state: boolean) => void;

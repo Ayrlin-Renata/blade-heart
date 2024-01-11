@@ -1,0 +1,31 @@
+@use '@/css/colors';
+
+.menuitem.buttonmenuitem {
+    justify-content: space-between;
+
+    padding-top: 0.6em;
+    padding-bottom: 0.6em;
+
+    border-left-color: colors.$acc-primary;
+}
+
+.menuitem.buttonmenuitem > button {
+    width: fit-content;
+    height: fit-content;
+    min-width: 5em;
+    min-height: 2.6em;
+    
+    margin: 0px;
+    padding: 0.5em;
+
+    background: colors.$acc-dark;
+    color: colors.$acc-bright;
+
+    border: solid 1px colors.$acc-bright;
+    border-radius: 5px;
+}
+
+.menuitem.buttonmenuitem > button:hover {
+    border-color: colors.$acc-white;
+    color: colors.$acc-white;
+}

@@ -1,0 +1,56 @@
+@use '@/css/colors';
+
+.bh-pageheader {
+    display: flex;
+    flex-direction: row;
+
+    width:-webkit-fill-available;
+
+    margin: 0 auto;
+    padding: 1em 5em;
+
+    background: colors.$grad-bg-dark-top;
+
+    border-style: solid;
+    border-radius: 0px 0px 10px 10px;
+    border-left: none;
+    border-right: none;
+}
+
+.bh-pageheader > .maintitle {
+    display: flex;
+    flex-basis: 10em;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+}
+
+.bh-pageheader > .maintitle > svg {
+    height:3em;
+    width:3em;
+}
+
+.bh-pageheader > .maintitle > .titlewords {
+    margin: 0em 1em;
+}
+
+.bh-pageheader > .maintitle > .titlewords > h1 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+
+    font-size: xx-large;
+}
+
+.bh-pageheader > p {
+    overflow:hidden;
+
+    margin: 0.2em;
+
+    max-height: 4em;
+
+    color: colors.$acc-primary;
+
+    text-wrap: wrap;
+    text-align: end;
+    
+}

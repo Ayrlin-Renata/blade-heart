@@ -1,0 +1,10 @@
+@use '@/css/colors';
+
+.menuitem.slidermenuitem {
+    justify-content: space-between;
+
+    padding-top: 0.6em;
+    padding-bottom: 0.6em;
+
+    border-left-color: colors.$acc-primary;
+}

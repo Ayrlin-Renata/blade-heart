@@ -6,12 +6,12 @@ import {
 } from "react-router-dom";
 
 //css
-import './css/app.scss'
+import '@/css/home/app.scss'
 
 //components
-import Root from './routes/Root'
+import Root from './routes/home/Root'
 import ErrorPage from "./errorpage";
-import ChapterReader, { loader as readerLoader } from "./routes/ChapterReader";
+import ChapterReader from "./routes/mangareader/Reader";
 
 //router
 const router = createBrowserRouter([
@@ -27,7 +27,6 @@ const router = createBrowserRouter([
   {
     path: "/blade-heart/manhua/:manhuaId/:langId/:chapterId",
     element: <ChapterReader />,
-    loader: readerLoader,
     errorElement: <ErrorPage />,
   },
 ]);

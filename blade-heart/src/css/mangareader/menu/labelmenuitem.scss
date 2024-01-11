@@ -1,0 +1,22 @@
+@use '@/css/colors';
+
+.menuitem.labelmenuitem {
+    flex-direction: column;
+
+    padding-top: 0.5em;
+    padding-bottom: 0.75em;
+
+    justify-content: center;
+
+    border-left-color: colors.$acc-dull;
+}
+
+.labelmenuitem > .content {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: x-large;
+}
+
+.labelmenuitem > .subcontent {
+    color: colors.$acc-bright;
+    font-size: small;
+}
