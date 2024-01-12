@@ -1,4 +1,5 @@
 
+
 interface SPanel {
     id: string,
     icon: any,

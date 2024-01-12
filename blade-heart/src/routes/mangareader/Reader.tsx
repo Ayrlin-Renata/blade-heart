@@ -9,7 +9,7 @@ import ReaderMenu from './menu/ReaderMenu';
 import '@/css/mangareader/mangareader.scss'
 import { useLocation } from 'react-router-dom';
 import { getIdsFromUrl as splitLocation } from '@/utils/urlutils';
-import { nav } from './readerNav';
+import { nav, select } from './readerNav';
 
 export default function MangaReader() {
     //States
@@ -17,7 +17,7 @@ export default function MangaReader() {
     const [menuCollapsed, setMenuCollapsed] = useState(false)
 
     //Store
-    const mNav = useSelector((event:any) => { return event.nav.nav });
+    const mNav = useSelector(select);
 
     const dispatch = useDispatch()
 

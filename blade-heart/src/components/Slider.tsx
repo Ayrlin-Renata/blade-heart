@@ -2,7 +2,7 @@ import { useState, useEffect } from 'preact/hooks';
 
 import defaults from '../assets/json/defaults.json';
 
-import '@/css/slider.scss'
+import '@/css/components/slider.scss'
 
 interface SliderProps {
     id: string;

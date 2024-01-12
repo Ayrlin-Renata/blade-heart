@@ -1,5 +1,7 @@
 import { useState } from "preact/hooks";
 
+import '@/css/mangareader/menu/panelswitcher.scss';
+
 
 export default function ({ children }: any) {
     const [ curPanel, setCurPanel ] = useState("");

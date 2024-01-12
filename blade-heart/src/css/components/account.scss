@@ -1,0 +1,10 @@
+@use '@/css/colors';
+
+.account>svg {
+    width: 1.8em;
+    height: 1.8em;
+}
+
+.account>.accName{
+    text-wrap: nowrap;
+}

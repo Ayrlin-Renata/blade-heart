@@ -1,6 +1,9 @@
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import { createRef } from 'preact';
 
+import '@/css/components/audioplayer.scss';
+
+
 interface AudioPlayer {
     src: string;
     icon: boolean | Element;

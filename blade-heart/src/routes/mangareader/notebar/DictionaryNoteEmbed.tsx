@@ -2,6 +2,9 @@ import { useEffect, useState } from "preact/hooks";
 
 import AudioPlayer from '../../../components/AudioPlayer.tsx';
 
+import '@/css/mangareader/notebar/notedefinition.scss';
+
+
 interface DictionaryNoteEmbed {
     term: string;
 }

@@ -1,5 +1,5 @@
 import { VNode } from "preact";
-import '../css/multiicon.scss';
+import '@/css/components/multiicon.scss';
 import { useMemo } from "preact/hooks";
 
 interface MultiIcon {

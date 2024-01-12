@@ -1,5 +1,8 @@
-import { useContext } from 'preact/hooks';
+import { useDispatch } from 'react-redux';
 import Slider from '../../../components/Slider';
+import { readermenu } from './menuPref'
+
+import '@/css/mangareader/menu/slidermenuitem.scss';
 
 
 interface SliderMenuItem {
@@ -11,12 +14,11 @@ interface SliderMenuItem {
 }
 
 export default function ({ id, label, offText, onText, onChange }: SliderMenuItem) {
+    const dispatch = useDispatch();
 
     function handleChange(state: boolean) {
-        //replaceInMenuPref(menuPref, {id: id, value: state});
-        //console.log("afterrepl", {...menuPref.prefs}, state);
-        //menuPref.setMenuPref(menuPref);
-        if(onChange) onChange(state);
+        dispatch(readermenu.actions.updateSlider({ id: id, state: state }))
+        if (onChange) onChange(state);
     }
 
     return (
@@ -26,7 +28,7 @@ export default function ({ id, label, offText, onText, onChange }: SliderMenuIte
                 <Slider id={id}
                     offText={offText}
                     onText={onText}
-                    onChange={ handleChange }/>
+                    onChange={handleChange} />
             </div>
         </>
     )

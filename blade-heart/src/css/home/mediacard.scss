@@ -16,6 +16,8 @@
     border: solid 1px colors.$acc-bright;
     border-radius: 7px;
 
+    outline: solid 5px colors.$bg-darkest;
+
     transition: border-color 0.25s ease-in-out;
 }
 

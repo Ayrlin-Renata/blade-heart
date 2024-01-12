@@ -1,11 +1,11 @@
-import { useContext, useState } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
 
 import { content as contentlist } from '../../../assets/json/contentlist.json';
 
 import ReaderMenuHeader from './ReaderMenuHeader';
 import LabelMenuItem from './LabelMenuItem.tsx';
 import AccountMenuItem from './AccountMenuItem.tsx';
-import SelectMenuItem, { SelectOption } from './SelectMenuItem.tsx';
+import SelectMenuItem from './SelectMenuItem.tsx';
 import MenuDivider from './MenuDivider.tsx';
 import PanelSwitcher from './PanelSwitcher.tsx';
 import SPanel from './SPanel.tsx';
@@ -26,6 +26,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectManga, selectLang, selectChap, nav } from '../readerNav.tsx';
 
 import '@/css/mangareader/menu/readermenu.scss'
+import '@/css/mangareader/menu/menuitem.scss'
+import { useNavigate } from 'react-router-dom';
 
 interface ReaderMenu {
     isCollapsed: boolean,
@@ -33,13 +35,27 @@ interface ReaderMenu {
 }
 
 export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
+    const navigate = useNavigate()
+    const [goto, setGoto] = useState("");
+
+    function navChapter(opt: any): void {
+        if (goto != JSON.parse(opt.value).id) {
+            setGoto(JSON.parse(opt.value).id)
+        }
+    }
+
+    useEffect(() => {
+        if (goto) {
+            //navigate()
+        }
+    }, [goto])
+
 
     const dispatch = useDispatch()
-    // const mangaid = useSelector((state:any) => { return state.nav?.manga || "" })
-    // const langid = useSelector((state:any) => { return state.nav?.lang || "" })
     const mangaid = useSelector(selectManga)
     const langid = useSelector(selectLang)
     const chapid = useSelector(selectChap)
+
     if (!mangaid || !langid || !chapid) {
         console.warn(mangaid, langid, chapid);
         return (<div>Loading...</div>);
@@ -71,8 +87,6 @@ export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
         dictionary: (mangaid + "/panel/dictionary"),
     };
     const behaviourPresets = ["custom", "recommended"]
-
-
 
     return (
         <>
@@ -108,7 +122,7 @@ export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
                                 }
                             })}
                         onChange={
-                            (opt) => dispatch(nav.actions.chap(JSON.parse(opt.value).id))
+                            (opt) => navChapter(opt)
                         } />
                     <PanelSwitcher>
                         <SPanel id={ids.notes}
@@ -163,10 +177,6 @@ export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
                                 label="[DEV] localStorage"
                                 button="CLEAR"
                                 onClick={() => localStorage.clear()} />
-                            <ButtonMenuItem id={ids.settings + "/button/console/mangaNavList"}
-                                label="[DEV] mangaNav"
-                                button="LIST"
-                                onClick={() => console.log(mangaNav)} />
                         </SPanel>
                         <SPanel id={ids.dictionary}
                             icon={<MenuBookIcon />}>

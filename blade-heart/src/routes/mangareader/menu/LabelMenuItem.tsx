@@ -1,4 +1,6 @@
 
+import '@/css/mangareader/menu/labelmenuitem.scss';
+
 interface LabelMenuItem {
     id: string
     content: string

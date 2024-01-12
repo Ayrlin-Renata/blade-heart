@@ -1,0 +1,20 @@
+@use '@/css/colors';
+
+.icontext {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+.icontext>.multiicon {
+    max-height: 1.6em;
+    max-width: 1.6em;
+    height: 1.6em;
+    width: 1.6em;
+    min-height: 1.6em;
+    min-width: 1.6em;
+}
+.icontext>svg {
+    height: 1.6em;
+    width: 1.6em;
+}

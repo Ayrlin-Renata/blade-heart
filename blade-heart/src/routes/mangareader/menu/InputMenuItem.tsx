@@ -1,6 +1,8 @@
 import { createRef } from "preact";
 import { useState } from "preact/hooks";
 
+import '@/css/mangareader/menu/inputmenuitem.scss';
+
 
 interface InputMenuItem {
     id: string,

@@ -1,6 +1,9 @@
 import { useState } from 'preact/hooks';
 import Select from 'react-select';
 
+import '@/css/mangareader/menu/selectmenuitem.scss';
+
+
 export interface SelectOption {
     label: string,
     value: string

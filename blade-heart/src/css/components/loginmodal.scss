@@ -1,0 +1,79 @@
+@use '@/css/colors';
+
+.loginmodal {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    top: 0;
+    left: 0;
+
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+.modalbg {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    min-height: 100%;
+    min-width: 100%;
+
+    background: colors.$bg-dark-trans;
+}
+
+.loginmodal>.modalcard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2.5em;
+
+    height: fit-content;
+    min-width: 25em;
+    width: 25em;
+    max-height: 100vh;
+    max-width: 90vw;
+
+    padding: 3em 3em;
+
+    background: colors.$grad-bg-dark-bottom;
+
+    border: solid 1px colors.$acc-bright;
+    border-radius: 5px;
+
+    outline: solid 5px colors.$bg-darkest;
+
+    z-index: 1;
+}
+
+.modalcard>.info {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+
+}
+
+.modalcard>.info>h1 {
+    margin: 0.5em 0em;
+    margin-top: 0em;
+
+}
+
+.modalcard>.info>svg {
+    height: 3em;
+    width: 3em;
+}
+
+.modalcard>.info>.icontext {
+    margin-left: 1.2em;
+}
+
+button.loginpopup {
+    height: 2.5em;
+
+    font-size: large;
+}

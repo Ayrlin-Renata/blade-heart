@@ -1,4 +1,4 @@
-import '@/css/sociallink.scss'
+import '@/css/components/sociallink.scss'
 
 export default function SocialLink({ children, site, handle, href } 
         : {children: any, site: string, handle: string, href: string}) {

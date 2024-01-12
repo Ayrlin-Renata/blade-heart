@@ -1,10 +1,12 @@
 @use '@/css/colors';
 
-.bh-pageheader {
+.pageheader {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    //align-content: center;
 
-    width:-webkit-fill-available;
+    width: -webkit-fill-available;
 
     margin: 0 auto;
     padding: 1em 5em;
@@ -17,7 +19,7 @@
     border-right: none;
 }
 
-.bh-pageheader > .maintitle {
+.pageheader>.maintitle {
     display: flex;
     flex-basis: 10em;
     flex-direction: row;
@@ -25,32 +27,57 @@
     justify-content: left;
 }
 
-.bh-pageheader > .maintitle > svg {
-    height:3em;
-    width:3em;
+.pageheader>.maintitle>svg {
+    height: 3em;
+    width: 3em;
 }
 
-.bh-pageheader > .maintitle > .titlewords {
+.pageheader>.maintitle>.titlewords {
     margin: 0em 1em;
 }
 
-.bh-pageheader > .maintitle > .titlewords > h1 {
+.pageheader>.maintitle>.titlewords>h1 {
     margin-top: 0px;
     margin-bottom: 0px;
 
     font-size: xx-large;
 }
 
-.bh-pageheader > p {
-    overflow:hidden;
+.pageheader>p {
+    overflow: hidden;
 
     margin: 0.2em;
+    //margin-top: 0.5em;
+    padding: 0.5em 1em;
 
     max-height: 4em;
 
     color: colors.$acc-primary;
 
     text-wrap: wrap;
-    text-align: end;
-    
+    //text-align: end;
+
+}
+
+.pageheader>.accountarea {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+
+    margin-top: -0.5em;
+}
+
+.accountarea>.account {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6em;
+
+    padding: 0em 1em;
+}
+
+.accountarea>.loginbtn {
+    width: -webkit-fill-available;
+    margin: 0em 1em;
 }

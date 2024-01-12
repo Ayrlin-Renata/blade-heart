@@ -1,4 +1,7 @@
 
+import '@/css/mangareader/menu/buttonmenuitem.scss';
+
+
 interface ButtonMenuItem {
     id: string
     label: string
