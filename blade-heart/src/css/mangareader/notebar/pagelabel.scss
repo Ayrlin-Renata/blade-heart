@@ -70,7 +70,23 @@
 }
 
 .links>.sharebutton {
+    position:relative;
+    top:-1.4em;
     color: colors.$acc-secondary;
+}
+
+.links>.sharebutton>*{
+    max-height: 1.2em;
+    max-width: 1.2em;
+    height: 1.2em;
+    width: 1.2em;
+    min-height: 1.2em;
+    min-width: 1.2em;
+}
+
+.links>.sharebutton>.multiicon {
+    position: relative;
+    top: -0.2em;
 }
 
 .links>.sharebutton:hover {

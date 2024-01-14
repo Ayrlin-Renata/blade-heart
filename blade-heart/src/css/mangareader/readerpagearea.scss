@@ -18,9 +18,11 @@
     background: colors.$bg-darkest;
 }
 
-// .readerpagearea > .pagecontainer {
-
-// }
+.readerpagearea>.pagecontainer {
+    display: flex;
+    gap: 3px; //IF YOU CHANGE THIS CHANGE READERPAGEAREA.TSX POSTOPX()
+    flex-direction: column;
+}
 
 .readerpagearea>.pagecontainer>img {
     width: 100%;
@@ -32,16 +34,16 @@
     -webkit-user-drag: none;
     -moz-user-drag: none;
     -ms-user-drag: none;
-    user-drag: none;
+    //user-drag: none;
 }
 
 .readerpagearea>.pagebottom {
-    width:100%;
+    width: 100%;
     height: 20vh;
 }
 
-.readerpagearea>.pagebottom>.nextchapter {
-    width:100%;
+.pagebottom>.nextchap {
+    width: 100%;
     height: 4em;
     margin: 1em auto;
 

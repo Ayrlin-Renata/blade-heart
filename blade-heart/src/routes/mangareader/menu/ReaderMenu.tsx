@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'preact/hooks';
+import { useContext, useEffect, useState } from 'preact/hooks';
 
 import { content as contentlist } from '../../../assets/json/contentlist.json';
 
 import ReaderMenuHeader from './ReaderMenuHeader';
 import LabelMenuItem from './LabelMenuItem.tsx';
 import AccountMenuItem from './AccountMenuItem.tsx';
-import SelectMenuItem from './SelectMenuItem.tsx';
+import SelectMenuItem, { SelectOption } from './SelectMenuItem.tsx';
 import MenuDivider from './MenuDivider.tsx';
 import PanelSwitcher from './PanelSwitcher.tsx';
 import SPanel from './SPanel.tsx';
@@ -21,13 +21,17 @@ import InputMenuItem from './InputMenuItem.tsx';
 
 import DictionaryNoteEmbed from '../notebar/DictionaryNoteEmbed.tsx';
 import { idify } from '../../../utils/ayrutils.tsx';
-import { getMangaMeta } from '../../../utils/jsonutils.tsx';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectManga, selectLang, selectChap, nav } from '../readerNav.tsx';
+import { getMeta } from '../../../utils/jsonutils.tsx';
 
 import '@/css/mangareader/menu/readermenu.scss'
 import '@/css/mangareader/menu/menuitem.scss'
 import { useNavigate } from 'react-router-dom';
+import { NavContext } from '../Reader.tsx';
+
+interface GoTo {
+    type: 'lang' | 'chap',
+    id: string
+}
 
 interface ReaderMenu {
     isCollapsed: boolean,
@@ -36,34 +40,43 @@ interface ReaderMenu {
 
 export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
     const navigate = useNavigate()
-    const [goto, setGoto] = useState("");
+    const [goto, setGoto] = useState({} as GoTo);
 
-    function navChapter(opt: any): void {
-        if (goto != JSON.parse(opt.value).id) {
-            setGoto(JSON.parse(opt.value).id)
+    function navLang(opt: SelectOption): void {
+        const gtId: string = opt.value
+        navGoTo({ type: 'lang', id: gtId })
+    }
+
+    function navChapter(opt: SelectOption): void {
+        const gtId: string = JSON.parse(opt.value).id
+        navGoTo({ type: 'chap', id: gtId })
+    }
+
+    function navGoTo(gt: GoTo) {
+        if (goto != gt) {
+            setGoto(gt)
         }
     }
 
     useEffect(() => {
         if (goto) {
-            //navigate()
+            const lang = goto.type === 'lang' ? goto.id : mNav.langid
+            const chap = goto.type === 'chap' ? goto.id : mNav.chapid
+            const url = ['/blade-heart/manhua', mNav.mangaid, lang, chap].join('/')
+            //console.log('goto:', url)
+            navigate(url)
         }
     }, [goto])
 
+    const mNav = useContext(NavContext)
 
-    const dispatch = useDispatch()
-    const mangaid = useSelector(selectManga)
-    const langid = useSelector(selectLang)
-    const chapid = useSelector(selectChap)
-
-    if (!mangaid || !langid || !chapid) {
-        console.warn(mangaid, langid, chapid);
+    if (!mNav.mangaid || !mNav.langid || !mNav.chapid) {
+        console.warn(mNav.mangaid, mNav.langid, mNav.chapid);
         return (<div>Loading...</div>);
     }
 
-    const mangaInfo = contentlist[mangaid as keyof typeof contentlist]
-    const mangaMeta = getMangaMeta(mangaid)
-    const langMeta = mangaMeta.lang(langid)
+    const mangaInfo = contentlist[mNav.mangaid as keyof typeof contentlist]
+    const { mangaMeta, langMeta, chapMeta, chapNumeral } = getMeta(mNav)
 
     if (!mangaInfo || !mangaMeta || !langMeta) {
         console.warn("manga info not found!")
@@ -79,12 +92,12 @@ export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
 
 
     const ids = {
-        language: (mangaid + "/mangalanguage"),
-        chapter: (mangaid + "/mangachapter"),
-        notes: (mangaid + "/panel/notes"),
-        behaviours: (mangaid + "/panel/behaviours"),
-        settings: (mangaid + "/panel/settings"),
-        dictionary: (mangaid + "/panel/dictionary"),
+        language: (mNav.mangaid + "/mangalanguage"),
+        chapter: (mNav.mangaid + "/mangachapter"),
+        notes: (mNav.mangaid + "/panel/notes"),
+        behaviours: (mNav.mangaid + "/panel/behaviours"),
+        settings: (mNav.mangaid + "/panel/settings"),
+        dictionary: (mNav.mangaid + "/panel/dictionary"),
     };
     const behaviourPresets = ["custom", "recommended"]
 
@@ -105,8 +118,9 @@ export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
                             .map((lang: string) => {
                                 return { label: mangaMeta.languages[lang].name, value: lang }
                             })}
-                        onChange={
-                            (opt) => dispatch(nav.actions.lang(opt.value))
+                        onChange={navLang}
+                        set={
+                            { label: langMeta.name, value: mNav.langid }
                         } />
                     <SelectMenuItem id={ids.chapter}
                         label="Chapter"
@@ -121,8 +135,15 @@ export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
                                     })
                                 }
                             })}
-                        onChange={
-                            (opt) => navChapter(opt)
+                        onChange={navChapter}
+                        set={
+                            {
+                                label: chapMeta.authornumber + ": " + chapMeta.name,
+                                value: JSON.stringify({
+                                    id: idify(chapMeta.name) || "",
+                                    numeral: chapNumeral
+                                })
+                            }
                         } />
                     <PanelSwitcher>
                         <SPanel id={ids.notes}

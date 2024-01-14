@@ -1,3 +1,4 @@
+import '@/css/components/sharebutton.scss'
 import { createRef } from "preact";
 
 

@@ -1,54 +1,75 @@
+import '@/css/mangareader/notebar/readernotebar.scss'
+
 import { createRef } from "preact";
-import { useContext, useMemo } from "preact/hooks";
+import { useContext, useMemo, useState } from "preact/hooks";
 
 import { content as contentnotes } from '../../../assets/json/notes.json';
 
 import ReaderNote from './ReaderNote.tsx';
 import PageLabel from './PageLabel.tsx';
+import { NavContext, ViewContext } from "../Reader.tsx";
+import { getMeta } from "@/utils/jsonutils.tsx";
 
 export default function () {
-    //console.log(mangaNav, readerView);
-    if (!(mangaNav.chapter)
-        || !(mangaNav.chapter.numeral)
-        || !(mangaNav.chapter.pageCount)
-        || !(readerView.height)
-        || readerView.height < 100) {
-            console.warn({
-                mangaNav_chapter: mangaNav.chapter,
-                readerView_height: readerView.height,
-            })
+    //console.log(mNav, readerView);
+    const rView = useContext(ViewContext)
+    const mNav = useContext(NavContext)
+
+    const [loadingTimer, setLoadingTimer] = useState(1)
+    if (loadingTimer > 0 ) {
+        if (!rView.isLoaded() || rView.viewWidth <= 0) {
+            setTimeout(() => setLoadingTimer(loadingTimer + 1), 500)
+            //console.log('loading..',rView.isLoaded(), {...rView})
+
+            return (<div>Loading...<div>{loadingTimer}</div></div>)
+        } else {
+            setLoadingTimer(1)
+        }
+    }
+
+    const {
+        // mangaMeta, langMeta, 
+        chapMeta, chapNumeral } = getMeta(mNav)
+
+    const pageCount = chapMeta.getPageCount()
+    //console.log(pageCount)
+
+    if (!(mNav.chapid)
+        || !(chapNumeral)
+        || !(pageCount)
+    ) {
+        console.warn({
+            mNav_chapter: mNav.chapid,
+        })
         return (<div class="notebarerror">Loading...</div>);
     }
 
-    const mediaData = contentnotes[mangaNav.manga.id as keyof typeof contentnotes];
+    const mediaData = contentnotes[mNav.mangaid as keyof typeof contentnotes];
     const chapData: any = mediaData.chapters
-        .find((ch) => ch.numeral === mangaNav.chapter.numeral);
+        .find((ch) => ch.numeral === chapNumeral);
 
     //    console.log("chapData",chapData);
     if (chapData != undefined && chapData == null) {
-        console.warn("could not find notes for chapter", mangaNav.chapter.numeral);
-        return (<div class="notebarerror">Huh? Unable to load notes for {mangaNav.chapter.label}</div>)
+        console.warn("could not find notes for chapter", chapNumeral);
+        return (<div class="notebarerror">Huh? Unable to load notes for {chapMeta.name}</div>)
     }
-
-    const heightBasis = mangaNav.chapter.pageCount ?
-        readerView.height / mangaNav.chapter.pageCount
-        : NaN;
 
     // NOTES
     const noteList = useMemo(() => {
         const nList = []
         if (chapData) {
-            const noteKeys = Array.from({ length: chapData.notes.length }, (_, i) => (mangaNav.chapter.numeral + "." + i));
+            const noteKeys = Array.from({ length: chapData.notes.length }, (_, i) => (chapNumeral + "." + i));
 
             (chapData.notes as Array<any>).sort((n1, n2) => { return n1.position - n2.position });
-
-            var idx = 0;
+            
+            let idx = 0;
             for (const note of chapData.notes) {
+                //console.log('note pos', rView.posToPx(note.position))
                 nList.push(
                     <>
                         <ReaderNote key={noteKeys[idx]}
                             type={note.type}
-                            pos={notePosToPx(note.position)}
+                            pos={rView.posToPx(note.position)}
                             note={note} />
                     </>
                 );
@@ -56,31 +77,27 @@ export default function () {
             }
         }
         return nList;
-    }, [chapData,readerView.height])
+    },[mNav.mangaid, mNav.langid, mNav.chapid])
 
     const notebarRef = createRef();
-
-    function notePosToPx(npos: number) {
-        const pos = Number(npos);
-        //console.log(pos, heightBasis)
-        return (pos * heightBasis) / 100;
-    }
 
     // PAGELABELS
 
     const pagelabelRef = createRef();
-    const pageLabels = useMemo(() => {
-        return Array.from({ length: mangaNav.chapter.pageCount },
-            (_, i) => (
-                <PageLabel pos={notePosToPx((i + 1) * 100)} index={i + 1} />
-
-            ));
-    }, [readerView.height])
+    const pageLabels = () => {
+        return Array.from({ length: pageCount },
+            (_, i) => {
+                //console.log('ARR', i,rView.heightUpTo(rView, i + 1),rView.pages[i].viewHeight, rView.pages[i].loaded)
+                return (
+                    <PageLabel pos={rView.heightUpTo(rView, i + 1)} index={i + 1} />
+                )
+            });
+    }
 
     return (
         <>
             <div class="readernotebar">
-                <div class="pagelabelcontainer" ref={pagelabelRef}>{pageLabels}</div>
+                <div class="pagelabelcontainer" ref={pagelabelRef}>{pageLabels()}</div>
                 <div class="notecontainer" ref={notebarRef}>{noteList}</div>
             </div>
         </>

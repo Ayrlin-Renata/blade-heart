@@ -1,13 +1,18 @@
+import '@/css/mangareader/readerpagearea.scss'
+
 import { useState, useContext, useEffect, useMemo } from 'preact/hooks';
 import { Resizable } from 're-resizable';
 
 import { createRef } from 'preact';
-import { MangaMetaChapter, MangaMetaLanguage, getMangaMeta, buildPageSrcFromValues } from '../../utils/jsonutils';
-import { useLocation } from 'react-router-dom';
+import { numeralFromNav, getMeta } from '../../utils/jsonutils';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { NavContext, ReaderView, ViewContext } from './Reader';
+import { idify } from '@/utils/ayrutils';
 
 export default function () {
+    const mNav = useContext(NavContext)
 
-    const bhurl: string = mangaNav.manga.id + "/readerpagearea/width";
+    const bhurl: string = mNav.mangaid + "/readerpagearea/width";
     const [remWidth] = useState(localStorage.getItem(bhurl) || "50vw");
 
     const contentstyle = {
@@ -28,79 +33,85 @@ export default function () {
     // @ts-ignore: need these unused params bc of the type definition 
     function handleResizeStop(event: MouseEvent | TouchEvent, direction: string, refToElement: HTMLElement, delta: any) {
         localStorage.setItem(bhurl, refToElement.offsetWidth.toString() + "px");
-        updateView();
+        //updateView();
     }
 
-    function loadPages() {
-        if (!mangaNav.chapter || !mangaNav.language || !mangaNav.chapter.numeral) {
-            return (<><div>Loading...</div></>)
-        }
+    const {
+        //mangaMeta, 
+        langMeta,
+        //chapMeta,
+        //chapNumeral 
+    } = getMeta(mNav)
 
-        return useMemo(() => {
-            const mangaMeta = getMangaMeta(mangaNav.manga.id);
-            const chapMeta = mangaMeta?.lang(mangaNav.language.id)?.chap(mangaNav.chapter.numeral);
-
-            if (!chapMeta) {
-                console.error("could not find chapter", mangaNav.chapter.numeral);
-                return (<><div class=".noteserror">Huh? Unable to load pages for {mangaNav.chapter.label}</div></>)
-            }
-
-            const langMeta = mangaMeta?.lang(mangaNav.language.id);
-            if (!langMeta) {
-                console.error("could not find", mangaNav.language, "language data for chapter", mangaNav.chapter.numeral);
-                return (<><div class=".noteserror">Huh? Missing {mangaNav.language} language data for {mangaNav.chapter.label}</div></>)
-            }
-
-            const loadCallback = () => {
-                //console.log("hi");
-            }
-            const pages = ingestChapterSources(langMeta, chapMeta, mangaNav, loadCallback);
-            // if (mangaNav.chapter.pageCount != pages.length) {
-            //     mangaNav.chapter.pageCount = pages.length;
-            //     mangaNav.setMangaNav(mangaNav);
-            // }
-
-            return (
-                <>
-                    {pages}
-                </>
-            )
-        }, [mangaNav.chapter, mangaNav.language]);
-    }
-
+    const rView = useContext(ViewContext);
     const pageContainerRef = createRef();
 
-    const readerView: ReaderViewData = useContext(ReaderViewContext);
-
-    useEffect(() => {
-        //console.log("afterImgLoad", pageContainerRef.current)
-        function waitUpdateView() {
-            //console.log('ref..', pageContainerRef.current?.offsetHeight);
-            if (pageContainerRef.current
-                && pageContainerRef.current.children.length > 0
-                && pageContainerRef.current.offsetHeight > 200) {
-                updateView();
-            } else {
-                //setTimeout(waitUpdateView,10000);
-            }
+    useEffect( () => {
+        if(pageContainerRef.current) {
+            const pcr = pageContainerRef.current as HTMLElement
+            const resizeObserver = new ResizeObserver(() => {
+                rView.viewWidth = pcr.offsetWidth
+            });
+            resizeObserver.observe(pcr);
         }
-        setTimeout(waitUpdateView, 500)
-        //waitUpdateView();
-    }, [pageContainerRef])
+    },[])
 
-    function updateView() {
-        if (pageContainerRef.current) {
-            if (pageContainerRef.current.offsetHeight != readerView.height) {
-                readerView.prevHeight = readerView.height;
-                readerView.height = pageContainerRef.current.offsetHeight;
-                readerView.setReaderView(readerView);
+    const [loadedPages, setLoadedPages] = useState(0)
+
+    function doneLoading(rv: ReaderView) {
+        setLoadedPages((loadedPages) => {
+            //console.log(loadedPages, rv.pages.length)
+            if(loadedPages == rv.pages.length - 1 && rv.isLoaded()) {
+                rv.update(rv)
             }
-        }
+            return loadedPages + 1
+        })
     }
 
-    //console.log("render")
+    const loadPages = useMemo(() => {
+        //console.log('loadPages', {...rView})
+        if (!rView.pages) {
+            return (<div>Loading...</div>)
+        }
+        setLoadedPages(0)
+        return rView.pages
+            .map((page) => {
+                const image = page.getImg()
 
-    //const navigate = useNavigate(); 
+                const imgRef = createRef()
+
+                function handleLoad() {
+                    //console.log('load' , page)
+                    const hir = (imgRef.current as HTMLImageElement)
+                    if(!hir || !hir.naturalHeight || !hir.naturalWidth || !hir.offsetHeight || hir.offsetHeight == 0) {
+                        setTimeout(() => handleLoad(), 100)
+                        return
+                    }
+                    page.origSize.height = hir.naturalHeight
+                    page.origSize.width = hir.naturalWidth
+                    page.viewHeight = hir.offsetHeight
+
+                    const resizeObserver = new ResizeObserver(() => {
+                        page.viewHeight = hir.offsetHeight
+                    });
+                    page.loaded = true;
+
+                    resizeObserver.observe(hir)
+                    doneLoading(rView)
+                    //rView.update(rView)
+                }
+
+                return (
+                    <img key={image.src}
+                        ref={imgRef}
+                        id={image.id}
+                        src={image.src}
+                        onLoad={handleLoad} />
+                )
+            })
+    }, [mNav.chapid, mNav.langid, mNav.mangaid])
+
+    const navigate = useNavigate();
     const loc = useLocation();
 
     return (
@@ -120,65 +131,19 @@ export default function () {
                 onResizeStop={handleResizeStop}
             >
                 <div class="readerpagearea">
-                    <div class="pagecontainer" ref={pageContainerRef}>{loadPages()}</div>
+                    <div class="pagecontainer" ref={pageContainerRef}>{loadPages}</div>
                     <div class="pagebottom">
-                        <button class="nextchapter"
+                        <button class="nextchap"
                             onClick={() => {
 
-                                const dest = loc.pathname;
-                                console.log(dest);
-                                //navigate();
+                                document.getElementsByClassName('mainscreen')[0].scrollTop = 0;
+                                const dest = loc.pathname.split('/').slice(0, -1).join('/') + '/' + idify(langMeta.chap((numeralFromNav(mNav) + 1)).name);
+                                //console.log(dest);
+                                navigate(dest);
                             }}>NEXT CHAPTER</button>
                     </div>
                 </div>
             </Resizable>
         </>
     )
-}
-
-
-function ingestChapterSources(lang: MangaMetaLanguage, chap: MangaMetaChapter, mangaNav: MangaNavData, loadCallback: Function) {
-    const langsource = lang.sourceurl;
-    const { pagemethod, pagedata, imageext } = chap;
-
-    const imgs = [];
-    const pageClass = "mangapage";
-
-    function buildImg(index: number, url: string) {
-        return (<img id={"page" + (index)} src={url} type={"image/" + imageext} class={pageClass} onLoad={loadCallback()}></img>);
-    }
-
-    switch (pagemethod) {
-        case "local":
-        case "fetch-source": {
-            const isLocal: boolean = pagemethod === "local";
-            const pagestart = (pagedata[0] as number) + (isLocal ? -1 : 0);
-            const pageend = (pagedata[1] as number) + (isLocal ? -1 : 0);
-
-            for (let i = pagestart; i <= pageend; i++) {
-                const url = buildPageSrcFromValues(i, pagemethod, langsource, mangaNav.chapter.numeral, imageext) || "";
-                imgs[i] = buildImg(i, url);
-            }
-        } break;
-        case "patch-source": {
-            let i = 1;
-            for (const val of pagedata) {
-                if (typeof val === "string") {
-                    imgs[i] = buildImg(i, val);
-                    i++;
-                } else if (Array.isArray(val)) {
-                    for (let j = val[0]; j <= val[1]; j++) {
-                        const url = langsource + mangaNav.chapter.numeral + "/" + j.toString().padStart(4, '0') + "." + imageext;
-                        imgs[i] = buildImg(i, url);
-                        i++;
-                    }
-                }
-            }
-        } break;
-        default:
-            console.error('unknown page retrieval method:', pagemethod);
-            return [(<div>Huh? Someone messed up the directions for retrieving the pages.</div>)]
-    }
-
-    return imgs.filter((im) => im);
 }

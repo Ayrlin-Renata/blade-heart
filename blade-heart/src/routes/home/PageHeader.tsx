@@ -1,10 +1,11 @@
 import Account from '@/components/Account';
-import AccountLogin from '@/components/AccountLogin';
 import BladeHeartIcon from '@/components/BladeHeartIcon';
 
 import '@/css/home/PageHeader.scss'
 
 export default function PageHeader({ text }: { text: string }) {
+
+
     return (
         <div class="pageheader">
             <div class="maintitle">
@@ -15,10 +16,7 @@ export default function PageHeader({ text }: { text: string }) {
                 </div>
             </div>
             <p>{text}</p>
-            <div class="accountarea">
-                <Account />
-                <AccountLogin />
-            </div>
+            <Account />
         </div>
     )
 }

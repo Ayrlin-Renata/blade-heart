@@ -1,3 +1,5 @@
+import '@/css/mangareader/notebar/pagelabel.scss'
+
 import ShareButton from "../../../components/ShareButton";
 import MultiIcon from "../../../components/MultiIcon";
 
@@ -7,7 +9,8 @@ import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import ImageIcon from '@mui/icons-material/Image';
 import { useContext, useMemo, useState } from "preact/hooks";
 import { saveAs } from "file-saver";
-import { buildPageSrc } from "../../../utils/jsonutils";
+import { getMeta } from "../../../utils/jsonutils";
+import { NavContext } from "../Reader";
 
 interface PageLabel {
     pos: number,
@@ -17,17 +20,21 @@ interface PageLabel {
 export default function ({ pos, index }: PageLabel) {
     const host = location.hostname == "localhost" ? `${location.hostname}:${location.port}` : location.hostname;
     const url = `${location.protocol}//${host}${location.pathname}`;
-    const sharePageLink = url + "#page" + index;
+    const sharePageLink = url + "#page" + index; 
 
+    const mNav = useContext(NavContext)
+    const { 
+        // mangaMeta, langMeta, chapMeta, 
+        chapNumeral } = getMeta(mNav)
 
-    const pgSrcObj = buildPageSrc(index,mangaNav.chapter.numeral,mangaNav.language.id,mangaNav.manga.id)
-    const copyImageLink = pgSrcObj.src;
-    const copyImageLinkType = pgSrcObj.type;
+    //const pgSrcObj = buildPageSrc(index,chapNumeral,mNav.langid,mNav.mangaid)
+    // const copyImageLink = pgSrcObj.src;
+    // const copyImageLinkType = pgSrcObj.type;
 
     const [feedbackText, setFeedbackText] = useState("");
     const [flash, setFlash] = useState(false);
 
-    var timeoutId = 0;
+    var timeoutId: any = undefined;
     var flashlock = false;
     function flashFeedbackText(text: string) {
         flashlock = true;
@@ -52,7 +59,7 @@ export default function ({ pos, index }: PageLabel) {
         flashFeedbackText(success? "Image Copied!" : "Denied! Try right-click!");
     }
     function dlImageClick() {
-        saveAs(copyImageLink);
+        // saveAs(copyImageLink);
         flashFeedbackText("Downloading!");
     }
 
@@ -86,7 +93,7 @@ export default function ({ pos, index }: PageLabel) {
                             left={<ImageIcon />}
                             right={<LinkIcon />} />
                     )}
-                    toClipboardText={copyImageLink}
+                    // toClipboardText={copyImageLink}
                     onClick={copyImageLinkClick}
                     onMouseOver={() => showDesc("Copy Image Link")}
                     onMouseOut={clearDesc} />
@@ -95,7 +102,7 @@ export default function ({ pos, index }: PageLabel) {
                         <MultiIcon primary={<ShareIcon />}
                             left={<ImageIcon />} />
                     )}
-                    toClipboardImageSrc={ { src: copyImageLink, type: copyImageLinkType} }
+                    // toClipboardImageSrc={ { src: copyImageLink, type: copyImageLinkType} }
                     //onClick={copyImageClick}
                     toClipboardCallback={(success) => copyImageClick(success)}
                     onMouseOver={() => showDesc("Copy Image")}

@@ -1,3 +1,4 @@
+import { MangaNav, ReaderPage } from '@/routes/mangareader/Reader';
 import { content as contentmeta } from '../assets/json/contentmeta.json';
 import { idify } from './ayrutils';
 
@@ -23,6 +24,7 @@ export interface MangaMetaChapter {
     pagemethod: "local" | "fetch-source" | "patch-source",
     pagedata: [number, number] | (string | [number, number])[],
     imageext: string,
+    suggestzoom: boolean,
     getPageCount: () => number
 }
 
@@ -81,74 +83,100 @@ export function getMangaMeta(id: string): (MangaMeta) {
     return mangaMeta;
 }
 
+export function getMeta(mNav: MangaNav) {
+    const mangaMeta = getMangaMeta(mNav.mangaid)
+    const langMeta = mangaMeta.lang(mNav.langid)
+    const chapNumeral = numeralFromNav(mNav)
+    const chapMeta = langMeta.chap(chapNumeral)
+    return { mangaMeta, langMeta, chapMeta, chapNumeral }
+}
+
 export function firstKey(o: any): any {
     return Object.keys(o)[0];
 }
 
-// function firstValue(o: any): any {
-//     return o[firstKey(o)];
-// }
-
-export function buildPageSrc(
-    page: number,
-    chap: number,
-    lang: string,
-    manga: string,
-): { src: string, type: string } {
-    const langMeta: MangaMetaLanguage = getMangaMeta(manga).lang(lang);
-    const chapMeta = langMeta.chap(chap);
-    const pm = chapMeta.pagemethod || "local";
-    return {
-        src: buildPageSrcFromValues(page, pm, langMeta.sourceurl, chap, chapMeta.imageext || "jpg"),
-        type: "image/" + chapMeta.imageext
-    }
+export function numeralFromNav(mNav: MangaNav) {
+    return numeralFromChapId(mNav.mangaid, mNav.langid, mNav.chapid);
 }
 
-export function buildPageSrcFromValues(
-    page: number,
-    pagemethod: ("fetch-source" | "patch-source" | "local"),
-    langsource: string,
-    chapNumeral: number,
-    imageext: string,
-    pagedata?: any[]
-): string {
-    switch (pagemethod) {
-        case "fetch-source":
-        case "local": {
-            const isLocal: boolean = pagemethod === "local";
-            const chapString = langsource + chapNumeral + "/";
-            const pageString = page.toString().padStart(isLocal ? 2 : 4, "0");
-            const extString = "." + imageext;
-            return chapString + pageString + extString;
-        } break;
-        case "patch-source": {
-            var countedPage = 0;
-            if (!pagedata) return "";
-            for (const val of pagedata) {
-                if (typeof val === "string") {
-                    countedPage++;
-                    if (page == countedPage) return val;
+export function numeralFromChapId(mangaid: string, langid: string, chapid: string) {
+    const mangaMeta = getMangaMeta(mangaid);
+    const langMeta = mangaMeta.lang(langid);
+    const foundChap = Object.entries(langMeta.chapters)
+        //@ts-ignore
+        .find(([key, chap]: any) => { return idify(chap.name) == chapid });
+    return Number(foundChap?.[0])
+}
 
-                } else if (Array.isArray(val)) {
-                    for (let j = val[0]; j <= val[1]; j++) {
-                        page++;
-                        if (page == countedPage) {
-                            return langsource + chapNumeral + "/" + j.toString().padStart(4, '0') + "." + imageext;
-                        }
-                    }
+export interface Size2 {
+    height: number,
+    width: number,
+}
+
+function buildPageUrl(pagestart: number, pageend: number, paddingLength: number, prefix: string, ext: string) {
+    //console.log("BUILD:", pagestart, pageend, paddingLength, prefix, ext)
+    const srcs: string[] = []
+    for(let srcNum = pagestart; srcNum <= pageend; srcNum++ ) {
+        //console.log(srcNum)
+        srcs.push(prefix + srcNum.toString().padStart(paddingLength, '0') + '.' + ext)
+    }
+    return srcs
+}
+
+export function loadPageMeta(mNav: MangaNav): ReaderPage[] {
+    const pages: ReaderPage[] = []
+
+    const { langMeta, chapMeta, chapNumeral } = getMeta(mNav)
+    let pageSrcs: string[] = []
+
+    switch (chapMeta.pagemethod) {
+        case 'local':
+        case 'fetch-source': {
+            const isLocal = chapMeta.pagemethod === 'local'
+            const pagestart = chapMeta.pagedata[0] as number + (isLocal ? -1 : 0)
+            const pageend = chapMeta.pagedata[1] as number + (isLocal ? -1 : 0)
+            const chapPrefix = langMeta.sourceurl + chapNumeral + '/'
+            const paddingLength = isLocal? 2 : 4
+            pageSrcs = buildPageUrl(pagestart, pageend, paddingLength, chapPrefix, chapMeta.imageext)
+        } break;
+        case 'patch-source': {
+            for(const pageData of chapMeta.pagedata) {
+                if(typeof pageData === 'string') {
+                    pageSrcs.push(pageData)
+                } else if(Array.isArray(pageData)) {
+                    const pagestart = pageData[0] as number
+                    const pageend = pageData[1] as number
+                    const chapPrefix = langMeta.sourceurl + chapNumeral + '/'
+                    const paddingLength = 4
+                    pageSrcs.concat(buildPageUrl(pagestart, pageend, paddingLength, chapPrefix, chapMeta.imageext))
                 }
             }
-        } break;
-        default: { }
-    }
-    return "";
-}
 
-export function numeralFromChapId(mangaId: string, langId: string, chapId: string) {
-    const mangaMeta = getMangaMeta(mangaId);
-    const langMeta = mangaMeta.lang(langId);
-    const foundChap = Object.entries(langMeta.chapters)
-    //@ts-ignore
-        .find(([ key, chap ] : any) => { return idify(chap.name) == chapId});
-    return Number(foundChap?.[0])
+        } break;
+    }
+
+    for (let pageidx = 0; pageidx < chapMeta.getPageCount(); pageidx++) {
+        const page = {
+            numeral: pageidx + 1,
+            src: pageSrcs[pageidx],
+            origSize: {
+                height: 0,
+                width: 0
+            } as Size2,
+            viewHeight: NaN,
+            suggestZoom: chapMeta.suggestzoom,
+            getImg: getImg,
+            loaded: false,
+        }
+
+        function getImg() {
+            const image: HTMLImageElement = new Image()
+            image.id = 'page' + page.numeral
+            image.src = page.src
+            return image
+        }
+
+        pages.push(page)
+    }
+    return pages
 }

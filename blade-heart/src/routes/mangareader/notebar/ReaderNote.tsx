@@ -1,6 +1,7 @@
+import '@/css/mangareader/notebar/note.scss'
 
 
-import { useContext, useState } from 'preact/hooks';
+import { useState } from 'preact/hooks';
 
 import ReaderNoteContent from './ReaderNoteContent.tsx';
 import { createRef } from 'preact';
@@ -29,13 +30,14 @@ export default function ({ type, pos, note }: ReaderNote) {
         setExpanded(!state);
     }
 
-    const menuPref = useContext(MenuPrefContext);
-    const mangaNav = useContext(MangaNavContext);
-    const shownCategories = menuPref.prefs
-        .filter((pref) => (
-            pref.value == true
-            && pref.id.startsWith(mangaNav.manga.id + "/panel/notes/slider/category/")));
-    const isCategoryShown: boolean = shownCategories.some((pref) => (pref.id.endsWith(note.category)));
+    //const mNav = useContext(NavContext);
+    // const shownCategories = menuPref.prefs
+    //     .filter((pref) => (
+    //         pref.value == true
+    //         && pref.id.startsWith(mNav.manga.id + "/panel/notes/slider/category/")));
+    // const isCategoryShown: boolean = shownCategories.some((pref) => (pref.id.endsWith(note.category)));
+
+    const isCategoryShown = true;
 
     return (
         <>

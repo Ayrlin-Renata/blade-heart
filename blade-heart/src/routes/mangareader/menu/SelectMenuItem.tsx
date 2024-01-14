@@ -10,13 +10,14 @@ export interface SelectOption {
 }
 
 interface SelectMenuItem {
-    id: string
-    label: string
-    options: SelectOption[]
-    onChange?: (value: SelectOption) => void
+    id: string,
+    label: string,
+    options: SelectOption[],
+    onChange?: (value: SelectOption) => void,
+    set?: SelectOption
 }
 
-export default function ({ id, label, options, onChange }: SelectMenuItem) {
+export default function ({ id, label, options, onChange, set }: SelectMenuItem) {
     const [selected, setSelected] = useState(() => {
         const def = (localStorage.getItem(id) || "");
         if (def) {
@@ -26,6 +27,12 @@ export default function ({ id, label, options, onChange }: SelectMenuItem) {
         }
         return def;
     });
+
+    if(set) {
+        const jOpt = JSON.stringify(set);
+        localStorage.setItem(id, jOpt);
+        setSelected(jOpt);
+    }
 
     function handleChange(opt: SelectOption) {
         const jOpt = JSON.stringify(opt);
@@ -89,6 +96,7 @@ export default function ({ id, label, options, onChange }: SelectMenuItem) {
                             }, 20);
                         }
                     }
+                    value={set}
                 />
             </div>
         </>

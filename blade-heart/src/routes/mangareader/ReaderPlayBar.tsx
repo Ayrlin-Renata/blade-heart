@@ -1,11 +1,13 @@
 import { useContext, useState } from 'preact/hooks';
 import { Resizable } from 're-resizable';
+import { NavContext } from './Reader';
 
 
 export default function () {
     // const readerView: ReaderViewData = useContext(ReaderViewContext);
+    const mNav = useContext(NavContext)
 
-    const bhurl: string = mangaNav.manga.id + "/readerplaybar/width";
+    const bhurl: string = mNav.mangaid + "/readerplaybar/width";
     const [remWidth] = useState(localStorage.getItem(bhurl) || "50px");
 
     const contentstyle = {

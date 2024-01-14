@@ -30,7 +30,7 @@ export default function ({ onExit }: LoginModal) {
                     <div class="info">
                         <BladeHeartIcon />
                         <h1>Welcome to Blade Heart!</h1>
-                        <IconText icon={<InfoIcon />}>Signing in allows Blade Heart to retain your preferences across uses and devices.</IconText>
+                        <IconText icon={<InfoIcon />}>Signing in allows Blade Heart to retain your preferences between visits.</IconText>
                         <IconText icon={
                             <MultiIcon
                                 primary={<WarningIcon />}

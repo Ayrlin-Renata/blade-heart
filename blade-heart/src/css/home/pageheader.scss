@@ -4,7 +4,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    //align-content: center;
 
     width: -webkit-fill-available;
 
@@ -47,8 +46,8 @@
     overflow: hidden;
 
     margin: 0.2em;
-    //margin-top: 0.5em;
-    padding: 0.5em 1em;
+    //margin-top: auto;
+    padding: 0em 1em;
 
     max-height: 4em;
 
@@ -60,24 +59,5 @@
 }
 
 .pageheader>.accountarea {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-
-    margin-top: -0.5em;
-}
-
-.accountarea>.account {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.6em;
-
-    padding: 0em 1em;
-}
-
-.accountarea>.loginbtn {
-    width: -webkit-fill-available;
-    margin: 0em 1em;
+    margin: auto 0em;
 }
