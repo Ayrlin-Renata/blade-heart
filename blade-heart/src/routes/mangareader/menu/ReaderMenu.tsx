@@ -21,7 +21,7 @@ import InputMenuItem from './InputMenuItem.tsx';
 
 import DictionaryNoteEmbed from '../notebar/DictionaryNoteEmbed.tsx';
 import { idify } from '../../../utils/ayrutils.tsx';
-import { getMeta } from '../../../utils/jsonutils.tsx';
+import { getMeta } from '../../../utils/jsonutils.ts';
 
 import '@/css/mangareader/menu/readermenu.scss'
 import '@/css/mangareader/menu/menuitem.scss'

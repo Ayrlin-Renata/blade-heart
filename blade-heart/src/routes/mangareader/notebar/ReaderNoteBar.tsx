@@ -8,7 +8,7 @@ import { content as contentnotes } from '../../../assets/json/notes.json';
 import ReaderNote from './ReaderNote.tsx';
 import PageLabel from './PageLabel.tsx';
 import { NavContext, ViewContext } from "../Reader.tsx";
-import { getMeta } from "@/utils/jsonutils.tsx";
+import { getMeta } from "@/utils/jsonutils.ts";
 
 export default function () {
     //console.log(mNav, readerView);

@@ -137,7 +137,8 @@ export default function () {
                         <button class="nextchap"
                             onClick={() => {
 
-                                document.getElementsByClassName('mainscreen')[0].scrollTop = 0;
+                                //document.getElementsByClassName('mainscreen')[0].scrollTop = 0;
+                                rView.scrollTo('px',0)
                                 const dest = loc.pathname.split('/').slice(0, -1).join('/') + '/' + idify(langMeta.chap((numeralFromNav(mNav) + 1)).name);
                                 //console.log(dest);
                                 navigate(dest);

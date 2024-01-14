@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'preact/hooks';
 import { idify } from '../../utils/ayrutils.tsx';
-import { firstKey, getMangaMeta } from '../../utils/jsonutils.tsx';
+import { firstKey, getMangaMeta } from '../../utils/jsonutils.ts';
 
 import '@/css/home/MediaCard.scss'
 
