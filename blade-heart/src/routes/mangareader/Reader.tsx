@@ -25,7 +25,7 @@ export interface ReaderView {
     viewWidth: number,
     pages: ReaderPage[],
     heightUpTo: (rv: ReaderView, pageidx?: number) => number,
-    posToPx: (pos: number) => number,
+    posToPx: (rv: ReaderView, pos: number) => number,
     scrollTo: (unit: 'px' | 'pos', value: number) => void,
     isLoaded: () => boolean,
     update: (rv: ReaderView) => void,
@@ -57,15 +57,15 @@ export default function MangaReader() {
     }
 
     const scrollRef = createRef()
-    const [rView, setRView ] = useState( {
-            viewWidth: 0,
-            pages: loadPageMeta(mNav),
-            heightUpTo: heightUpTo,
-            posToPx: posToPx,
-            scrollTo: scrollTo,
-            isLoaded: isRViewLoaded,
-            update: updateRV,
-        })
+    const [rView, setRView] = useState({
+        viewWidth: 0,
+        pages: loadPageMeta(mNav),
+        heightUpTo: heightUpTo,
+        posToPx: posToPx,
+        scrollTo: scrollTo,
+        isLoaded: isRViewLoaded,
+        update: updateRV,
+    })
 
     if (lastLocation && !(JSON.stringify(lastLocation) == JSON.stringify(mNav))) {
         //console.log('tes',rView)
@@ -81,7 +81,7 @@ export default function MangaReader() {
             if (unit === 'px') {
                 pix = value
             } else {
-                pix = posToPx(value)
+                pix = posToPx(rView, value)
             }
             htRef.scrollTo({
                 top: pix,
@@ -101,16 +101,16 @@ export default function MangaReader() {
             if (!rv.pages[idx]) return NaN
             heightCount += rv.pages[idx].viewHeight + 3 //readerpagearea.scss .pagecontainer gap
         }
-        
+
         return heightCount
     }
 
-    function posToPx(pos: number): number {
+    function posToPx(rv: ReaderView, pos: number): number {
         //console.log({...rView})
         const pageidx = Math.floor(pos / 100)
-        const pageHeight = rView.pages[pageidx].viewHeight
+        const pageHeight = rv.pages[pageidx].viewHeight
         const pagePos = Number(pos.toString().padStart(2, '0').slice(-2))
-        return heightUpTo(rView, pageidx) + ((pageHeight / 100) * pagePos)
+        return heightUpTo(rv, pageidx) + ((pageHeight / 100) * pagePos)
     }
 
     function isRViewLoaded() {
@@ -123,9 +123,9 @@ export default function MangaReader() {
 
     function updateRV(rv: ReaderView) {
         //console.log("COMP", rView, rv)
-        setRView({...rv})
+        setRView({ ...rv })
     }
-    
+
     // function updateRViewParam(paramid: string, value: any) {
     //     const rv = {...rView}
     //     const params = paramid.split('/')

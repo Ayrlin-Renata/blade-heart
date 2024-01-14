@@ -33,6 +33,7 @@ export default function () {
     // @ts-ignore: need these unused params bc of the type definition 
     function handleResizeStop(event: MouseEvent | TouchEvent, direction: string, refToElement: HTMLElement, delta: any) {
         localStorage.setItem(bhurl, refToElement.offsetWidth.toString() + "px");
+        rView.update(rView)
         //updateView();
     }
 

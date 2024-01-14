@@ -53,7 +53,6 @@ export default function () {
         console.warn("could not find notes for chapter", chapNumeral);
         return (<div class="notebarerror">Huh? Unable to load notes for {chapMeta.name}</div>)
     }
-
     // NOTES
     const noteList = useMemo(() => {
         const nList = []
@@ -69,7 +68,7 @@ export default function () {
                     <>
                         <ReaderNote key={noteKeys[idx]}
                             type={note.type}
-                            pos={rView.posToPx(note.position)}
+                            pos={rView.posToPx(rView,note.position)}
                             note={note} />
                     </>
                 );
@@ -77,7 +76,7 @@ export default function () {
             }
         }
         return nList;
-    },[mNav.mangaid, mNav.langid, mNav.chapid])
+    },[mNav.mangaid, mNav.langid, mNav.chapid,rView])
 
     const notebarRef = createRef();
 
