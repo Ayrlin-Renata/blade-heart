@@ -54,7 +54,7 @@ export default function () {
         return (<div class="notebarerror">Huh? Unable to load notes for {chapMeta.name}</div>)
     }
     // NOTES
-    const noteList = useMemo(() => {
+    const noteList = () => {
         const nList = []
         if (chapData) {
             const noteKeys = Array.from({ length: chapData.notes.length }, (_, i) => (chapNumeral + "." + i));
@@ -76,7 +76,7 @@ export default function () {
             }
         }
         return nList;
-    },[mNav.mangaid, mNav.langid, mNav.chapid,rView])
+    }
 
     const notebarRef = createRef();
 
@@ -97,7 +97,7 @@ export default function () {
         <>
             <div class="readernotebar">
                 <div class="pagelabelcontainer" ref={pagelabelRef}>{pageLabels()}</div>
-                <div class="notecontainer" ref={notebarRef}>{noteList}</div>
+                <div class="notecontainer" ref={notebarRef}>{noteList()}</div>
             </div>
         </>
     )

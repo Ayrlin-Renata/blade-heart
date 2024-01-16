@@ -1,6 +1,7 @@
 import { initializeApp } from "@firebase/app";
-import { collection, doc, getDoc, getFirestore, setDoc } from "firebase/firestore";
+import { DocumentData, DocumentReference, DocumentSnapshot, collection, doc, getDoc, getFirestore, setDoc, updateDoc } from "firebase/firestore";
 import { getAuth, GoogleAuthProvider, OAuthCredential, signInWithPopup } from "firebase/auth";
+import { QueryClient, useMutation, useQuery } from "@tanstack/react-query";
 
 //import { getAnalytics } from "firebase/analytics";
 
@@ -94,6 +95,38 @@ async function checkAndCreateUserFile(uid: string) {
             prefsets: {}
         });
     }
+}
+
+export function useUserdata(): { status: "error" | "success" | "pending" | undefined, data: any } {
+    const uid = auth.currentUser?.uid
+    if (uid) {
+        const udRef = doc(db, 'userdata', uid)
+        const { status, data } = useQuery({
+            queryKey: [uid],
+            queryFn: () => {
+                return getDoc(udRef)
+            },
+            staleTime: 300000,
+        })
+        return { status: status, data: data?.data() }
+    }
+    return { status: undefined, data: undefined }
+}
+
+export function mutateUserdata(qc: QueryClient, key: any, value: any) {
+    const uid = auth.currentUser?.uid
+    if(uid) {
+        const udRef = doc(db, 'userdata', uid)
+        useMutation({
+            mutationKey: [uid],
+            mutationFn: () => {
+                return updateDoc(udRef, {
+                    [key]: value
+                })
+            }, 
+            //queryClient: qc
+        })
+    } 
 }
 
 // export function getUserdataField(field: string, defaultValue: any) {

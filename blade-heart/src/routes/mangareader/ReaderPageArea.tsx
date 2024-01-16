@@ -47,22 +47,22 @@ export default function () {
     const rView = useContext(ViewContext);
     const pageContainerRef = createRef();
 
-    useEffect( () => {
-        if(pageContainerRef.current) {
+    useEffect(() => {
+        if (pageContainerRef.current) {
             const pcr = pageContainerRef.current as HTMLElement
             const resizeObserver = new ResizeObserver(() => {
                 rView.viewWidth = pcr.offsetWidth
             });
             resizeObserver.observe(pcr);
         }
-    },[])
+    }, [])
 
     const [, setLoadedPages] = useState(0)
 
     function doneLoading(rv: ReaderView) {
         setLoadedPages((loadedPages) => {
             //console.log(loadedPages, rv.pages.length)
-            if(loadedPages == rv.pages.length - 1 && rv.isLoaded()) {
+            if (loadedPages == rv.pages.length - 1 && rv.isLoaded()) {
                 rv.update(rv)
             }
             return loadedPages + 1
@@ -84,7 +84,7 @@ export default function () {
                 function handleLoad() {
                     //console.log('load' , page)
                     const hir = (imgRef.current as HTMLImageElement)
-                    if(!hir || !hir.naturalHeight || !hir.naturalWidth || !hir.offsetHeight || hir.offsetHeight == 0) {
+                    if (!hir || !hir.naturalHeight || !hir.naturalWidth || !hir.offsetHeight || hir.offsetHeight == 0) {
                         setTimeout(() => handleLoad(), 100)
                         return
                     }
@@ -98,6 +98,7 @@ export default function () {
                     page.loaded = true;
 
                     resizeObserver.observe(hir)
+                    rView.viewWidth = hir.offsetWidth
                     doneLoading(rView)
                     //rView.update(rView)
                 }
@@ -138,7 +139,7 @@ export default function () {
                             onClick={() => {
 
                                 //document.getElementsByClassName('mainscreen')[0].scrollTop = 0;
-                                rView.scrollTo('px',0)
+                                rView.scrollTo('px', 0)
                                 const dest = loc.pathname.split('/').slice(0, -1).join('/') + '/' + idify(langMeta.chap((numeralFromNav(mNav) + 1)).name);
                                 //console.log(dest);
                                 navigate(dest);
