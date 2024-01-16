@@ -7,17 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- <script>
-      // Immediately execute the code to ensure it runs before body rendering
-      (function() {
-        const metaTag = document.createElement('meta');
-        metaTag.setAttribute('name', 'description'); // Example attribute
-        metaTag.setAttribute('content', 'Dynamically added meta tag');
-    
-        // Insert the meta tag below the current script tag
-        this.parentNode.insertBefore(metaTag, this.nextSibling);
-      })();
-    </script> -->
-  <script>
     let manga;
     let lang;
     let chapter;
@@ -30,7 +19,7 @@
     let chapNumeral;
 
     const slashed = window.location.href.split('/')
-    if (slashed) {
+    if (slashed && slashed.length > 4) {
       const urlArr = slashed.slice(0, -1)
       const chpage = slashed.slice(-1)[0].split('#')
       //console.log(chpage)
@@ -1537,16 +1526,18 @@
 }
       //console.log(manga, lang, chapter, page)
       mangaMeta = data.content[manga]
-      langMeta = mangaMeta.languages[lang]
-      const chapts = langMeta.chapters
-      chapNumeral = Object.keys(chapts).find((key) => idify(chapts[key].name) === chapter)
-      chapMeta = chapts[chapNumeral]
-      //console.log(chapMeta)
-      const pg = page ? page : 1
-
-      const srcs = getPageSrcs(langMeta, chapMeta, chapNumeral)
-      //console.log(srcs[pg-1])
-      preImageUrl = srcs[pg - 1]
+      langMeta = mangaMeta?.languages[lang]
+      const chapts = langMeta?.chapters
+      if(mangaMeta && langMeta && chapts) {
+        chapNumeral = Object.keys(chapts).find((key) => idify(chapts[key].name) === chapter)
+        chapMeta = chapts[chapNumeral]
+        //console.log(chapMeta)
+        const pg = page ? page : 1
+  
+        const srcs = getPageSrcs(langMeta, chapMeta, chapNumeral)
+        //console.log(srcs[pg-1])
+        preImageUrl = srcs[pg - 1]
+      }
     }
     //console.log(mangaMeta, langMeta, chapMeta, chapNumeral)
 
@@ -1554,7 +1545,7 @@
 
     let ogTitle = "Blade Heart: A HI3rd Manga Reader"
     let ogDesc = "A fan project to provide an enriched supporting content experience. By Ayrlin Renata."
-    let ogImage = "/src/assets/manhua/second-eruption/en/35/03.jpg"
+    let ogImage = "/blade-heart/src/assets/manhua/second-eruption/en/35/03.jpg"
     let ogUrl = "https://ayrlin-renata.github.io/blade-heart"
     let ogSiteName = "Blade Heart: A HI3rd Manga Reader"
 
@@ -1608,12 +1599,11 @@
     const parentElement = currentScript.parentElement;
 
     // Insert the meta tag directly after the script
-    console.log(parentElement)
-    console.log(parentElement.appendChild(tagOgTitle));
-    console.log(parentElement.appendChild(tagOgDescription));
-    console.log(parentElement.appendChild(tagOgImage));
-    console.log(parentElement.appendChild(tagOgUrl));
-    console.log(parentElement.appendChild(tagOgSiteName));
+    parentElement.appendChild(tagOgTitle)
+    parentElement.appendChild(tagOgDescription)
+    parentElement.appendChild(tagOgImage)
+    parentElement.appendChild(tagOgUrl)
+    parentElement.appendChild(tagOgSiteName)
 
 
     function getPageSrcs(langMeta, chapMeta, chapNumeral) {
@@ -1754,20 +1744,21 @@
 
       return name.toLowerCase().replace(/\W/g, `\-`);
     }
-  </script>
+  </script> -->
 
-  <!-- <meta property="og:title" content="Blade Heart: A HI3rd Manga Reader">
+  <meta property="og:title" content="Blade Heart: A HI3rd Manga Reader">
   <meta property="og:description"
     content="A fan project to provide an enriched supporting content experience. By Ayrlin Renata.">
   <meta property="og:image" content="/src/assets/manhua/second-eruption/en/35/03.jpg">
-  <meta property="og:url" content="https://ayrlin-renata.github.io/blade-heart"> -->
+  <meta property="og:url" content="https://ayrlin-renata.github.io/blade-heart">
+  <meta property="og:site_name" content="Blade Heart: A HI3rd Manga Reader">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@ayrlinrenata">
 
   <title>Blade Heart: A HI3 fan project.</title>
-  <script type="module" crossorigin src="/assets/index-khozy3Zp.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-eAcJZXmc.css">
+  <script type="module" crossorigin src="/blade-heart/assets/index-ZOCjDWHn.js"></script>
+  <link rel="stylesheet" crossorigin href="/blade-heart/assets/index-r-u2ByuT.css">
 </head>
 
 <body>
