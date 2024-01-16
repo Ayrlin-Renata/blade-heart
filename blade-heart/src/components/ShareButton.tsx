@@ -10,7 +10,8 @@ interface ShareButton {
     onMouseOut?: (event?: MouseEvent) => void,
     toClipboardText?: string,
     toClipboardImageSrc?: { src: RequestInfo | URL, type: string }
-    toClipboardCallback?: (success: boolean) => void
+    toClipboardCallback?: (success: boolean) => void,
+    tab?: boolean,
 }
 
 export default function ({
@@ -21,7 +22,8 @@ export default function ({
     onMouseOut,
     toClipboardText,
     toClipboardImageSrc,
-    toClipboardCallback
+    toClipboardCallback,
+    tab
 }: ShareButton) {
 
     function handleClick(event: MouseEvent) {
@@ -78,6 +80,7 @@ export default function ({
         <>
             <button id={id}
                 class="sharebutton"
+                tabindex={ (tab == true)? NaN : -1 }
                 onClick={(event) => handleClick(event)}
                 onMouseOver={(event) => handleMouseOver(event)}
                 onMouseOut={(event) => handleMouseOut(event)}

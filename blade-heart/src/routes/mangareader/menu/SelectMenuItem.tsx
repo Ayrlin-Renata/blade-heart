@@ -1,7 +1,8 @@
-import { useState } from 'preact/hooks';
-import Select from 'react-select';
+import Select, { SingleValue } from 'react-select';
 
 import '@/css/mangareader/menu/selectmenuitem.scss';
+import { useQueryClient } from '@tanstack/react-query';
+import { usePrefComponent } from '@/utils/prefcomponent';
 
 
 export interface SelectOption {
@@ -14,71 +15,81 @@ interface SelectMenuItem {
     label: string,
     options: SelectOption[],
     onChange?: (value: SelectOption) => void,
-    set?: SelectOption
+    set?: SelectOption,
+    defaultValue?: SelectOption,
+    disabled?: boolean,
 }
 
-export default function ({ id, label, options, onChange, set }: SelectMenuItem) {
-    const [selected, setSelected] = useState(() => {
-        const def = (localStorage.getItem(id) || "");
-        if (def) {
-            if (onChange) {
-                onChange(JSON.parse(def));
-            }
-        }
-        return def;
-    });
+export default function ({ id, label, options, onChange, set, defaultValue, disabled }: SelectMenuItem) {
+    // default value
+    if (defaultValue == undefined) defaultValue = options[0]
 
-    if(set) {
-        const jOpt = JSON.stringify(set);
-        localStorage.setItem(id, jOpt);
-        setSelected(jOpt);
+    // styles
+    const selectStyles = {
+        control: (baseStyles: any) => ({
+            ...baseStyles,
+            borderRadius: "5px",
+            borderColor: '#00a0a0',
+            background: "#000000",
+            flexWrap: "nowrap",
+            ":hover": { borderColor: "#ffffff" },
+        }),
+        singleValue: (baseStyles: any) => ({
+            ...baseStyles,
+            color: disabled? "#707070" : "#ffffff",
+        }),
+        menu: (baseStyles: any) => ({
+            ...baseStyles,
+            background: "#000000",
+            border: "solid 2px #005050"
+        }),
+        option: (baseStyles: any, state: { isFocused: any; }) => ({
+            ...baseStyles,
+            background: state.isFocused ? '#005050' : '#000000',
+        }),
     }
 
-    function handleChange(opt: SelectOption) {
-        const jOpt = JSON.stringify(opt);
-        localStorage.setItem(id, jOpt);
-        setSelected(jOpt);
+    const { accType, status, updatePCState } = usePrefComponent(id, useQueryClient(), defaultValue)
+    if (accType === 'auth' && status !== 'success') {
+        return (
+            <>
+                <div class="selectmenuitem menuitem disabled">
+                    <div>{label}</div>
+                    <Select className="select"
+                    options={options}
+                    styles={ selectStyles }
+                    defaultValue={defaultValue}
+                    isDisabled={true}
+                    value={set}
+                />
+                    {/* <div class='menuitemloading'>Loading...</div> */}
+                </div>
+            </>
+        )
+    } else if (accType === 'guest') {
+
+    }
+
+    //console.log('rerender', history, id)
+
+    function handleChange(newValue: SingleValue<SelectOption>) {
+        const opt = newValue as SelectOption
+        updatePCState('state', opt)
         if (onChange) onChange(opt);
     }
 
-    var defaultOption = null;
-    if (selected) {
-        defaultOption = JSON.parse(selected);
-    } else {
-        defaultOption = options[0];
-        handleChange(defaultOption);
+    if (set) {
+        updatePCState('force', set)
     }
 
     return (
         <>
-            <div class="selectmenuitem menuitem">
+            <div class={"selectmenuitem menuitem" + (disabled? " disabled": "")}>
                 <div>{label}</div>
                 <Select className="select"
                     options={options}
-                    styles={{
-                        control: (baseStyles) => ({
-                            ...baseStyles,
-                            borderRadius: "5px",
-                            borderColor: '#00a0a0',
-                            background: "#000000",
-                            flexWrap: "nowrap",
-                            ":hover": { borderColor: "#ffffff" },
-                        }),
-                        singleValue: (baseStyles) => ({
-                            ...baseStyles,
-                            color: "#ffffff",
-                        }),
-                        menu: (baseStyles) => ({
-                            ...baseStyles,
-                            background: "#000000",
-                            border: "solid 2px #005050"
-                        }),
-                        option: (baseStyles, state) => ({
-                            ...baseStyles,
-                            background: state.isFocused ? '#005050' : '#000000',
-                        }),
-                    }}
-                    defaultValue={defaultOption}
+                    styles={selectStyles}
+                    defaultValue={defaultValue}
                     onChange={handleChange}
                     //@ts-ignore
                     maxMenuHeight={"50vh"}
@@ -90,12 +101,13 @@ export default function ({ id, label, options, onChange, set }: SelectMenuItem) 
                                     //selectedEl.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
                                     selectedEl.parentElement?.scrollTo({
                                         top: selectedEl.offsetTop,
-                                        behavior:'instant'
+                                        behavior: 'instant'
                                     })
                                 }
                             }, 20);
                         }
                     }
+                    isDisabled={disabled}
                     value={set}
                 />
             </div>

@@ -1,9 +1,5 @@
 @use '@/css/colors'; 
 
-@import "accountmenuitem.scss";
-@import "selectmenuitem.scss";
-@import "labelmenuitem.scss";
-
 .menuitem {
     display: flex;
     flex-direction: row;
@@ -18,4 +14,22 @@
     background: colors.$bg-darkest;
     
     border-left: solid 3px colors.$acc-gray;
+}
+
+.menuitem.disabled {
+    color: colors.$acc-gray !important;
+    background: colors.$bg-darkest !important;
+
+    border-color: colors.$acc-gray !important;
+
+    pointer-events: none !important;
+}
+
+.menuitem.disabled>*>* {
+    color: colors.$acc-gray !important;
+    background: colors.$bg-darkest !important;
+
+    border-color: colors.$acc-gray !important;
+
+    pointer-events: none !important;
 }

@@ -8,3 +8,10 @@
 
     border-left-color: colors.$acc-primary;
 }
+
+.menuitem.slidermenuitem.disabled>.sliderwrapper>*>* {
+    color: colors.$acc-gray;
+    background: colors.$acc-gray;
+
+    border-color: colors.$acc-gray;
+}

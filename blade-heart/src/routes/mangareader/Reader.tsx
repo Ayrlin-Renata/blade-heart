@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'preact/hooks';
+import { useState } from 'preact/hooks';
 
 import ReaderPlayBar from './ReaderPlayBar';
 import ReaderPageArea from './ReaderPageArea';
@@ -126,27 +126,6 @@ export default function MangaReader() {
         setRView({ ...rv })
     }
 
-    // function updateRViewParam(paramid: string, value: any) {
-    //     const rv = {...rView}
-    //     const params = paramid.split('/')
-    //     const param = params.slice(0,-1)
-    //     const last: any = params.slice(-1)
-
-    //     let lastObj: any = rv
-    //     for(const a of param) {
-    //         if(lastObj && Object.keys(lastObj).includes(a)) {
-    //             lastObj = lastObj[a as keyof typeof lastObj]
-    //         }
-    //     }
-
-    //     if(typeof(value) == typeof(lastObj[last as keyof typeof lastObj])) {
-    //         lastObj[last as keyof typeof lastObj] = value
-    //     }
-    //     console.log(params, rv)
-    //     setRView(rv)
-    // }
-    //console.log("RENDER",rView)
-    //console.log(mNav)
     const isLoading: boolean = ((!mNav || !(mNav.chapid)) && loadingTimer > 0);
     if (!isLoading) {
         return (
@@ -155,7 +134,6 @@ export default function MangaReader() {
                     <ViewContext.Provider value={rView}>
                         <div id="mangareader">
                             <div class="mainscreen" ref={scrollRef}>
-                                {/* <div class="draggable" >TEST</div> */}
                                 <div class="maininner">
                                     <ReaderPlayBar />
                                     <ReaderPageArea />
@@ -183,39 +161,3 @@ export default function MangaReader() {
         )
     }
 }
-
-// function dragMoveListener(event:any) {
-//     var target = event.target
-//     // keep the dragged position in the data-x/data-y attributes
-//     var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
-
-//     // translate the element
-//     target.style.transform = 'translate(' + 0 + 'px, ' + y + 'px)'
-
-//     // update the posiion attributes
-//     //target.setAttribute('data-x', x)
-//     target.setAttribute('data-y', y)
-// }
-
-// Interact('.draggable').draggable({
-//     inertia: true,
-//     modifiers: [
-//         Interact.modifiers.restrict({
-//             restriction: {
-//                 right: 0,
-//                 left: 0,
-//                 top: 400,
-//                 bottom: 600,
-//             },
-//         })
-//     ],
-//     listeners: {
-//         // call this function on every dragmove event
-//         move: dragMoveListener,
-
-//         // call this function on every dragend event
-//         end(event) {
-
-//         }
-//     }
-// });

@@ -3,23 +3,27 @@ import InfoIcon from '@mui/icons-material/Info';
 import GoogleIcon from '@mui/icons-material/Google';
 import WarningIcon from '@mui/icons-material/Warning';
 
-import { loginPopup } from '@/utils/accounts';
+import { loginPopup } from '@/utils/firebase';
 import IconText from './IconText';
 import MultiIcon from './MultiIcon';
 import BladeHeartIcon from './BladeHeartIcon';
+import { getAuth } from 'firebase/auth';
 
 interface LoginModal {
-    onExit: () => void
+    onExit: (uid?:string) => void
 }
 
 export default function ({ onExit }: LoginModal) {
-
-    function handleLoginClick() {
-        loginPopup()
+    async function handleLoginClick() {
+        const { err } = await loginPopup()
+        if(err.error == true) {
+            console.warn(err)
+        }
+        onExit()
     }
 
     function handleClickAway(): void {
-        onExit();
+        onExit(getAuth().currentUser?.uid);
     }
 
     return (

@@ -7,6 +7,13 @@
     align-items: center;
 }
 
+.sliderwrapper.disabled {
+    color: colors.$acc-gray;
+    background: colors.$bg-darkest;
+
+    pointer-events: none;
+}
+
 .bh-slider {
     display: flex;
     flex-direction: row;
@@ -38,7 +45,7 @@
     width: 2em;
     height: 2em;
 
-    margin: 3px;
+    margin: 4px;
     padding: 0px;
 
     background-color: colors.$acc-secondary;

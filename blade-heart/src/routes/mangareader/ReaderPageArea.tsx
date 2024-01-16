@@ -57,7 +57,7 @@ export default function () {
         }
     },[])
 
-    const [loadedPages, setLoadedPages] = useState(0)
+    const [, setLoadedPages] = useState(0)
 
     function doneLoading(rv: ReaderView) {
         setLoadedPages((loadedPages) => {

@@ -7,10 +7,7 @@ import ShareIcon from '@mui/icons-material/Share';
 import LinkIcon from '@mui/icons-material/Link';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import ImageIcon from '@mui/icons-material/Image';
-import { useContext, useMemo, useState } from "preact/hooks";
-import { saveAs } from "file-saver";
-import { getMeta } from "../../../utils/jsonutils";
-import { NavContext } from "../Reader";
+import { useMemo, useState } from "preact/hooks";
 
 interface PageLabel {
     pos: number,
@@ -22,10 +19,10 @@ export default function ({ pos, index }: PageLabel) {
     const url = `${location.protocol}//${host}${location.pathname}`;
     const sharePageLink = url + "#page" + index; 
 
-    const mNav = useContext(NavContext)
-    const { 
-        // mangaMeta, langMeta, chapMeta, 
-        chapNumeral } = getMeta(mNav)
+    //const mNav = useContext(NavContext)
+    // const { 
+    //     // mangaMeta, langMeta, chapMeta, 
+    //     chapNumeral } = getMeta(mNav)
 
     //const pgSrcObj = buildPageSrc(index,chapNumeral,mNav.langid,mNav.mangaid)
     // const copyImageLink = pgSrcObj.src;

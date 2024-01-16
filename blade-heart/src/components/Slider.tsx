@@ -1,50 +1,34 @@
-import { useState, useEffect } from 'preact/hooks';
-
-import defaults from '../assets/json/defaults.json';
+import { useState } from 'preact/hooks';
 
 import '@/css/components/slider.scss'
 
 interface SliderProps {
-    id: string;
-    onChange?: (state: boolean) => void;
-    offText?: string;
-    onText?: string;
+    id: string,
+    onChange?: (state: boolean) => void,
+    offText?: string,
+    onText?: string,
+    defaultValue?: boolean,
 }
 
-export default function Slider({ id, onChange, offText: lefttext, onText: righttext }: SliderProps) {
-    const [active, setActive] = useState(() => initActiveState());
-    const activeBool: boolean = active === "true";
-
-    function initActiveState() {
-        const startVal = localStorage.getItem(id) 
-            || defaults.slider[id as keyof typeof defaults.slider] 
-            || "false";
-        //setActive(startVal);
-        if (onChange) onChange(startVal === "true");
-        return startVal;
-    }
+export default function Slider({ id, onChange, offText, onText, defaultValue }: SliderProps) {
+    const [active, setActive] = useState(defaultValue);
 
     function toggleActive() {
-        setActive((curActive) => {
-            return (curActive !== "true").toString();
+        setActive((active) => {
+            return (!active)
         });
-        if (onChange) onChange(active !== "true");
+        if (onChange) onChange(!active);
     }
-
-    useEffect(() => {
-        //console.log("slider:", lsprefix, id, active);
-        localStorage.setItem(id, active.toString());
-    }, [active]);
 
     return (
         <>
             <div class="sliderwrapper">
-                <div class={"bh-slider-left " + (activeBool ? "active" : "")}>{lefttext}</div>
-                <button id={id} class={"bh-slider " + (activeBool ? "active" : "")}
+                <div class={"bh-slider-left " + (active ? "active" : "")}>{offText}</div>
+                <button id={id} class={"bh-slider " + (active ? "active" : "")}
                     onClick={toggleActive}>
                     <div class="bar"></div>
                 </button>
-                <div class={"bh-slider-right " + (activeBool ? "active" : "")}>{righttext}</div>
+                <div class={"bh-slider-right " + (active ? "active" : "")}>{onText}</div>
             </div>
         </>
     )

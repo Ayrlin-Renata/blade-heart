@@ -14,6 +14,7 @@ import ChatIcon from '@mui/icons-material/Chat';
 import CallSplitIcon from '@mui/icons-material/CallSplit';
 import SettingsIcon from '@mui/icons-material/Settings';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
+import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 
 import SliderMenuItem from './SliderMenuItem.tsx';
 import ButtonMenuItem from './ButtonMenuItem.tsx';
@@ -92,14 +93,17 @@ export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
 
 
     const ids = {
-        language: (mNav.mangaid + "/mangalanguage"),
-        chapter: (mNav.mangaid + "/mangachapter"),
-        notes: (mNav.mangaid + "/panel/notes"),
-        behaviours: (mNav.mangaid + "/panel/behaviours"),
-        settings: (mNav.mangaid + "/panel/settings"),
-        dictionary: (mNav.mangaid + "/panel/dictionary"),
+        language: (mNav.mangaid + "|sct|language"), //select|language
+        chapter: (mNav.mangaid + "|sct|chapter"),
+        notes: (mNav.mangaid + "|pnl|notes"), //panel/notes
+        behaviours: (mNav.mangaid + "|pnl|behaviours"),
+        audio: (mNav.mangaid + "|pnl|audio"),
+        settings: (mNav.mangaid + "|pnl|settings"),
+        dictionary: (mNav.mangaid + "|pnl|dictionary"),
     };
     const behaviourPresets = ["custom", "recommended"]
+    const notelang = ["English"]
+    const notesrc = ["ayrlin"]
 
     return (
         <>
@@ -148,45 +152,67 @@ export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
                     <PanelSwitcher>
                         <SPanel id={ids.notes}
                             icon={<ChatIcon />}>
-                            <LabelMenuItem id={ids.notes + "/label/title"}
+                            <LabelMenuItem id={ids.notes + "|lbl|ttl"}
                                 content="notes"
                                 subContent="preferences panel" />
-                            <SliderMenuItem id={ids.notes + "/slider/category/language"}
+                            <SelectMenuItem id={ids.notes + "|sct|notelang"} //select|notelang
+                                label="Note Language"
+                                options={notelang.map((pres: string) => { return { label: pres, value: pres } })}
+                                disabled />
+                            <SelectMenuItem id={ids.notes + "|sct|notesrc"}
+                                label="Note Source"
+                                options={notesrc.map((pres: string) => { return { label: pres, value: pres } })}
+                                disabled />
+                            <LabelMenuItem id={ids.notes + "|lbl|ctg"}
+                                content="categories"
+                                subContent='note visibility' />
+                            <SliderMenuItem id={ids.notes + "|sld|ctg|language"}
+                                key={ids.notes + "|sld|ctg|language"}
                                 offText="hide"
                                 onText="show"
-                                label="Language" />
-                            <SliderMenuItem id={ids.notes + "/slider/category/translation"}
+                                label="Language"
+                                defaultValue={true} />
+                            <SliderMenuItem id={ids.notes + "|sld|ctg|translation"}
+                                key={ids.notes + "|sld|ctg|translation"}
                                 offText="hide"
                                 onText="show"
-                                label="Translation" />
-                            <SliderMenuItem id={ids.notes + "/slider/category/pronunciation"}
+                                label="Translation"
+                                defaultValue={true} />
+                            <SliderMenuItem id={ids.notes + "|sld|ctg|pronunciation"}
+                                key={ids.notes + "|sld|ctg|pronunciation"}
                                 offText="hide"
                                 onText="show"
-                                label="Pronunciation" />
-                            <SliderMenuItem id={ids.notes + "/slider/category/context"}
+                                label="Pronunciation"
+                                defaultValue={true} />
+                            <SliderMenuItem id={ids.notes + "|sld|ctg|context"}
+                                key={ids.notes + "|sld|ctg|context"}
                                 offText="hide"
                                 onText="show"
-                                label="Context" />
-                            <SliderMenuItem id={ids.notes + "/slider/category/extra"}
+                                label="Context"
+                                defaultValue={true} />
+                            <SliderMenuItem id={ids.notes + "|sld|ctg|extra"}
+                                key={ids.notes + "|sld|ctg|extra"}
                                 offText="hide"
                                 onText="show"
-                                label="Extras" />
+                                label="Extras"
+                                defaultValue={false} />
                         </SPanel>
                         <SPanel id={ids.behaviours}
                             icon={<CallSplitIcon />}>
-                            <LabelMenuItem id={ids.behaviours + "/label/title"}
+                            <LabelMenuItem id={ids.behaviours + "|lbl|ttl"}
                                 content="behaviours"
                                 subContent="preferences panel" />
-                            <SelectMenuItem id={ids.behaviours + "/select/test"}
+                            <SelectMenuItem id={ids.behaviours + "|sct|test"} //select|test
                                 label="Presets"
-                                options={behaviourPresets.map((pres: string) => { return { label: pres, value: pres } })} />
+                                options={behaviourPresets.map((pres: string) => { return { label: pres, value: pres } })} 
+                                disabled/>
                         </SPanel>
                         <SPanel id={ids.settings}
                             icon={<SettingsIcon />}>
-                            <LabelMenuItem id={ids.settings + "/label/title"}
+                            <LabelMenuItem id={ids.settings + "|lbl|ttl"}
                                 content="settings"
                                 subContent="preferences panel" />
-                            <ButtonMenuItem id={ids.settings + "/button/console/localStorageList"}
+                            <ButtonMenuItem id={ids.settings + "|btn|csl|localStorageList"}
                                 label="[DEV] localStorage"
                                 button="LIST"
                                 onClick={function test() {
@@ -194,17 +220,37 @@ export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
                                         .from({ length: localStorage.length }, (_, i) => i)
                                         .map((jndex) => ({ key: localStorage.key(jndex), value: localStorage.getItem(localStorage.key(jndex) || "") })))
                                 }} />
-                            <ButtonMenuItem id={ids.settings + "/button/console/localStorageClear"}
+                            <ButtonMenuItem id={ids.settings + "|btn|csl|localStorageClear"}
                                 label="[DEV] localStorage"
                                 button="CLEAR"
                                 onClick={() => localStorage.clear()} />
                         </SPanel>
+                        <SPanel id={ids.audio}
+                            icon={<VolumeUpIcon />}>
+                            <LabelMenuItem id={ids.audio + "|lbl|ttl"}
+                                content="audio"
+                                subContent="settings panel" />
+                            <SliderMenuItem id={ids.audio + "|sld|bgm"}
+                                key={ids.audio + "|sld|bgm"}
+                                offText="off"
+                                onText="on"
+                                label="Background Music"
+                                defaultValue={false}
+                                disabled />
+                            <SliderMenuItem id={ids.audio + "|sld|sfx"}
+                                key={ids.audio + "|sld|sfx"}
+                                offText="off"
+                                onText="on"
+                                label="Sound Effects"
+                                defaultValue={false}
+                                disabled />
+                        </SPanel>
                         <SPanel id={ids.dictionary}
                             icon={<MenuBookIcon />}>
-                            <LabelMenuItem id={ids.dictionary + "/label/title"}
+                            <LabelMenuItem id={ids.dictionary + "|lbl|ttl"}
                                 content="dictionary"
                                 subContent="lookup panel" />
-                            <InputMenuItem id={ids.dictionary + "/input/dictionary"}
+                            <InputMenuItem id={ids.dictionary + "|in|dictionary"}
                                 label="Search"
                                 onEnter={(value) => {
                                     setDictionarySearch(value);

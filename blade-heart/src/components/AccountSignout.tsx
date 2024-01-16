@@ -7,7 +7,7 @@ interface AccountSignout {
 }
 
 export default function ({ text }: AccountSignout) {
-    function handleClick(event: any): void {
+    function handleClick(_event: any): void {
         const auth = getAuth();
         auth.signOut();
     }

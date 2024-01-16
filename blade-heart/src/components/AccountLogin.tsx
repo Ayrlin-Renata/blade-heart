@@ -10,9 +10,9 @@ interface AccountLogin {
 }
 
 export default function ({ text }: AccountLogin) {
-    const [modalOpen, setModalOpen] = useState(false)
+    const [, setModalOpen] = useState(false)
 
-    function handleClick(event: any): void {
+    function handleClick(_event: any): void {
         setModalOpen(true);
 
         const modal = document.getElementById('app')?.appendChild(document.createElement('div'));
@@ -21,7 +21,7 @@ export default function ({ text }: AccountLogin) {
                 <LoginModal onExit={() => {
                     setModalOpen(false)
                     modal?.remove()
-                    }} />
+                }} />
             </>),
             modal as ContainerNode
         )

@@ -62,7 +62,7 @@ export default function ({ type, note, expanded, transitioning, onClick }: Reade
     return (
         <>
             <div class={"noteicon notetype" + type} onClick={(event) => onClick(event, expanded)}>
-                <button>
+                <button tabindex={ -1 }>
                     {result.btnIcon}
                 </button>
             </div>

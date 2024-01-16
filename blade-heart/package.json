@@ -5,7 +5,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "predeploy": "npm run build && @powershell copy ./404.html ./dist/404.html",
+    "predeploy": "npm run build && @powershell copy ./404.html ./dist/404.html && @powershell -Command \"Copy-Item -Path './src/assets/manhua/' -Destination './dist/src/assets/manhua/' -Recurse\"",
     "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "tsc && vite build",
@@ -37,6 +37,7 @@
     "@mui/icons-material": "^5.15.3",
     "@preact/preset-vite": "^2.7.0",
     "@tanstack/eslint-plugin-query": "^5.17.7",
+    "@tanstack/react-query-devtools": "^5.17.10",
     "@types/file-saver": "^2.0.7",
     "@types/lodash": "^4.14.202",
     "@types/node": "^20.10.8",

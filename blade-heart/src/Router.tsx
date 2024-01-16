@@ -35,10 +35,9 @@ const router = createBrowserRouter([
 // APP RENDER
 //
 export default function Router() {
-
   return (
     <>
-      <RouterProvider router={router} />
+        <RouterProvider router={router} />
     </>
   )
 }
