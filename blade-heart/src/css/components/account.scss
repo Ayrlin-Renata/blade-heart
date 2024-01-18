@@ -14,8 +14,10 @@
     flex-direction: row-reverse;
     align-items: center;
     gap: 0.7em;
+    justify-content: end;
 
     margin-top: -0.5em;
+    margin-left: 3em;
 }
 
 .accountarea>.account {
@@ -27,6 +29,42 @@
 
     //margin: 1em 0em;
     //padding: 0em 1em;
+}
+
+.accountarea>.activearea {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: start;
+
+    height: fit-content;
+    width: 8.5em;
+}
+
+.activearea>.iconarea {
+    overflow: hidden;
+    display:flex;
+    justify-content: center;
+
+    height: auto;
+    width: 0em;
+
+    transition: width 0.5s ease-in-out;
+}
+
+.activearea>.iconarea.expand {
+    width: 3em;
+}
+
+.activearea>.iconarea>button {
+    height: 100%;
+
+    background: none;
+    border-color: colors.$acc-primary;
+    border-left: 0;
+    border-right: 0
+}
+.activearea>.iconarea>button:hover {
+    border-color: colors.$acc-white;
 }
 
 .signoutbtn,

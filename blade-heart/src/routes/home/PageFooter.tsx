@@ -2,8 +2,10 @@ import SocialLink from '../../components/SocialLink'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import CloudIcon from '@mui/icons-material/Cloud';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
+import XIcon from '@mui/icons-material/X';
 
 import '@/css/home/PageFooter.scss'
+import MultiIcon from '@/components/MultiIcon';
 
 export default function PageFooter() {
     return (
@@ -12,7 +14,10 @@ export default function PageFooter() {
                 <p>a web app by Ayrlin Renata. </p>
                 <div class="socials">
                     <SocialLink site="Xwitter" handle="@ayrlinrenata" href="https://twitter.com/ayrlinrenata">
-                        <TwitterIcon />
+                        <MultiIcon
+                            primary={<TwitterIcon />}
+                            left={<XIcon />}
+                        />
                     </SocialLink>
                     <SocialLink site="BlueSky" handle="ayrlin.bsky.app" href="https://bsky.app/profile/ayrlin.bsky.social">
                         <CloudIcon />

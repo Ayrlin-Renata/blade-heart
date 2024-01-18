@@ -1,7 +1,7 @@
 import { getAuth, onAuthStateChanged } from "firebase/auth"
 import { db, useUserdata } from "./firebase"
 import { doc, getDoc, updateDoc } from "firebase/firestore"
-import { QueryClient, useMutation, useQuery } from "@tanstack/react-query"
+import { QueryClient, useMutation } from "@tanstack/react-query"
 import { useEffect, useState } from "preact/hooks"
 
 
@@ -104,7 +104,7 @@ export function usePrefComponent(id: string,
                     [idkey]: pcState.value
                 })
             },
-            onSuccess: (_data, _variables) => {
+            onSuccess: () => {
                 //console.log('successMutation',data)
                 qc.invalidateQueries({ queryKey: [uid] })
                 //qc.setQueryData([uid], data)

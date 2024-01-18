@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'preact/hooks';
 
 import { content as contentlist } from '../../../assets/json/contentlist.json';
 
-import ReaderMenuHeader from './ReaderMenuHeader';
+import ReaderMenuHeader from './MenuHeader.tsx';
 import LabelMenuItem from './LabelMenuItem.tsx';
 import AccountMenuItem from './AccountMenuItem.tsx';
 import SelectMenuItem, { SelectOption } from './SelectMenuItem.tsx';
@@ -214,7 +214,7 @@ export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
                                 subContent="preferences panel" />
                             <ButtonMenuItem id={ids.settings + "|btn|csl|localStorageList"}
                                 label="[DEV] localStorage"
-                                button="LIST"
+                                children="LIST"
                                 onClick={function test() {
                                     console.log(Array
                                         .from({ length: localStorage.length }, (_, i) => i)
@@ -222,7 +222,7 @@ export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
                                 }} />
                             <ButtonMenuItem id={ids.settings + "|btn|csl|localStorageClear"}
                                 label="[DEV] localStorage"
-                                button="CLEAR"
+                                children="CLEAR"
                                 onClick={() => localStorage.clear()} />
                         </SPanel>
                         <SPanel id={ids.audio}

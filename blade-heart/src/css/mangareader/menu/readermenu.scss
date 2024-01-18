@@ -19,14 +19,17 @@
 
 .readermenu > .collapsebtn {
     width: 1em;
+    
+    padding: 0;
 
     background: colors.$acc-dark;    
     color: colors.$acc-primary;
-
+    
     font-size: large;
-
+    
     border: solid 1px colors.$acc-dull;
     border-right: none;
+    border-radius: 0px;
 
     transition: width 0.5s ease-in-out, background-color 0.25s ease-in-out;
 }

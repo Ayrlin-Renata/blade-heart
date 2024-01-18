@@ -33,6 +33,7 @@ export default function ({ id, label, options, onChange, set, defaultValue, disa
             background: "#000000",
             flexWrap: "nowrap",
             ":hover": { borderColor: "#ffffff" },
+            transition: "border-color 0.25s ease-in-out",
         }),
         singleValue: (baseStyles: any) => ({
             ...baseStyles,

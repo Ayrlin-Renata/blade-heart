@@ -1,7 +1,14 @@
 import { initializeApp } from "@firebase/app";
-import { DocumentData, DocumentReference, DocumentSnapshot, collection, doc, getDoc, getFirestore, setDoc, updateDoc } from "firebase/firestore";
-import { getAuth, GoogleAuthProvider, OAuthCredential, signInWithPopup } from "firebase/auth";
-import { QueryClient, useMutation, useQuery } from "@tanstack/react-query";
+import { initializeAppCheck, ReCaptchaEnterpriseProvider } from "firebase/app-check";
+import { collection, doc, getDoc, getFirestore, setDoc } from "firebase/firestore";
+import {
+    getAuth,
+    GoogleAuthProvider,
+    TwitterAuthProvider,
+    OAuthCredential,
+    signInWithPopup
+} from "firebase/auth";
+import { useQuery } from "@tanstack/react-query";
 
 //import { getAnalytics } from "firebase/analytics";
 
@@ -24,29 +31,35 @@ const firebaseConfig = {
 //@ts-ignore
 const app = initializeApp(firebaseConfig);
 //const analytics = getAnalytics(app);
+//@ts-ignore
+const appCheck = initializeAppCheck(app, {
+    provider: new ReCaptchaEnterpriseProvider('6LcCuVApAAAAADLTqyEERhaJZlP0GV1OgI_1zCCU'),
+    isTokenAutoRefreshEnabled: true // Set to true to allow auto-refresh.
+});
 
-const provider = new GoogleAuthProvider();
+const providerGoogle = new GoogleAuthProvider();
+const providerTwitter = new TwitterAuthProvider();
+export const providerList = [providerGoogle, providerTwitter];
 const auth = getAuth();
 
 const deviceLang = auth.useDeviceLanguage();
 auth.languageCode = (deviceLang != null) ? deviceLang : 'en';
 
-export async function loginPopup() {
+///GOOGLE
 
+export async function loginPopupGoogle() {
     const res = {
         credential: null as OAuthCredential | null,
         token: undefined as string | undefined,
         user: undefined as any | undefined,
     }
-
     const err = {
         error: false,
         errorCode: undefined as any,
         errorMessage: undefined as any,
         credential: null as OAuthCredential | null,
     }
-
-    await signInWithPopup(auth, provider)
+    await signInWithPopup(auth, providerGoogle)
         .then((result) => {
             // This gives you a Google Access Token. You can use it to access the Google API.
             res.credential = GoogleAuthProvider.credentialFromResult(result);
@@ -64,6 +77,45 @@ export async function loginPopup() {
             err.errorMessage = error.message;
             // The AuthCredential type that was used.
             err.credential = GoogleAuthProvider.credentialFromError(error);
+            // ...
+        });
+
+    return { res, err }
+}
+
+/// TWITTER
+export async function loginPopupTwitter() {
+    const res = {
+        credential: null as OAuthCredential | null,
+        token: undefined as string | undefined,
+        secret: undefined as any,
+        user: undefined as any | undefined,
+    }
+    const err = {
+        error: false,
+        errorCode: undefined as any,
+        errorMessage: undefined as any,
+        credential: null as OAuthCredential | null,
+    }
+    await signInWithPopup(auth, providerTwitter)
+        .then((result) => {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            res.credential = TwitterAuthProvider.credentialFromResult(result);
+            res.token = res.credential?.accessToken;
+            res.secret = res.credential?.secret;
+            // The signed-in user info.
+            res.user = result.user;
+            // IdP data available using getAdditionalUserInfo(result)
+            // ...
+            checkAndCreateUserFile(result.user.uid)
+
+        }).catch((error) => {
+            err.error = true
+            // Handle Errors here.
+            err.errorCode = error.code;
+            err.errorMessage = error.message;
+            // The AuthCredential type that was used.
+            err.credential = TwitterAuthProvider.credentialFromError(error);
             // ...
         });
 
@@ -111,22 +163,6 @@ export function useUserdata(): { status: "error" | "success" | "pending" | undef
         return { status: status, data: data?.data() }
     }
     return { status: undefined, data: undefined }
-}
-
-export function mutateUserdata(qc: QueryClient, key: any, value: any) {
-    const uid = auth.currentUser?.uid
-    if(uid) {
-        const udRef = doc(db, 'userdata', uid)
-        useMutation({
-            mutationKey: [uid],
-            mutationFn: () => {
-                return updateDoc(udRef, {
-                    [key]: value
-                })
-            }, 
-            //queryClient: qc
-        })
-    } 
 }
 
 // export function getUserdataField(field: string, defaultValue: any) {

@@ -5,6 +5,9 @@ import '@/css/mangareader/menu/panelswitcher.scss';
 
 export default function ({ children }: any) {
     const [ curPanel, setCurPanel ] = useState("");
+    if(!children[0]) {
+        children = [children]
+    }
     if(!curPanel) {
         handleSwitch(children[0].props.id);
     }

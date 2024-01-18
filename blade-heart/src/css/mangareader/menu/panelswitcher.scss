@@ -17,6 +17,12 @@
 .panelswitcher > .tabs > button {
     flex-grow: 2;
 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5em;
+    align-items: center;
+
     width: 6em;
     height: 3em;
     min-width: 6em;
@@ -37,6 +43,10 @@
 
 .panelswitcher > .tabs > button.selected {
     color: colors.$acc-bright;
+}
+
+.panelswitcher > .tabs > button > div {
+    font-size: small;
 }
 
 .spanel > .dictionaryembed {

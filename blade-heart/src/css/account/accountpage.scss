@@ -1,0 +1,125 @@
+@use '@/css/colors';
+
+.accountpage {
+    display: block;
+    //flex-direction: column;
+
+    height: 100%;
+    width: 100%;
+
+    background: colors.$grad-bg-dark-left;
+}
+
+.accountpage>.header {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    row-gap: 1em;
+    
+    margin:0;
+    padding: 2em 5em;
+    //padding-top: 0em;
+    
+    //background: colors.$grad-bg-dark-top;
+    background: colors.$grad-bg-dark-bottom;
+    //background: colors.$bg-dark;
+    border-bottom: solid 2px colors.$acc-primary;
+}
+
+.accountpage>.header>.readermenuheader:hover {
+        background-position-y: -100px ;
+}
+
+.accountpage>.header>.accountarea {
+    font-size: xx-large;
+    flex-direction: row;
+    gap: 1em;
+    margin: 0;
+    width: fit-content;
+}
+
+.accountpage>.header>.accountarea>.activearea {
+    font-size: x-large;
+    flex-direction: row !important;
+    justify-content: right;
+    width: fit-content;
+}
+
+.accountpage>.header>.accountarea>.account {
+    gap: 0.1em;
+}
+.accountpage>.header>.accountarea>.account>.accName {
+    font-size: xx-large;
+    justify-content: right;
+}
+
+.contentbar {
+    overflow-y: auto;
+    display:flex;
+    flex-direction: row;
+
+    height: 100%;
+    width: -webkit-fill-available;
+
+    //padding: 2em 5em;
+
+    background: colors.$grad-bg-dark-bottom;
+    border-left: solid 2px colors.$acc-primary;
+}
+
+.contentbar::before,
+.contentbar::after {
+    content:"";
+    flex-grow: 1;
+}
+
+.contentbar>.contentarea {
+
+    flex-basis: 60em;
+    flex-grow: 2;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: start;
+    align-content: flex-start;
+    row-gap: 0.2em;
+
+    height: 100%;
+    width: auto; 
+}
+
+.contentbar>.contentarea>.panelswitcher {
+    height: fit-content;
+    min-width: 10em; 
+    flex-grow: 1;
+    flex-basis: 15em;
+}
+
+.contentbar>.contentarea>.panelswitcher>.tabs {
+    flex-direction: column;
+}
+.contentbar>.contentarea>.panelswitcher>.tabs>button {
+    width: auto;
+}
+
+.contentbar>.contentarea>.spanel {
+    flex-grow: 2;
+    flex-basis: 40em;
+    
+    height: auto;
+    width: auto;
+}
+
+.contentbar>.contentarea>.spanel>:first-child {
+    padding-top: 1.5em;
+}
+
+.contentbar>.contentarea>.spanel>.buttonmenuitem>button {
+    margin-right: 5em;
+    padding: 0.3em 2em;
+}

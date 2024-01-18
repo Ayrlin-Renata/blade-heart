@@ -12,16 +12,23 @@ import '@/css/home/app.scss'
 import Root from './routes/home/Root'
 import ErrorPage from "./errorpage";
 import ChapterReader from "./routes/mangareader/Reader";
+import AccountPage from "./routes/account/AccountPage";
 
 //router
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Navigate to="/blade-heart" replace />,
+    errorElement: <ErrorPage />,
   },
   {
     path: "/blade-heart",
     element: <Root />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/blade-heart/account",
+    element: <AccountPage />,
     errorElement: <ErrorPage />,
   },
   {

@@ -5,11 +5,11 @@ import '@/css/mangareader/menu/buttonmenuitem.scss';
 interface ButtonMenuItem {
     id: string
     label: string
-    button: string | HTMLElement
+    children: any
     onClick?: () => void
 }
 
-export default function ({ id, label, button, onClick }: ButtonMenuItem) {
+export default function ({ id, label, children: button, onClick }: ButtonMenuItem) {
 
     function handleClick() {
         if(onClick) onClick();

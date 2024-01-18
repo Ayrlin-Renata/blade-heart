@@ -1,7 +1,7 @@
 import '@/css/mangareader/notebar/readernotebar.scss'
 
 import { createRef } from "preact";
-import { useContext, useMemo, useState } from "preact/hooks";
+import { useContext, useState } from "preact/hooks";
 
 import { content as contentnotes } from '../../../assets/json/notes.json';
 

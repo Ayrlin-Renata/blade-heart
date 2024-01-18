@@ -13,8 +13,7 @@ interface InputMenuItem {
 }
 
 export default function ({ id, label, value, autoClear, onEnter }: InputMenuItem) {
-    //@ts-ignore
-    const [curValue, setCurValue] = useState(() => {
+    const [_curValue, setCurValue] = useState(() => {
         const def = (value? value : localStorage.getItem(id) || "");
         if (def) {
             if (onEnter) {

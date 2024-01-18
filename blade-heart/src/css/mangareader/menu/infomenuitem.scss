@@ -1,0 +1,37 @@
+@use '@/css/colors';
+
+.infomenuitem.menuitem {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+    margin: 0;
+    padding: 1em 2em;
+    padding-right: 4em;
+    padding-bottom: 0.5em;
+    gap: 0.8em;
+
+    background: colors.$bg-darkest;
+    border-left-color: colors.$acc-secondary;
+}
+
+.infomenuitem.menuitem>.infolabel {
+    padding-left: 4em;
+    color: colors.$acc-bright;
+}
+
+.infomenuitem.menuitem>.infovalue {
+    flex-grow: 2;
+    width: auto;
+}
+.infomenuitem.menuitem>.infovalue>button {
+    width: -webkit-fill-available;
+    margin-right: 3em;
+    margin-left: 3em;
+    padding: 0.2em 3em;
+
+    text-align: right;
+
+    background:colors.$grad-bg-dark-left;
+}
