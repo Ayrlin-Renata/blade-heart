@@ -1,5 +1,5 @@
 import Account from '@/components/Account';
-import BladeHeartIcon from '@/components/BladeHeartIcon';
+import BladeHeartIcon from '@/components/icons/BladeHeartIcon';
 
 import '@/css/home/PageHeader.scss'
 

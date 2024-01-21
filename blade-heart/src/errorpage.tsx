@@ -1,5 +1,5 @@
 import { useRouteError } from "react-router-dom";
-import BladeHeartIcon from './components/BladeHeartIcon';
+import BladeHeartIcon from './components/icons/BladeHeartIcon';
 
 import '@/css/errorpage.scss'
 

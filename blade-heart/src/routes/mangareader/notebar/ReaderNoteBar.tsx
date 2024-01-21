@@ -1,7 +1,7 @@
 import '@/css/mangareader/notebar/readernotebar.scss'
 
 import { createRef } from "preact";
-import { useContext, useState } from "preact/hooks";
+import { useContext, useMemo, useState } from "preact/hooks";
 
 import { content as contentnotes } from '../../../assets/json/notes.json';
 
@@ -16,7 +16,7 @@ export default function () {
     const mNav = useContext(NavContext)
 
     const [loadingTimer, setLoadingTimer] = useState(1)
-    if (loadingTimer > 0 ) {
+    if (loadingTimer > 0) {
         if (!rView.isLoaded() || rView.viewWidth <= 0) {
             setTimeout(() => setLoadingTimer(loadingTimer + 1), 500)
             //console.log('loading..',rView.isLoaded(), {...rView})
@@ -27,9 +27,7 @@ export default function () {
         }
     }
 
-    const {
-        // mangaMeta, langMeta, 
-        chapMeta, chapNumeral } = getMeta(mNav)
+    const { langMeta, chapMeta, chapNumeral } = getMeta(mNav)
 
     const pageCount = chapMeta.getPageCount()
     //console.log(pageCount)
@@ -54,29 +52,75 @@ export default function () {
         return (<div class="notebarerror">Huh? Unable to load notes for {chapMeta.name}</div>)
     }
     // NOTES
-    const noteList = () => {
+    const noteList = useMemo(() => {
         const nList = []
-        if (chapData) {
-            const noteKeys = Array.from({ length: chapData.notes.length }, (_, i) => (chapNumeral + "." + i));
+        const buildQueue = []
 
-            (chapData.notes as Array<any>).sort((n1, n2) => { return n1.position - n2.position });
-            
-            let idx = 0;
-            for (const note of chapData.notes) {
-                //console.log('note pos', rView.posToPx(note.position))
-                nList.push(
-                    <>
-                        <ReaderNote key={noteKeys[idx]}
-                            type={note.type}
-                            pos={rView.posToPx(rView,note.position)}
-                            note={note} />
-                    </>
-                );
-                idx++;
+        //info note
+        const formattedChapNote: string = "## " + langMeta.mangatitle + " \n\n ### "
+            + (chapMeta.authornumber ? chapMeta.authornumber + ": " : "")
+            + (chapMeta.displayname ? chapMeta.displayname : chapMeta.name) + "\n ### "
+            + langMeta.name + "\n\n---\n"
+            + "\n\n### Image Source:\n[" + langMeta.sourcecredit + "](" + langMeta.sourcecredit + ")"
+            + "\n\n### Credits: " + langMeta.credit.map((cr) =>
+                "\n**" + cr.position + ":** " + cr.creditname.join('  ')
+            ).join('')
+            + "\n\n---\n"
+            + (chapMeta.metanotes ?
+                "### Source Curator Chapter Notes:\n\n" + chapMeta.metanotes
+                : "")
+        //console.log(formattedChapNote)
+        buildQueue.push({
+            "source":"system",
+            "language":"system",
+            "type": "text",
+            "category": "extra",
+            "position": 2,
+            "content": {
+                "title": "Info",
+                "text": formattedChapNote
             }
+        })
+
+        //expand modals
+        chapMeta.suggestzoom.forEach((zoompage) => {
+            buildQueue.push({
+                "source":"system",
+                "language":"system",
+                "type": "modal",
+                "category": "feature",
+                "position": (zoompage-1)*100+5,
+                "content": {
+                    "title": "Zoom Modal",
+                    "text": "",
+                    "link": rView.pages[zoompage-1].src
+                }
+            })
+        })
+
+        if (chapData) {  
+            //note json
+            buildQueue.push(...chapData.notes)
+        }
+        const noteKeys = Array.from({ length: buildQueue.length }, (_, i) => (chapNumeral + "." + i));
+
+        (buildQueue as Array<any>).sort((n1, n2) => { return n1.position - n2.position });
+
+        let idx = 0;
+        for (const note of buildQueue) {
+            //console.log('note pos', rView.posToPx(note.position))
+            nList.push(
+                <>
+                    <ReaderNote key={noteKeys[idx]}
+                        type={note.type}
+                        pos={note.position}
+                        note={note} />
+                </>
+            );
+            idx++;
         }
         return nList;
-    }
+    }, [mNav.chapid, mNav.langid, mNav.mangaid])
 
     const notebarRef = createRef();
 
@@ -86,9 +130,10 @@ export default function () {
     const pageLabels = () => {
         return Array.from({ length: pageCount },
             (_, i) => {
-                //console.log('ARR', i,rView.heightUpTo(rView, i + 1),rView.pages[i].viewHeight, rView.pages[i].loaded)
+                const rv = rView.getView()
+                //console.log('ARR', i,rv.heightUpTo(i + 1),rv.pages[i].viewHeight, rv.pages[i].loaded)
                 return (
-                    <PageLabel pos={rView.heightUpTo(rView, i + 1)} index={i + 1} />
+                    <PageLabel pos={rv.heightUpTo(i + 1)} index={i + 1} />
                 )
             });
     }
@@ -97,7 +142,7 @@ export default function () {
         <>
             <div class="readernotebar">
                 <div class="pagelabelcontainer" ref={pagelabelRef}>{pageLabels()}</div>
-                <div class="notecontainer" ref={notebarRef}>{noteList()}</div>
+                <div class="notecontainer" ref={notebarRef}>{noteList}</div>
             </div>
         </>
     )

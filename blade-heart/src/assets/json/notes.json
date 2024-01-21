@@ -1,4 +1,12 @@
 {
+  "languages": {
+    "en": {
+      "displayname": "English"
+    },
+    "cn": {
+      "displayname": "简体中文"
+    }
+  },
   "content": {
     "second-eruption": {
       "chapters": [
@@ -6,12 +14,26 @@
           "numeral": 1,
           "notes": [
             {
+              "source": "ayrlin",
+              "language": "en",
               "type": "text",
               "category": "extra",
               "position": 50,
               "content": {
                 "title": "TEST TITLE",
                 "text": "this is a regular text note that has a bunch of text. i want it to be at least a couple sentences long so that I can figure out what is a good size even for a larger amount of text lmao. "
+              }
+            },
+            {
+              "source": "ayrlin",
+              "language": "en",
+              "type": "modal",
+              "category": "feature",
+              "position": 120,
+              "content": {
+                "title": "Modal Test",
+                "text": "modal desc test s a regular text note that has a bunch of text. i want it to be at least a couple sentences long so that I can figure out what is a good size even for a larger amount of",
+                "link": "https://act-webstatic.mihoyo.com/new_static_v2/comic/book/1012/1/0002.jpg"
               }
             }
           ]
@@ -20,6 +42,8 @@
           "numeral": 35,
           "notes": [
             {
+              "source": "ayrlin",
+              "language": "en",
               "type": "text",
               "category": "extra",
               "position": 50,
@@ -27,9 +51,13 @@
                 "title": "TEST TITLE",
                 "text": "this is a regular text note that has a bunch of text. i want it to be at least a couple sentences long so that I can figure out what is a good size even for a larger amount of text lmao. "
               },
-              "credit": ["ayrlin"]
+              "credit": [
+                "ayrlin"
+              ]
             },
             {
+              "source": "ayrlin",
+              "language": "en",
               "type": "text",
               "category": "language",
               "position": 150,
@@ -37,9 +65,13 @@
                 "title": "TEST LANG",
                 "text": "this is a regular text note that has a bunch of text. i want it to be at least a couple sentences long so that I can figure out what is a good size even for a larger amount of text lmao. "
               },
-              "credit": ["ayrlin"]
+              "credit": [
+                "ayrlin"
+              ]
             },
             {
+              "source": "ayrlin",
+              "language": "en",
               "type": "definition",
               "category": "language",
               "position": 120,
@@ -48,9 +80,13 @@
                 "text": "definition label/comment",
                 "search": "oblique"
               },
-              "credit": ["ayrlin"]
+              "credit": [
+                "ayrlin"
+              ]
             },
             {
+              "source": "ayrlin",
+              "language": "en",
               "type": "definition",
               "category": "language",
               "position": 230,
@@ -59,9 +95,13 @@
                 "text": "",
                 "search": "credit"
               },
-              "credit": ["ayrlin"]
+              "credit": [
+                "ayrlin"
+              ]
             },
             {
+              "source": "ayrlin",
+              "language": "en",
               "type": "definition",
               "category": "language",
               "position": 450,
@@ -70,9 +110,13 @@
                 "text": "",
                 "search": "yuri"
               },
-              "credit": ["ayrlin"]
+              "credit": [
+                "ayrlin"
+              ]
             },
             {
+              "source": "ayrlin",
+              "language": "en",
               "type": "embed",
               "category": "language",
               "position": 170,
@@ -81,9 +125,13 @@
                 "text": "wiki article on poinsettias",
                 "link": "https://en.m.wikipedia.org/wiki/Poinsettia"
               },
-              "credit": ["ayrlin"]
+              "credit": [
+                "ayrlin"
+              ]
             },
             {
+              "source": "ayrlin",
+              "language": "en",
               "type": "embed",
               "category": "language",
               "position": 210,
@@ -92,9 +140,13 @@
                 "text": "",
                 "link": "https://en.m.wikipedia.org/wiki/Poinsettia"
               },
-              "credit": ["ayrlin"]
+              "credit": [
+                "ayrlin"
+              ]
             },
             {
+              "source": "ayrlin",
+              "language": "en",
               "type": "text",
               "category": "extra",
               "position": 60,
@@ -102,10 +154,17 @@
                 "title": "A SECOND TEST LOL",
                 "text": "222 this is a regular text note that has a bunch of text. i want it to be at least a couple sentences long so that I can figure out what is a good size even for a larger amount of text lmao. \r\n so how do i add linebreaks does this work lololololol"
               },
-              "credit": ["ayrlin", "ayrlin2"],
-              "tags": ["tagtest"]
+              "credit": [
+                "ayrlin",
+                "ayrlin2"
+              ],
+              "tags": [
+                "tagtest"
+              ]
             },
             {
+              "source": "ayrlin",
+              "language": "en",
               "type": "text",
               "category": "extra",
               "position": 85,
@@ -115,6 +174,8 @@
               }
             },
             {
+              "source": "ayrlin",
+              "language": "en",
               "type": "text",
               "category": "extra",
               "position": 90,
@@ -124,6 +185,8 @@
               }
             },
             {
+              "source": "ayrlin",
+              "language": "en",
               "type": "text",
               "category": "extra",
               "position": 310,
@@ -133,6 +196,8 @@
               }
             },
             {
+              "source": "ayrlin",
+              "language": "en",
               "type": "text",
               "category": "extra",
               "position": 390,

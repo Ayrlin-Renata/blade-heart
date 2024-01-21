@@ -29,7 +29,7 @@ import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 
 import MenuDivider from '../mangareader/menu/MenuDivider'
 import SocialLink from '@/components/SocialLink'
-import BladeHeartIcon from '@/components/BladeHeartIcon'
+import BladeHeartIcon from '@/components/icons/BladeHeartIcon'
 import MultiIcon from '@/components/MultiIcon'
 import { getAuth, onAuthStateChanged, GoogleAuthProvider, linkWithPopup, TwitterAuthProvider } from 'firebase/auth'
 import { useEffect, useState } from 'preact/hooks'
@@ -69,7 +69,7 @@ export default function () {
             "google.com": "Google",
             "twitter.com": "Xwitter"
         }
-        console.log(providerList, user?.providerId)
+        //console.log(providerList, user?.providerId)
         linkButtons = providers
             //.filter((provider) => provider.providerId !== user?.providerId)
             .map((provider) => {

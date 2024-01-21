@@ -20,12 +20,15 @@
 
 .readerpagearea>.pagecontainer {
     display: flex;
-    gap: 3px; //IF YOU CHANGE THIS CHANGE READERPAGEAREA.TSX POSTOPX()
+    gap: 0px;
     flex-direction: column;
 }
 
 .readerpagearea>.pagecontainer>img {
     width: 100%;
+
+    margin-bottom: 3px; //IF YOU CHANGE THIS CHANGE READERPAGEAREA.TSX POSTOPX()
+
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
