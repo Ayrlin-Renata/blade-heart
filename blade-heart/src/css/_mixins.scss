@@ -1,0 +1,11 @@
+@use '@/css/colors';
+
+@mixin bg-dots($dotSize, $bgSize) {
+    $bgPosition: calc($bgSize / 2);
+
+    background-image: radial-gradient(circle at center,
+            colors.$acc-secondary $dotSize,
+            transparent 0), radial-gradient(circle at center, colors.$acc-primary $dotSize, transparent 0);
+    background-size: $bgSize $bgSize;
+    background-position: 0 0, $bgPosition $bgPosition;
+}

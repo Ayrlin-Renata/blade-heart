@@ -1,0 +1,14 @@
+@use '@/css/colors';
+
+.highlightsection {
+
+}
+
+.highlightsection>.display {
+    display: flex;
+    flex-direction: row;
+    //flex-wrap: wrap;
+    //width: 100%;
+
+    gap: 1em;
+}

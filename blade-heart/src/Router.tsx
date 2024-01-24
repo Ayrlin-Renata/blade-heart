@@ -13,17 +13,23 @@ import Root from './routes/home/Root'
 import ErrorPage from "./errorpage";
 import ChapterReader from "./routes/mangareader/Reader";
 import AccountPage from "./routes/account/AccountPage";
+import HomePage from "./routes/newhome/HomePage";
 
 //router
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Navigate to="/blade-heart" replace />,
+    element: <Navigate to="/blade-heart/" replace />,
     errorElement: <ErrorPage />,
   },
   {
-    path: "/blade-heart",
+    path: "/blade-heart/",
     element: <Root />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/blade-heart/homepage",
+    element: <HomePage />,
     errorElement: <ErrorPage />,
   },
   {

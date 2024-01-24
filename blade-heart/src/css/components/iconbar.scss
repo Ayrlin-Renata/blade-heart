@@ -1,0 +1,27 @@
+@use '@/css/colors';
+
+.iconbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 0.5em;
+    
+    margin: 0 auto;
+    padding: 0.5em 2em;
+
+    border: solid 1px colors.$acc-bright;
+}
+
+.iconbaricon {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    gap: 0 0;
+}
+
+.iconbaricon>svg {
+    height: 3rem;
+    width: 3rem;
+}

@@ -1,0 +1,29 @@
+@use '@/css/colors';
+
+.pagesection {
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    place-items: center;
+    flex-wrap: wrap;
+
+    margin: 0 auto;
+    padding: 1em 4vw;
+
+    //border: solid 1px colors.$acc-bright;
+}
+
+.pagesection>.title {
+    margin: 0;
+    margin-bottom: 0.5em;
+
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: xx-large;
+}
+
+.pagesection>.row {
+    display: flex;
+    flex-direction: row;
+    place-items: center;
+    gap: 1em;
+}
