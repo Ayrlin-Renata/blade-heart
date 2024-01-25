@@ -15,7 +15,7 @@ interface PageMenu {
 export default function ({ children }: PageMenu) {
     const [showMenu, setShowMenu] = useState(false);
 
-    function toggleShowMenu(event: any): void {
+    function toggleShowMenu(_event: any): void {
         setShowMenu((prev) => !prev)
     }
 
