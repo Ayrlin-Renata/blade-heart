@@ -6,7 +6,7 @@
     flex-grow: 1;
     overflow: hidden;
 
-    position:relative;
+    position: relative;
     // display:flex;
     // flex-direction: column;
 
@@ -18,6 +18,12 @@
     border: solid 1px colors.$acc-bright;
     border-radius: 0.5em;
     outline: solid 3px colors.$acc-dull;
+
+    transition: border-color 0.25s ease-in-out;
+}
+
+.sectioncard:hover {
+    border-color: colors.$acc-white;
 }
 
 .sectioncard.small {
@@ -36,22 +42,30 @@
 
 .sectioncard.large {
     max-height: 50vh;
-    height: 35vh;
+    height: 50vh;
     width: 70vw;
     min-width: 15em;
 }
 
 .sectioncard>.bg {
     z-index: -1;
-    position:absolute;
-    top:0;
-    height:100%;
+    position: absolute;
+    top: 0;
+    height: 100%;
     width: 100%;
 }
+
 .sectioncard>.bg>.coverwrapper {
     z-index: 1;
-    position:absolute;
-    top:0;
+    position: absolute;
+    top: 0;
+
+    display:none;
+
+    overflow: hidden;
+    display: flex;
+    place-content: center;
+    place-items: center;
 
     height: 100%;
     width: 100%;
@@ -66,33 +80,43 @@
 
 .sectioncard>.bg>.coverwrapper.inactive {
     z-index: 0;
-    transform: translateY(-100%);
+    transform: translate(100%);
 }
 
 .sectioncard>.bg>.coverwrapper>img {
-    position:absolute;
-    top:0;
-
     object-fit: cover;
-    height: 100%;
+    height: 107%;
     width: 100%;
+    
+    transform: translateY(-7.5%);
+    transition: transform 6s linear;
+}
+.sectioncard>.bg>.coverwrapper.active >img {
+    transform: translateY(-2.5%);
+}
+
+.sectioncard>.bg>.coverwrapper.inactive >img {
+    transform: translateY(2.5%);
 }
 
 .sectioncard>.fg {
     z-index: 2;
-    position:absolute;
-    bottom:0;
+    position: absolute;
+    bottom: 0;
 
     max-height: 100%;
 
     box-sizing: border-box;
-    width:100%;
+    width: 100%;
 
     padding: 0.5em 2em;
 
     background: colors.$bg-dark-trans;
-    backdrop-filter:blur(4px);
+    backdrop-filter: blur(4px);
+
+    user-select: none;
 }
+
 .sectioncard>.fg>div {
     text-wrap: wrap;
     overflow-wrap: none;
@@ -111,6 +135,12 @@
 .sectioncard>.fg>.type {
     color: colors.$acc-bright;
     font-size: small;
+}
+
+.sectioncard>.fg>.desc {
+    color: colors.$acc-white;
+    font-size: medium;
+    max-width: 50em; 
 }
 
 

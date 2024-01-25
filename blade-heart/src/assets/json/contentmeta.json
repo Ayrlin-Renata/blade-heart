@@ -220,7 +220,9 @@
                                 26
                             ],
                             "imageext": "jpg",
-                            "suggestzoom": [],
+                            "suggestzoom": [
+                                26
+                            ],
                             "nopagegap": [],
                             "metanotes": ""
                         },
@@ -315,10 +317,10 @@
                             "pagemethod": "local",
                             "pagedata": [
                                 1,
-                                42
+                                40
                             ],
                             "imageext": "jpg",
-                            "suggestzoom": [],
+                            "suggestzoom": [17],
                             "nopagegap": [],
                             "metanotes": ""
                         },
@@ -1143,7 +1145,9 @@
                             "suggestzoom": [
                                 4
                             ],
-                            "nopagegap": [9],
+                            "nopagegap": [
+                                9
+                            ],
                             "metanotes": "replaced source pages 4 and 5 due to being a split of an original two-page layout"
                         },
                         "8": {
@@ -1206,15 +1210,20 @@
                             "authornumber": "11",
                             "name": "The Clown",
                             "displayname": "",
-                            "pagemethod": "fetch-source",
+                            "pagemethod": "patch-source",
                             "pagedata": [
-                                1,
-                                27
+                                [
+                                    1,
+                                    25
+                                ],
+                                "/blade-heart/src/assets/manhua/second-eruption/en/12/25.jpg"
                             ],
                             "imageext": "jpg",
-                            "suggestzoom": [],
+                            "suggestzoom": [
+                                26
+                            ],
                             "nopagegap": [],
-                            "metanotes": ""
+                            "metanotes": "replaced source pages 26 and 27 due to being a two-page layout"
                         },
                         "13": {
                             "authornumber": "12",
@@ -1304,15 +1313,15 @@
                             "authornumber": "18",
                             "name": "The Revelation",
                             "displayname": "",
-                            "pagemethod": "fetch-source",
+                            "pagemethod": "patch-source",
                             "pagedata": [
-                                1,
-                                42
+                                [1,17],
+                                [20,42]
                             ],
                             "imageext": "jpg",
-                            "suggestzoom": [],
+                            "suggestzoom": [17],
                             "nopagegap": [],
-                            "metanotes": ""
+                            "metanotes": "removed pages 18 and 19 due to being a two-page layout."
                         },
                         "20": {
                             "authornumber": "19",
@@ -2165,7 +2174,9 @@
                             ],
                             "imageext": "jpg",
                             "suggestzoom": [],
-                            "nopagegap": [9],
+                            "nopagegap": [
+                                9
+                            ],
                             "metanotes": ""
                         },
                         "10": {
@@ -2206,7 +2217,10 @@
                                 27
                             ],
                             "imageext": "jpg",
-                            "suggestzoom": [],
+                            "suggestzoom": [
+                                26,
+                                27
+                            ],
                             "nopagegap": [],
                             "metanotes": ""
                         },
@@ -2301,10 +2315,10 @@
                             "pagemethod": "fetch-source",
                             "pagedata": [
                                 1,
-                                42
+                                40
                             ],
                             "imageext": "jpg",
-                            "suggestzoom": [],
+                            "suggestzoom": [17],
                             "nopagegap": [],
                             "metanotes": ""
                         },

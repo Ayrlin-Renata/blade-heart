@@ -19,11 +19,19 @@
 
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: xx-large;
+
+    user-select: none;
 }
 
 .pagesection>.row {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     place-items: center;
-    gap: 1em;
+    place-content: center;
+    gap: 1em 2em;
+}
+
+.pagesection>.text {
+    max-width: 50em;
 }

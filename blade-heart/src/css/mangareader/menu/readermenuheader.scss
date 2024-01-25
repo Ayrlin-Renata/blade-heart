@@ -13,11 +13,11 @@
     background-position-y: -100px;
     background-repeat: no-repeat;
 
-    transition: background-position-y 0.25s ease-in-out
+    transition: background-position 0.25s ease-in-out
 }
 
 .readermenuheader:hover {
-    background-position-y: 0px;
+    background-position: 0px 0px;
 }
 
 .readermenuheader > svg {
@@ -29,4 +29,6 @@
 
 .readermenuheader > .bh-wordmark {
     font-size: xx-large;
+
+    user-select: none;
 }

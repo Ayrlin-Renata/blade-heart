@@ -123,17 +123,11 @@ export default function () {
         <>
 
             <div class="accountpage">
-                {/* <menu class="menubar">
-                    <MenuHeader />
-                    <LabelMenuItem id={'acc/lbl/title'} content="Account" subContent="blade-heart account settings menu" />
-                </menu> */}
                 <div class="header">
                     <MenuHeader />
                     <Account noButton />
                 </div>
                 <div class="contentbar">
-                    {/* <button class="back" onClick={() => navigate(-1)}>{'‹‹‹ go back'}</button> */}
-
                     <div class="contentarea">
                         <PanelSwitcher>
                             <SPanel id={ids.landing}

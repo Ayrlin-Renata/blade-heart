@@ -17,9 +17,23 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import XIcon from '@mui/icons-material/X'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import CloudIcon from '@mui/icons-material/Cloud'
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import SettingsIcon from '@mui/icons-material/Settings';
+import HandymanIcon from '@mui/icons-material/Handyman';
 
 import { content as sitemeta } from '@/assets/json/sitemeta.json'
-import BladeHeartIcon from '@/components/icons/BladeHeartIcon'
+import MenuHeader from '../mangareader/menu/MenuHeader'
+import LabelMenuItem from '../mangareader/menu/LabelMenuItem'
+import PageMenu from '@/components/PageMenu'
+import AccountMenuItem from '../mangareader/menu/AccountMenuItem'
+import AccountFrame from '@/components/AccountFrame'
+import MenuDivider from '../mangareader/menu/MenuDivider'
+import ButtonMenuItem from '../mangareader/menu/ButtonMenuItem'
+import { useNavigate } from 'react-router-dom'
+import PanelSwitcher from '../mangareader/menu/PanelSwitcher'
+import SPanel from '../mangareader/menu/SPanel'
+import SliderMenuItem from '../mangareader/menu/SliderMenuItem'
 
 
 export default function () {
@@ -27,6 +41,7 @@ export default function () {
     const mangaList = Object.entries(sitemeta.lore.manhua).map(([key, data]) => {
         return {
             key: key,
+            data: data,
             backgrounds: data.covers,
             value: (
                 <>
@@ -50,7 +65,9 @@ export default function () {
         }
         //console.log(mangaPath, mangaList)
         return (
-            <SectionCard className="mangacard" size="large"
+            <SectionCard className="mangacard"
+                size="large"
+                link={manga.data.link}
                 backgrounds={manga.backgrounds}>
                 {manga.value}
             </SectionCard>
@@ -60,15 +77,35 @@ export default function () {
 
     const mangaRender = mangaList.map((ele) => {
         return (
-            <SectionCard className="mangacard" size="medium"
+            <SectionCard className="mangacard"
+                size="medium"
+                link={ele.data.link}
                 backgrounds={ele.backgrounds}>
                 {ele.value}
             </SectionCard>
         )
     })
 
+    
+    const ids = {
+        manga: "home/manga",
+        tools: "home/tools",
+        settings: "home/acct",
+    }
+
+    const mangaMenuRender = mangaList.map((ele) => {
+        return (
+            <ButtonMenuItem id={ids.manga + '/btn/' + ele.key}
+                label={ele.data.title}
+                onClick={() => { navigate(ele.data.link) }}>
+                <ExitToAppIcon />
+            </ButtonMenuItem>
+        )
+    })
+
     const scrollRef = createRef()
     const lsRef = createRef()
+    const navigate = useNavigate()
 
     return (
         <>
@@ -80,6 +117,9 @@ export default function () {
                             behavior: "smooth"
                         })
                     }}>
+                    <div class="bgoverlay">
+                        <img src="/blade-heart/src/assets/manhua/second-eruption/en/35/03.jpg"></img>
+                    </div>
                     <div class="logocard">
                         <BladeHeartSword />
                         <div class="titlewords bh-wordmark">
@@ -91,41 +131,83 @@ export default function () {
                     <div class="logosubtitle">crafted with care,<br />for the Honkai Impact 3rd community.</div>
                     <KeyboardArrowUpIcon />
                 </div>
+                <PageMenu>
+                    <MenuHeader />
+                    <AccountMenuItem />
+                    <MenuDivider />
+                    <LabelMenuItem id={'home/lbl/title'}
+                        content="Menu"
+                        subContent="blade-heart homepage menu" />
+                    <PanelSwitcher>
+                        <SPanel key={ids.tools}
+                            id={ids.tools}
+                            icon={<><HandymanIcon /><div>Tools</div></>}>
+                            <LabelMenuItem id={ids.tools + '/lbl/title'}
+                                content="Tools"
+                                subContent="blade-heart tools list" />
+                        </SPanel>
+                        <SPanel key={ids.manga}
+                            id={ids.manga}
+                            icon={<><MenuBookIcon /><div>Manga</div></>}>
+                            <LabelMenuItem id={ids.manga + '/lbl/title'}
+                                content="Manga"
+                                subContent="blade-heart manga list" />
+                            {mangaMenuRender}
+                        </SPanel>
+                        <SPanel key={ids.settings}
+                            id={ids.settings}
+                            icon={<><SettingsIcon /><div>Settings</div></>}>
+                            <LabelMenuItem id={ids.settings + '/lbl/title'}
+                                content="Settings"
+                                subContent="blade-heart settings menu" />
+                            <ButtonMenuItem id={ids.settings + '/btn/acct'}
+                                label="Account Settings"
+                                onClick={() => { navigate('/blade-heart/account/') }}>
+                                <ExitToAppIcon />
+                            </ButtonMenuItem>
+                            <SliderMenuItem id={ids.settings + '/sld/music'}
+                                label="Homepage Music"
+                                onText='on'
+                                offText='off'
+                                defaultValue={true}
+                                disabled />
+                        </SPanel>
+                    </PanelSwitcher>
+                </PageMenu>
                 <div id="features" class="featurepage">
-                    <div>sticky menubar, login, shortcuts, audio</div>
-                    <IconBar className="quickbar"
-                        items={
-                            [{
-                                label: "ER RESKIN",
-                                icon: <div>ICON</div>
-                            }]
-                        } />
+                    <div class="featbg">
+                        <img src=""></img>
+                    </div>
                     <PageSection className="infosection"
                         title="Welcome, Captain!">
-                        <BladeHeartIcon />
-                        <div class="text">i came up with the idea to make an improved manga reader since i love the mangas and wanted it to be easier to share. as the project grew in scope though, i realized this had the potential to be something bigger- not just a manga reader but also a way to foster discussion and encourage the creation of lore resources and supplemental experiences by making them easy to access. i really wanted to try to raise the bar for honkai 3rd EN fan sites, and make something to give back to the honkai impact 3rd community, and well, this is the start! welcome, captain :3 i hope you like it here.</div>
-                        <br/>
-                        <div class="text">if you do like what you see, feel free to login and join in on events! the discord is also here for ya :3</div>
+                        <div class='row'>
+                            <AccountFrame src="/blade-heart/src/assets/graphics/ayrlin.png" />
+                            <div>
+                                <div class="text">i came up with the idea to make an improved manga reader since i love the mangas and wanted it to be easier to share. </div>
+                                <div class="text">as the project grew in scope though, i realized this had the potential to be something bigger- not just a manga reader but also a way to foster discussion and encourage the creation of lore resources and supplemental experiences.</div>
+                                <div class="text">i really wanted to try to raise the bar for honkai 3rd EN fan sites, and make something to give back to the honkai impact 3rd community, and well, this is the start!</div>
+                                <div class="text">welcome, captain :3 i hope you like it here.</div>
+                                <br />
+                                <div class="text">if you do like what you see, feel free to login and join in on events! the discord is also here for ya :3</div>
+                            </div>
+                            {/* <BladeHeartIcon /> */}
+                        </div>
                     </PageSection>
                     <IconBar className="socialsbar"
                         items={
                             [{
-                                label: "DISCORD",
+                                label: "Discord",
                                 icon: <DiscordIcon />
                             }, {
-                                label: "XWITTER",
+                                label: "Xwitter",
                                 icon: <MultiIcon
                                     primary={<TwitterIcon />}
                                     left={<XIcon />}
                                 />
-                            }, {
-                                label: "TEST",
-                                icon: <TwitterIcon />
-                            }
-                            ]
+                            }]
                         } />
                     <HighlightSection className="highlightbar"
-                        title="Highlighted">
+                        title="">
                         {highlightRender}
                     </HighlightSection>
                     <ListSection className="lorebar"
@@ -154,8 +236,8 @@ export default function () {
                         </SectionCard>
                     </ListSection>
                     <PageSection className="devsection"
-                        title="Developer">
-                        <div class="">DEV SECTION</div>
+                        title="BLADE HEART">
+                        <div class="text">a web app by Ayrlin Renata.</div>
                         <div class="socials">
                             <SocialLink site="Xwitter" handle="@ayrlinrenata" href="https://twitter.com/ayrlinrenata">
                                 <MultiIcon
@@ -170,6 +252,9 @@ export default function () {
                                 <DiscordIcon />
                             </SocialLink>
                         </div>
+                        <div class="text">if you somehow stumbled onto this site and think i am doing a good, you can support me by yelling at me on social media occationally, which makes me feel appreciated and needed. :3 </div>
+                        <div class="text" style="font-size: small; color: #007070; max-width: 100%;">Images on this site may bear resemblance to, or be official works depicting Hoyoverse / Cognosphere's copyrighted characters, images, comics, and IP, which belong to Hoyoverse / Cognosphere Ltd.</div>
+
                     </PageSection>
                 </div>
             </div>
