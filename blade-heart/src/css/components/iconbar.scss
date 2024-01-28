@@ -5,11 +5,15 @@
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 1.5em;
 
-    gap: 1em;
+    width: 100%;
+    box-sizing: border-box;
     
     margin: 0 auto;
     padding: 0.5em 2em;
+
+    background: linear-gradient(to left, #0000, #0007, #0000);
 
     //border: solid 1px colors.$acc-bright;
 }
@@ -19,9 +23,18 @@
     flex-direction: column;
     place-items: center;
     gap: 0 0;
+    font-size: small;
+    color: colors.$acc-bright;
 }
 
 .iconbaricon>svg {
     height: 3rem;
     width: 3rem;
+}
+
+.iconbaricon>.multiicon { 
+    color: colors.$acc-white;
+}
+.iconbaricon>.multiicon>.bg>* {
+    stroke: colors.$bg-dark;
 }

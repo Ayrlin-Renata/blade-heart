@@ -86,7 +86,7 @@ export default function () {
         )
     })
 
-    
+
     const ids = {
         manga: "home/manga",
         tools: "home/tools",
@@ -118,7 +118,7 @@ export default function () {
                         })
                     }}>
                     <div class="bgoverlay">
-                        <img src="/blade-heart/src/assets/manhua/second-eruption/en/35/03.jpg"></img>
+                        <img src="/blade-heart/src/assets/graphics/bh-cover.png"></img>
                     </div>
                     <div class="logocard">
                         <BladeHeartSword />
@@ -176,13 +176,16 @@ export default function () {
                 </PageMenu>
                 <div id="features" class="featurepage">
                     <div class="featbg">
-                        <img src=""></img>
+                        <img class="bg-end" src="/blade-heart/src/assets/graphics/bh-bg-end.png"></img>
+                        <img class="bg" src="/blade-heart/src/assets/graphics/bh-bg.png"></img>
                     </div>
                     <PageSection className="infosection"
                         title="Welcome, Captain!">
                         <div class='row'>
-                            <AccountFrame src="/blade-heart/src/assets/graphics/ayrlin.png" />
-                            <div>
+                            <div class="bg">
+                                <AccountFrame src="/blade-heart/src/assets/graphics/ayrlin.png" />
+                            </div>
+                            <div class="bg infotext">
                                 <div class="text">i came up with the idea to make an improved manga reader since i love the mangas and wanted it to be easier to share. </div>
                                 <div class="text">as the project grew in scope though, i realized this had the potential to be something bigger- not just a manga reader but also a way to foster discussion and encourage the creation of lore resources and supplemental experiences.</div>
                                 <div class="text">i really wanted to try to raise the bar for honkai 3rd EN fan sites, and make something to give back to the honkai impact 3rd community, and well, this is the start!</div>
@@ -197,7 +200,10 @@ export default function () {
                         items={
                             [{
                                 label: "Discord",
-                                icon: <DiscordIcon />
+                                icon: <MultiIcon
+                                    primary={<DiscordIcon />}
+                                    left={<></>}
+                                />
                             }, {
                                 label: "Xwitter",
                                 icon: <MultiIcon
@@ -207,7 +213,7 @@ export default function () {
                             }]
                         } />
                     <HighlightSection className="highlightbar"
-                        title="">
+                        title="Featured Projects">
                         {highlightRender}
                     </HighlightSection>
                     <ListSection className="lorebar"

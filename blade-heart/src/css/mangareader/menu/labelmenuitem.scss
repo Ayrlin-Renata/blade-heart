@@ -9,6 +9,8 @@
     justify-content: center;
 
     border-left-color: colors.$acc-dull;
+
+    user-select: none;
 }
 
 .labelmenuitem > .content {

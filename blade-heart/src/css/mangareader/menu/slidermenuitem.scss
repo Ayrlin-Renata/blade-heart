@@ -7,6 +7,8 @@
     padding-bottom: 0.6em;
 
     border-left-color: colors.$acc-primary;
+
+    user-select: none;
 }
 
 .menuitem.slidermenuitem.disabled>.sliderwrapper>*>* {
