@@ -3,6 +3,7 @@ import {
   createBrowserRouter,
   Navigate,
   RouterProvider,
+  useParams,
 } from "react-router-dom";
 
 //css
@@ -13,6 +14,33 @@ import ErrorPage from "./errorpage";
 import ChapterReader from "./routes/mangareader/Reader";
 import AccountPage from "./routes/account/AccountPage";
 import HomePage from "./routes/newhome/HomePage";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getUserdata, useUserdata } from "./utils/firebase";
+import { useEffect } from "preact/hooks";
+import { useQueryClient } from "@tanstack/react-query";
+
+var curMhLang = "en"
+var curMhChap = "prelude-to-war"
+
+const MhCompWrapper = () => {
+  const auth = getAuth()
+  if (auth.currentUser) {
+    const { status, data } = useUserdata()
+    if (status === 'success') {
+      const tempLang = data.prefs["second-eruption|sct|language"].value
+      const tempChap = JSON.parse(data.prefs["second-eruption|sct|chapter"].value).id
+      if (tempLang && tempChap) {
+        curMhLang = tempLang
+        curMhChap = tempChap
+      }
+    }
+  }
+
+  const { manhuaId } = useParams()
+  return (
+    <Navigate to={"/blade-heart/manhua/" + manhuaId + "/" + curMhLang + "/" + curMhChap} replace />
+  )
+}
 
 //router
 const router = createBrowserRouter([
@@ -32,6 +60,11 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
+    path: "/blade-heart/manhua/:manhuaId/",
+    element: <MhCompWrapper />,
+    errorElement: <ErrorPage />,
+  },
+  {
     path: "/blade-heart/manhua/:manhuaId/:langId/:chapterId",
     element: <ChapterReader />,
     errorElement: <ErrorPage />,
@@ -42,9 +75,17 @@ const router = createBrowserRouter([
 // APP RENDER
 //
 export default function Router() {
+
+  const queryClient = useQueryClient()
+  useEffect(() => {
+    onAuthStateChanged(getAuth(), async (_user) => {
+      const data = await getUserdata(queryClient)
+    })
+  }, [])
+
   return (
     <>
-        <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </>
   )
 }

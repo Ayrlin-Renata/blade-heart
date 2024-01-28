@@ -22,7 +22,8 @@ body {
 }
 
 .homescreen::-webkit-scrollbar {
-    display: none;
+    width: 0px;
+    //display: none;
 }
 
 .landingshade {

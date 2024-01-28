@@ -120,7 +120,7 @@ export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
     };
     const behaviourPresets = ["custom", "recommended"]
     const notelang = ["English"]
-    const notesrc = ["ayrlin"]
+    const notesrc = ["ayrlin","ayrlin2"]
 
     return (
         <>
@@ -240,7 +240,7 @@ export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
                             <SelectMenuItem id={ids.notes + "|sct|notesrc"}
                                 label="Note Source"
                                 options={notesrc.map((pres: string) => { return { label: pres, value: pres } })}
-                                disabled />
+                                />
                             <SliderMenuItem id={ids.notes + "|sld|visdef"}
                                 key={ids.notes + "|sld|visdef"}
                                 offText="hide"

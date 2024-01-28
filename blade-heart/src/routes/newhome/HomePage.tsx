@@ -36,6 +36,7 @@ import SPanel from '../mangareader/menu/SPanel'
 import SliderMenuItem from '../mangareader/menu/SliderMenuItem'
 
 
+
 export default function () {
 
     const mangaList = Object.entries(sitemeta.lore.manhua).map(([key, data]) => {
