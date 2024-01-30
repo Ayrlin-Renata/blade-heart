@@ -1,0 +1,11 @@
+{
+    "slider": {
+        "contentlist/sort": "true",
+        "second-eruption/panel/notes/slider/category/language": "true",
+        "second-eruption/panel/notes/slider/category/translation": "true",
+        "second-eruption/panel/notes/slider/category/pronunciation": "true",
+        "second-eruption/panel/notes/slider/category/context": "true",
+        "second-eruption/panel/notes/slider/category/extra": "false",
+        "second-eruption/panel/behaviours/select/test": "{\"label\":\"recommended\",\"value\":\"recommended\"}"
+    }
+}

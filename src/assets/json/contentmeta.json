@@ -1,0 +1,3004 @@
+{
+    "content": {
+        "second-eruption": {
+            "title": "Second Eruption",
+            "languages": {
+                "en": {
+                    "mangatitle": "Second Eruption",
+                    "name": "English (Source Quality)",
+                    "credit": [
+                        {
+                            "position": "Author",
+                            "creditname": [
+                                "miHoYo"
+                            ]
+                        },
+                        {
+                            "position": "Storyboard",
+                            "creditname": [
+                                "evemace",
+                                "莫姬"
+                            ]
+                        },
+                        {
+                            "position": "Background",
+                            "creditname": [
+                                "磷光灯",
+                                "洛子"
+                            ]
+                        },
+                        {
+                            "position": "Assistant",
+                            "creditname": [
+                                "RFF",
+                                "咚咚锵",
+                                "串串"
+                            ]
+                        },
+                        {
+                            "position": "Special Advisor",
+                            "creditname": [
+                                "Ego",
+                                "TDC24"
+                            ]
+                        },
+                        {
+                            "position": "Translator",
+                            "creditname": [
+                                "Alloy_Bron"
+                            ]
+                        }
+                    ],
+                    "sourcecredit": "https://mangadex.org/title/b82bc828-0f22-43d9-835d-d5ff1cb0d680/honkai-impact-3rd",
+                    "sourceurl": "/blade-heart/src/assets/manhua/second-eruption/en/",
+                    "chapters": {
+                        "1": {
+                            "authornumber": "00",
+                            "name": "Prelude to War",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                2,
+                                25
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": "title page has been relocated to the end to maintain original intent (see CN source)"
+                        },
+                        "2": {
+                            "authornumber": "01",
+                            "name": "The Ghost",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                16
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "3": {
+                            "authornumber": "02",
+                            "name": "The Girl",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                16
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "4": {
+                            "authornumber": "03",
+                            "name": "The War Begins",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                14
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "5": {
+                            "authornumber": "04",
+                            "name": "The Alliance",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                27
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "6": {
+                            "authornumber": "05",
+                            "name": "The Tear",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                19
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "7": {
+                            "authornumber": "06",
+                            "name": "The Awakening",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                19
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [
+                                4
+                            ],
+                            "nopagegap": [
+                                9
+                            ],
+                            "metanotes": ""
+                        },
+                        "8": {
+                            "authornumber": "07",
+                            "name": "The Void",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                24
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "9": {
+                            "authornumber": "08",
+                            "name": "The Herrscher",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "10": {
+                            "authornumber": "09",
+                            "name": "Welt of Humanity",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                23
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "11": {
+                            "authornumber": "10",
+                            "name": "Void Against Reason",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "12": {
+                            "authornumber": "11",
+                            "name": "The Clown",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                26
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [
+                                26
+                            ],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "13": {
+                            "authornumber": "12",
+                            "name": "Young Ziggy",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                27
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "14": {
+                            "authornumber": "13",
+                            "name": "The Ride",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "15": {
+                            "authornumber": "14",
+                            "name": "The Game",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                19
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "16": {
+                            "authornumber": "15",
+                            "name": "The Present",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "17": {
+                            "authornumber": "16",
+                            "name": "The Promise",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "18": {
+                            "authornumber": "17",
+                            "name": "Undying Dreams",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                25
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "19": {
+                            "authornumber": "18",
+                            "name": "The Revelation",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                40
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [17],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "20": {
+                            "authornumber": "19",
+                            "name": "Throne of Sin",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                19
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "21": {
+                            "authornumber": "20",
+                            "name": "The Kings",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "22": {
+                            "authornumber": "21",
+                            "name": "The Plan",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "23": {
+                            "authornumber": "22",
+                            "name": "The Launch",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                22
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "24": {
+                            "authornumber": "23",
+                            "name": "Moonflight",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                16
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "25": {
+                            "authornumber": "24",
+                            "name": "The Herrschers",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "26": {
+                            "authornumber": "25",
+                            "name": "Their Battle",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                17
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [
+                                11
+                            ],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "27": {
+                            "authornumber": "26",
+                            "name": "The Ninja",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "28": {
+                            "authornumber": "27",
+                            "name": "Event Horizon",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "29": {
+                            "authornumber": "28",
+                            "name": "Chandrasekhar",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                23
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "30": {
+                            "authornumber": "29",
+                            "name": "Her Return",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                30
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "31": {
+                            "authornumber": "30",
+                            "name": "Her Angels",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "32": {
+                            "authornumber": "31",
+                            "name": "Counter-Offensive",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                17
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "33": {
+                            "authornumber": "32",
+                            "name": "Eve of War",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "34": {
+                            "authornumber": "33",
+                            "name": "The Soulium",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "35": {
+                            "authornumber": "34",
+                            "name": "Blade Heart",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                17
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "36": {
+                            "authornumber": "35",
+                            "name": "Blown Away",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "37": {
+                            "authornumber": "36",
+                            "name": "Fenghuang Down",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "38": {
+                            "authornumber": "37",
+                            "name": "Obsession",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "39": {
+                            "authornumber": "38",
+                            "name": "The Progeny",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                22
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "40": {
+                            "authornumber": "39",
+                            "name": "Price to Pay",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "41": {
+                            "authornumber": "40",
+                            "name": "Cocolia",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                19
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "42": {
+                            "authornumber": "41",
+                            "name": "Field of Megiddo",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "43": {
+                            "authornumber": "42",
+                            "name": "Fire and Ice",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                17
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "44": {
+                            "authornumber": "43",
+                            "name": "Fists of Taixuan",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "45": {
+                            "authornumber": "44",
+                            "name": "The Soul",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                24
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "46": {
+                            "authornumber": "45",
+                            "name": "Deus",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                23
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "47": {
+                            "authornumber": "46",
+                            "name": "Edge of Taixuan",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                17
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "48": {
+                            "authornumber": "47",
+                            "name": "Broken Link",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "49": {
+                            "authornumber": "48",
+                            "name": "The New Toy",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "50": {
+                            "authornumber": "49",
+                            "name": "It's a Dream",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "51": {
+                            "authornumber": "50",
+                            "name": "Happy Family",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                24
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "52": {
+                            "authornumber": "51",
+                            "name": "The Hug",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                23
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "53": {
+                            "authornumber": "52",
+                            "name": "Final Gambit",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "54": {
+                            "authornumber": "53",
+                            "name": "Benares",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "55": {
+                            "authornumber": "54",
+                            "name": "Féond Gefyldan",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "56": {
+                            "authornumber": "55",
+                            "name": "Wake Up Call",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "57": {
+                            "authornumber": "56",
+                            "name": "Ālea Iacta Est",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "58": {
+                            "authornumber": "57",
+                            "name": "The Gathering",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                22
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "59": {
+                            "authornumber": "58",
+                            "name": "The Pain",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                27
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "60": {
+                            "authornumber": "59",
+                            "name": "Infinity Corridor",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                23
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "61": {
+                            "authornumber": "60",
+                            "name": "The Mantis",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "62": {
+                            "authornumber": "61",
+                            "name": "The Berserk",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                22
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "63": {
+                            "authornumber": "62",
+                            "name": "Core Cascade",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                27
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "64": {
+                            "authornumber": "62-2",
+                            "name": "Guardian Angel",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                23
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "65": {
+                            "authornumber": "62-3",
+                            "name": "Ich líebe dích",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                27
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "66": {
+                            "authornumber": "63",
+                            "name": "Epilogue",
+                            "displayname": "",
+                            "pagemethod": "local",
+                            "pagedata": [
+                                1,
+                                22
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        }
+                    }
+                },
+                "en_lq": {
+                    "mangatitle": "Second Eruption",
+                    "name": "English (Low Quality)",
+                    "credit": [
+                        {
+                            "position": "Author",
+                            "creditname": [
+                                "miHoYo"
+                            ]
+                        },
+                        {
+                            "position": "Storyboard",
+                            "creditname": [
+                                "evemace",
+                                "莫姬"
+                            ]
+                        },
+                        {
+                            "position": "Background",
+                            "creditname": [
+                                "磷光灯",
+                                "洛子"
+                            ]
+                        },
+                        {
+                            "position": "Assistant",
+                            "creditname": [
+                                "RFF",
+                                "咚咚锵",
+                                "串串"
+                            ]
+                        },
+                        {
+                            "position": "Special Advisor",
+                            "creditname": [
+                                "Ego",
+                                "TDC24"
+                            ]
+                        },
+                        {
+                            "position": "Translator",
+                            "creditname": [
+                                "Alloy_Bron"
+                            ]
+                        }
+                    ],
+                    "sourcecredit": "manga.honkaiimpact3.com",
+                    "sourceurl": "https://d2tpbmzklky1cl.cloudfront.net/manga/static/comic/book/1005/",
+                    "chapters": {
+                        "1": {
+                            "authornumber": "00",
+                            "name": "Prelude to War",
+                            "displayname": "",
+                            "pagemethod": "patch-source",
+                            "pagedata": [
+                                [
+                                    2,
+                                    24
+                                ],
+                                [
+                                    1,
+                                    1
+                                ]
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": "title page has been relocated to the end to maintain original intent (see CN source)"
+                        },
+                        "2": {
+                            "authornumber": "01",
+                            "name": "The Ghost",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                16
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "3": {
+                            "authornumber": "02",
+                            "name": "The Girl",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                16
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "4": {
+                            "authornumber": "03",
+                            "name": "The War Begins",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                14
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "5": {
+                            "authornumber": "04",
+                            "name": "The Alliance",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                28
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "6": {
+                            "authornumber": "05",
+                            "name": "The Tear",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "7": {
+                            "authornumber": "06",
+                            "name": "The Awakening",
+                            "displayname": "",
+                            "pagemethod": "patch-source",
+                            "pagedata": [
+                                [
+                                    1,
+                                    3
+                                ],
+                                "/blade-heart/src/assets/manhua/second-eruption/en/7/03.jpg",
+                                [
+                                    6,
+                                    20
+                                ]
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [
+                                4
+                            ],
+                            "nopagegap": [
+                                9
+                            ],
+                            "metanotes": "replaced source pages 4 and 5 due to being a split of an original two-page layout"
+                        },
+                        "8": {
+                            "authornumber": "07",
+                            "name": "The Void",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                24
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "9": {
+                            "authornumber": "08",
+                            "name": "The Herrscher",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "10": {
+                            "authornumber": "09",
+                            "name": "Welt of Humanity",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                23
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "11": {
+                            "authornumber": "10",
+                            "name": "Void Against Reason",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "12": {
+                            "authornumber": "11",
+                            "name": "The Clown",
+                            "displayname": "",
+                            "pagemethod": "patch-source",
+                            "pagedata": [
+                                [
+                                    1,
+                                    25
+                                ],
+                                "/blade-heart/src/assets/manhua/second-eruption/en/12/25.jpg"
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [
+                                26
+                            ],
+                            "nopagegap": [],
+                            "metanotes": "replaced source pages 26 and 27 due to being a two-page layout"
+                        },
+                        "13": {
+                            "authornumber": "12",
+                            "name": "Young Ziggy",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                27
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "14": {
+                            "authornumber": "13",
+                            "name": "The Ride",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "15": {
+                            "authornumber": "14",
+                            "name": "The Game",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                19
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "16": {
+                            "authornumber": "15",
+                            "name": "The Present",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "17": {
+                            "authornumber": "16",
+                            "name": "The Promise",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "18": {
+                            "authornumber": "17",
+                            "name": "Undying Dreams",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                25
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "19": {
+                            "authornumber": "18",
+                            "name": "The Revelation",
+                            "displayname": "",
+                            "pagemethod": "patch-source",
+                            "pagedata": [
+                                [1,17],
+                                [20,42]
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [17],
+                            "nopagegap": [],
+                            "metanotes": "removed pages 18 and 19 due to being a two-page layout."
+                        },
+                        "20": {
+                            "authornumber": "19",
+                            "name": "Throne of Sin",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                19
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "21": {
+                            "authornumber": "20",
+                            "name": "The Kings",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "22": {
+                            "authornumber": "21",
+                            "name": "The Plan",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "23": {
+                            "authornumber": "22",
+                            "name": "The Launch",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                22
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "24": {
+                            "authornumber": "23",
+                            "name": "Moonflight",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                16
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "25": {
+                            "authornumber": "24",
+                            "name": "The Herrschers",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "26": {
+                            "authornumber": "25",
+                            "name": "Their Battle",
+                            "displayname": "",
+                            "pagemethod": "patch-source",
+                            "pagedata": [
+                                "/blade-heart/src/assets/manhua/second-eruption/en/26/00.jpg",
+                                [
+                                    2,
+                                    11
+                                ],
+                                [
+                                    14,
+                                    19
+                                ]
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [
+                                11
+                            ],
+                            "nopagegap": [],
+                            "metanotes": "replaced title page as source incorrectly used ch.24 title page\n\nremoved source pages 12 and 13 as they were a split of page 11's two-page layout due to the limitations of the official reader"
+                        },
+                        "27": {
+                            "authornumber": "26",
+                            "name": "The Ninja",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "28": {
+                            "authornumber": "27",
+                            "name": "Event Horizon",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "29": {
+                            "authornumber": "28",
+                            "name": "Chandrasekhar",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                23
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "30": {
+                            "authornumber": "29",
+                            "name": "Her Return",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                30
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "31": {
+                            "authornumber": "30",
+                            "name": "Her Angels",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "32": {
+                            "authornumber": "31",
+                            "name": "Counter-Offensive",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                17
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "33": {
+                            "authornumber": "32",
+                            "name": "Eve of War",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "34": {
+                            "authornumber": "33",
+                            "name": "The Soulium",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "35": {
+                            "authornumber": "34",
+                            "name": "Blade Heart",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                17
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "36": {
+                            "authornumber": "35",
+                            "name": "Blown Away",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "37": {
+                            "authornumber": "36",
+                            "name": "Fenghuang Down",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "38": {
+                            "authornumber": "37",
+                            "name": "Obsession",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "39": {
+                            "authornumber": "38",
+                            "name": "The Progeny",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                22
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "40": {
+                            "authornumber": "39",
+                            "name": "Price to Pay",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "41": {
+                            "authornumber": "40",
+                            "name": "Cocolia",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                19
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "42": {
+                            "authornumber": "41",
+                            "name": "Field of Megiddo",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "43": {
+                            "authornumber": "42",
+                            "name": "Fire and Ice",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                17
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "44": {
+                            "authornumber": "43",
+                            "name": "Fists of Taixuan",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "45": {
+                            "authornumber": "44",
+                            "name": "The Soul",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                24
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "46": {
+                            "authornumber": "45",
+                            "name": "Deus",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                23
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "47": {
+                            "authornumber": "46",
+                            "name": "Edge of Taixuan",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                17
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "48": {
+                            "authornumber": "47",
+                            "name": "Broken Link",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "49": {
+                            "authornumber": "48",
+                            "name": "The New Toy",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "50": {
+                            "authornumber": "49",
+                            "name": "It's a Dream",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "51": {
+                            "authornumber": "50",
+                            "name": "Happy Family",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                24
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "52": {
+                            "authornumber": "51",
+                            "name": "The Hug",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                23
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "53": {
+                            "authornumber": "52",
+                            "name": "Final Gambit",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "54": {
+                            "authornumber": "53",
+                            "name": "Benares",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "55": {
+                            "authornumber": "54",
+                            "name": "Féond Gefyldan",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "56": {
+                            "authornumber": "55",
+                            "name": "Wake Up Call",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "57": {
+                            "authornumber": "56",
+                            "name": "Ālea Iacta Est",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "58": {
+                            "authornumber": "57",
+                            "name": "The Gathering",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                22
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "59": {
+                            "authornumber": "58",
+                            "name": "The Pain",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                27
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "60": {
+                            "authornumber": "59",
+                            "name": "Infinity Corridor",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                23
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "61": {
+                            "authornumber": "60",
+                            "name": "The Mantis",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "62": {
+                            "authornumber": "61",
+                            "name": "The Berserk",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                22
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "63": {
+                            "authornumber": "62",
+                            "name": "Core Cascade",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                27
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "64": {
+                            "authornumber": "62-2",
+                            "name": "Guardian Angel",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                23
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "65": {
+                            "authornumber": "62-3",
+                            "name": "Ich líebe dích",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                27
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "66": {
+                            "authornumber": "63",
+                            "name": "Epilogue",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                22
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "67": {
+                            "authornumber": "EX",
+                            "name": "[Extra: Wallpapers]",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                34
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        }
+                    }
+                },
+                "cn_lq": {
+                    "mangatitle": "第二次崩坏",
+                    "name": "简体中文（低质）",
+                    "credit": [
+                        {
+                            "position": "原作",
+                            "creditname": [
+                                "米哈游"
+                            ]
+                        },
+                        {
+                            "position": "分镜",
+                            "creditname": [
+                                "evemace",
+                                "莫姬"
+                            ]
+                        },
+                        {
+                            "position": "背景",
+                            "creditname": [
+                                "磷光灯",
+                                "洛子"
+                            ]
+                        },
+                        {
+                            "position": "助理",
+                            "creditname": [
+                                "RFF",
+                                "咚咚锵",
+                                "串串"
+                            ]
+                        },
+                        {
+                            "position": "特别顾问",
+                            "creditname": [
+                                "Ego",
+                                "TDC24"
+                            ]
+                        }
+                    ],
+                    "sourcecredit": "comic.bh3.com",
+                    "sourceurl": "https://act-webstatic.mihoyo.com/new_static_v2/comic/book/1012/",
+                    "chapters": {
+                        "1": {
+                            "authornumber": "",
+                            "name": "Prelude to War",
+                            "displayname": "楔子「诡变」",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                24
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "2": {
+                            "authornumber": "",
+                            "name": "The Ghost",
+                            "displayname": "第一话「鬼魂」",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                16
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "3": {
+                            "authornumber": "02",
+                            "name": "The Girl",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                16
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "4": {
+                            "authornumber": "03",
+                            "name": "The War Begins",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                14
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "5": {
+                            "authornumber": "04",
+                            "name": "The Alliance",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                28
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "6": {
+                            "authornumber": "05",
+                            "name": "The Tear",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "7": {
+                            "authornumber": "06",
+                            "name": "The Awakening",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [
+                                4
+                            ],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "8": {
+                            "authornumber": "07",
+                            "name": "The Void",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                24
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "9": {
+                            "authornumber": "08",
+                            "name": "The Herrscher",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [
+                                9
+                            ],
+                            "metanotes": ""
+                        },
+                        "10": {
+                            "authornumber": "09",
+                            "name": "Welt of Humanity",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                23
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "11": {
+                            "authornumber": "10",
+                            "name": "Void Against Reason",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "12": {
+                            "authornumber": "11",
+                            "name": "The Clown",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                27
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [
+                                26,
+                                27
+                            ],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "13": {
+                            "authornumber": "12",
+                            "name": "Young Ziggy",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                27
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "14": {
+                            "authornumber": "13",
+                            "name": "The Ride",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "15": {
+                            "authornumber": "14",
+                            "name": "The Game",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                19
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "16": {
+                            "authornumber": "15",
+                            "name": "The Present",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "17": {
+                            "authornumber": "16",
+                            "name": "The Promise",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "18": {
+                            "authornumber": "17",
+                            "name": "Undying Dreams",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                25
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "19": {
+                            "authornumber": "18",
+                            "name": "The Revelation",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                40
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [17],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "20": {
+                            "authornumber": "19",
+                            "name": "Throne of Sin",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                19
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "21": {
+                            "authornumber": "20",
+                            "name": "The Kings",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "22": {
+                            "authornumber": "21",
+                            "name": "The Plan",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "23": {
+                            "authornumber": "22",
+                            "name": "The Launch",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                22
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "24": {
+                            "authornumber": "23",
+                            "name": "Moonflight",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                16
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "25": {
+                            "authornumber": "24",
+                            "name": "The Herrschers",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "26": {
+                            "authornumber": "25",
+                            "name": "Their Battle",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                17
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [
+                                11
+                            ],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "27": {
+                            "authornumber": "26",
+                            "name": "The Ninja",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "28": {
+                            "authornumber": "27",
+                            "name": "Event Horizon",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "29": {
+                            "authornumber": "28",
+                            "name": "Chandrasekhar",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                23
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "30": {
+                            "authornumber": "29",
+                            "name": "Her Return",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                30
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "31": {
+                            "authornumber": "30",
+                            "name": "Her Angels",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "32": {
+                            "authornumber": "31",
+                            "name": "Counter-Offensive",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                17
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "33": {
+                            "authornumber": "32",
+                            "name": "Eve of War",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "34": {
+                            "authornumber": "33",
+                            "name": "The Soulium",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "35": {
+                            "authornumber": "34",
+                            "name": "Blade Heart",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                17
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "36": {
+                            "authornumber": "35",
+                            "name": "Blown Away",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "37": {
+                            "authornumber": "36",
+                            "name": "Fenghuang Down",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "38": {
+                            "authornumber": "37",
+                            "name": "Obsession",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "39": {
+                            "authornumber": "38",
+                            "name": "The Progeny",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                22
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "40": {
+                            "authornumber": "39",
+                            "name": "Price to Pay",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "41": {
+                            "authornumber": "40",
+                            "name": "Cocolia",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                19
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "42": {
+                            "authornumber": "41",
+                            "name": "Field of Megiddo",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "43": {
+                            "authornumber": "42",
+                            "name": "Fire and Ice",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                17
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "44": {
+                            "authornumber": "43",
+                            "name": "Fists of Taixuan",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "45": {
+                            "authornumber": "44",
+                            "name": "The Soul",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                24
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "46": {
+                            "authornumber": "45",
+                            "name": "Deus",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                23
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "47": {
+                            "authornumber": "46",
+                            "name": "Edge of Taixuan",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                17
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "48": {
+                            "authornumber": "47",
+                            "name": "Broken Link",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "49": {
+                            "authornumber": "48",
+                            "name": "The New Toy",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "50": {
+                            "authornumber": "49",
+                            "name": "It's a Dream",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                20
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "51": {
+                            "authornumber": "50",
+                            "name": "Happy Family",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                24
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "52": {
+                            "authornumber": "51",
+                            "name": "The Hug",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                23
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "53": {
+                            "authornumber": "52",
+                            "name": "Final Gambit",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "54": {
+                            "authornumber": "53",
+                            "name": "Benares",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "55": {
+                            "authornumber": "54",
+                            "name": "Féond Gefyldan",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "56": {
+                            "authornumber": "55",
+                            "name": "Wake Up Call",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "57": {
+                            "authornumber": "56",
+                            "name": "Ālea Iacta Est",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                21
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "58": {
+                            "authornumber": "57",
+                            "name": "The Gathering",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                22
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "59": {
+                            "authornumber": "58",
+                            "name": "The Pain",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                27
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "60": {
+                            "authornumber": "59",
+                            "name": "Infinity Corridor",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                23
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "61": {
+                            "authornumber": "60",
+                            "name": "The Mantis",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                18
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "62": {
+                            "authornumber": "61",
+                            "name": "The Berserk",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                22
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "63": {
+                            "authornumber": "62",
+                            "name": "Core Cascade",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                27
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "64": {
+                            "authornumber": "62-2",
+                            "name": "Guardian Angel",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                23
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "65": {
+                            "authornumber": "62-3",
+                            "name": "Ich líebe dích",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                27
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "66": {
+                            "authornumber": "63",
+                            "name": "Epilogue",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                22
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        },
+                        "67": {
+                            "authornumber": "EX",
+                            "name": "[Extra: Wallpapers]",
+                            "displayname": "",
+                            "pagemethod": "fetch-source",
+                            "pagedata": [
+                                1,
+                                34
+                            ],
+                            "imageext": "jpg",
+                            "suggestzoom": [],
+                            "nopagegap": [],
+                            "metanotes": ""
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

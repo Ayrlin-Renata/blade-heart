@@ -1,0 +1,29 @@
+{
+    "content": {
+        "highlight": [
+            {
+                "id":"manhua|second-eruption",
+                "corner":"EVENT!",
+                "cornerlink":"#"
+            }
+        ],
+        "lore": {
+            "manhua": {
+                "second-eruption": {
+                    "type": "manhua",
+                    "title": "Second Eruption",
+                    "id": "second-eruption",
+                    "subtitle": "A Honkai Impact 3rd manhua.",
+                    "desc": "The Void Queen ascends to the throne of GOD. Who dares to face her? The Valkyrie Order? The Saviour of Humanity? The Clown in his obsession? SHE proclaims Judgement Day!",
+                    "link":"/blade-heart/manhua/second-eruption/",
+                    "covers": [
+                        "/blade-heart/src/assets/manhua/second-eruption/en/2/00.jpg",
+                        "/blade-heart/src/assets/manhua/second-eruption/en/14/00.jpg",
+                        "/blade-heart/src/assets/manhua/second-eruption/en/35/00.jpg"
+                    ]
+                }
+            }
+        },
+        "tools": {}
+    }
+}
