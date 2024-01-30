@@ -305,13 +305,24 @@ body {
 // .featurepage>.infosection>.row>div>.text {
 //     //margin-bottom: 0.3em;
 // }
+.featurepage>.infosection>.row {
+    padding: 1em 3em;
+}
+
 .featurepage>.infosection>.row>.infotext {
     flex-basis: 20em;
-    max-width: 50em;
     flex-grow: 1;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 0.4em;
+    
+    max-width: 50em;
+
+    //padding: 1em 2em;
     //flex-shrink: 0.8;
 }
-.featurepage>.infosection>.row>.bg>.accountframe {
+.featurepage>.infosection>.row>div>.accountframe {
     flex-basis: 6em;
     height: 6em;
     width: 6em;
@@ -328,7 +339,6 @@ body {
 
 .featurepage>.infosection {
     margin-top: 8em;
-    font-size: large;
 }
 .featurepage>.highlightbar,
 .featurepage>.toolsbar,

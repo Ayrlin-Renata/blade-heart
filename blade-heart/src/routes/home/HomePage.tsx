@@ -89,9 +89,9 @@ export default function () {
 
 
     const ids = {
-        manga: "home/manga",
-        tools: "home/tools",
-        settings: "home/acct",
+        manga: "home|manga",
+        tools: "home|tools",
+        settings: "home|acct",
     }
 
     const mangaMenuRender = mangaList.map((ele) => {
@@ -129,28 +129,28 @@ export default function () {
                         </div>
                         <HeartBrokenIcon />
                     </div>
-                    <div class="logosubtitle">crafted with care,<br />for the Honkai Impact 3rd community.</div>
+                    <div class="logosubtitle">The Tenets of Blade Heart are cited in four parts.</div>
                     <KeyboardArrowUpIcon />
                 </div>
                 <PageMenu>
                     <MenuHeader />
                     <AccountMenuItem />
                     <MenuDivider />
-                    <LabelMenuItem id={'home/lbl/title'}
+                    <LabelMenuItem id={'home|lbl|title'}
                         content="Menu"
                         subContent="blade-heart homepage menu" />
                     <PanelSwitcher>
                         <SPanel key={ids.tools}
                             id={ids.tools}
                             icon={<><HandymanIcon /><div>Tools</div></>}>
-                            <LabelMenuItem id={ids.tools + '/lbl/title'}
+                            <LabelMenuItem id={ids.tools + '|lbl|title'}
                                 content="Tools"
                                 subContent="blade-heart tools list" />
                         </SPanel>
                         <SPanel key={ids.manga}
                             id={ids.manga}
                             icon={<><MenuBookIcon /><div>Manga</div></>}>
-                            <LabelMenuItem id={ids.manga + '/lbl/title'}
+                            <LabelMenuItem id={ids.manga + '|lbl|title'}
                                 content="Manga"
                                 subContent="blade-heart manga list" />
                             {mangaMenuRender}
@@ -158,20 +158,21 @@ export default function () {
                         <SPanel key={ids.settings}
                             id={ids.settings}
                             icon={<><SettingsIcon /><div>Settings</div></>}>
-                            <LabelMenuItem id={ids.settings + '/lbl/title'}
+                            <LabelMenuItem id={ids.settings + '|lbl|title'}
                                 content="Settings"
                                 subContent="blade-heart settings menu" />
-                            <ButtonMenuItem id={ids.settings + '/btn/acct'}
+                            <ButtonMenuItem id={ids.settings + '|btn|acct'}
                                 label="Account Settings"
                                 onClick={() => { navigate('/blade-heart/account/') }}>
                                 <ExitToAppIcon />
                             </ButtonMenuItem>
-                            <SliderMenuItem id={ids.settings + '/sld/music'}
+                            <SliderMenuItem id={ids.settings + '|sld|music'}
+                                key={ids.settings + '|sld|music'}
                                 label="Homepage Music"
                                 onText='on'
                                 offText='off'
                                 defaultValue={true}
-                                disabled />
+                            />
                         </SPanel>
                     </PanelSwitcher>
                 </PageMenu>
@@ -181,16 +182,18 @@ export default function () {
                         <img class="bg" src="/blade-heart/src/assets/graphics/bh-bg.png"></img>
                     </div>
                     <PageSection className="infosection"
-                        title="Welcome, Captain!">
-                        <div class='row'>
-                            <div class="bg">
+                        title="Still as water,"
+                        subtitle="free from dust...">
+                        <div class='row bg'>
+                            <div class="">
                                 <AccountFrame src="/blade-heart/src/assets/graphics/ayrlin.png" />
                             </div>
-                            <div class="bg infotext">
+                            <div class="infotext">
+                                <div class="text">hi, i'm ayrlin! </div>
                                 <div class="text">i came up with the idea to make an improved manga reader since i love the mangas and wanted it to be easier to share. </div>
                                 <div class="text">as the project grew in scope though, i realized this had the potential to be something bigger- not just a manga reader but also a way to foster discussion and encourage the creation of lore resources and supplemental experiences.</div>
                                 <div class="text">i really wanted to try to raise the bar for honkai 3rd EN fan sites, and make something to give back to the honkai impact 3rd community, and well, this is the start!</div>
-                                <div class="text">welcome, captain :3 i hope you like it here.</div>
+                                {/* <div class="text">welcome, captain :3 i hope you like it here.</div> */}
                                 <br />
                                 <div class="text">if you do like what you see, feel free to login and join in on events! the discord is also here for ya :3</div>
                             </div>
@@ -242,6 +245,21 @@ export default function () {
                             </div>
                         </SectionCard>
                     </ListSection>
+
+                    <PageSection className="faqsection"
+                        title="Frequently Asked Questions"
+                        subtitle="actually noone asked, i made it up">
+                        <div class='row'>
+                            <ol class="bg infotext pagelist">
+                                <li><strong>Why aren't all the manga volumes here?</strong></li>
+                                <div class="text">as this site features collaborative contribution as a feature, i want to focus attention on one release at a time with release events. <br/> plus, i have to complete the json definitons for each of the supported sources before they display properly.</div>
+                                <hr/>
+                                <li><strong>This website is actually a broken mess.</strong></li>
+                                <div class="text">PLEASE tell me!!! literally just @ me on discord or socials. i want this site to be <i>actually</i> good to use, so i need user feedback on what's bad.</div>
+                            </ol>
+                            {/* <BladeHeartIcon /> */}
+                        </div>
+                    </PageSection>
                     <PageSection className="devsection"
                         title="BLADE HEART">
                         <div class="text">a web app by Ayrlin Renata.</div>
