@@ -3,6 +3,7 @@ import Select, { SingleValue } from 'react-select';
 import '@/css/mangareader/menu/selectmenuitem.scss';
 import { useQueryClient } from '@tanstack/react-query';
 import { usePrefComponent } from '@/utils/prefcomponent';
+import { MutableRef, useRef } from 'preact/hooks';
 
 
 export interface SelectOption {
@@ -49,8 +50,14 @@ export default function ({ id, label, options, onChange, set, defaultValue, disa
             background: state.isFocused ? '#005050' : '#000000',
         }),
     }
+    
+    const upValue: MutableRef<any> = useRef()
 
-    const { accType, status, updatePCState } = usePrefComponent(id, useQueryClient(), defaultValue)
+    const oCh = (_source: any) => {
+        if(onChange) onChange(upValue.current)
+    }
+
+    const { accType, status, updatePCState } = usePrefComponent(id, useQueryClient(), defaultValue, oCh)
     if (accType === 'auth' && status !== 'success') {
         return (
             <>
@@ -74,9 +81,9 @@ export default function ({ id, label, options, onChange, set, defaultValue, disa
     //console.log('rerender', history, id)
 
     function handleChange(newValue: SingleValue<SelectOption>) {
+        upValue.current = newValue
         const opt = newValue as SelectOption
         updatePCState('state', opt)
-        if (onChange) onChange(opt);
     }
 
     if (set) {

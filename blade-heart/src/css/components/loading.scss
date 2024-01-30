@@ -1,0 +1,141 @@
+@use '@/css/colors';
+
+.contentloading {
+    direction: ltr;
+    //z-index: 1;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+    width: 100%;
+
+    padding: 0em;
+    background: #00303000;
+
+    transition: padding 1s ease-in-out, backdrop-filter 0.5s ease-in, background-color 0.5s ease-in-out;
+}
+
+.contentloading.active {
+    background: #00303050;
+    backdrop-filter: blur(15px);
+}
+
+
+.contentloading::after {
+    content: '';
+    position: absolute;
+
+    bottom: 0;
+
+    align-self: center;
+    justify-self: center;
+
+    height: 0;
+    width: 22em;
+
+    margin: 0px auto;
+    //margin-bottom: -10em;
+    padding: 0em;
+
+    opacity:1;
+    mix-blend-mode: darken;
+    //background: linear-gradient(to top,colors.$acc-secondary,colors.$acc-bright);
+    background: linear-gradient(to bottom,#4671ff,#36d5fd,#cef2fd);
+
+    transition: height 5s ease-in,
+        opacity 0.15s ease-out;
+}
+
+.contentloading.active::after {
+    height: 100%;
+}
+
+.contentloading.unactive::after {
+    height: 100%;
+    opacity: 0;
+}
+
+
+.contentloading>.loadingcard {
+    margin: auto auto;
+
+    height: 100%;
+    width: 20em;
+
+    border: 0.3em solid colors.$acc-white;
+    border-top: none;
+    border-bottom: none;
+    outline: 2em solid colors.$acc-secondary;
+
+}
+
+.loadingcard.large {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    width: 0;
+    border-width: 0;
+    outline-width: 0;
+
+    background: linear-gradient(to top,colors.$acc-darkest,colors.$acc-dull);
+
+    transition: width 0.2s ease-in,
+        border-width 0.2s ease-in,
+        outline-width 0.2s ease-in,
+        transform 0.3s ease-out;
+}
+
+.contentloading.active>.loadingcard.large {
+    width: 20em;
+    border-width: 0.3em;
+    outline-width: 2em;
+}
+
+.contentloading.unactive>.loadingcard.large {
+    width: 18em;
+    border-width: 0.5em;
+    outline-width: 2.5em;
+    transform: translateY(-150%);
+}
+
+
+.contentloading>.loadingcard.large>* {
+    width: 0em;
+    transition: width 0.2s ease-in;
+
+}
+
+.contentloading.unactive>.loadingcard.large>*,
+.contentloading.active>.loadingcard.large>* {
+    width: 16em;
+}
+
+.loadingcard.large>svg {
+    height: 60vh;
+    width: 12em;
+
+    margin: 0.2em auto;
+}
+
+.loadingcard.large>.bh-wordmark {
+    overflow: hidden;
+    width: 100%;
+    line-height: 1em;
+}
+.loadingcard.large>.bh-wordmark>h1 {
+    text-align: center;
+    font-size: 4rem;
+    //font-weight: 50;
+    //font-weight: lighter;
+    font-weight: normal;
+}
+

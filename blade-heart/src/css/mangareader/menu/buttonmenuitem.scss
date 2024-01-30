@@ -10,6 +10,10 @@
 }
 
 .menuitem.buttonmenuitem > button {
+    display: flex;
+    place-items: center;
+    place-content: center;
+
     width: fit-content;
     height: fit-content;
     min-width: 5em;

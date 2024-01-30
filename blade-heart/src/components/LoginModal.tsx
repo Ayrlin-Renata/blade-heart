@@ -10,7 +10,7 @@ import TuneIcon from '@mui/icons-material/Tune';
 import { loginPopupGoogle, loginPopupTwitter } from '@/utils/firebase';
 import IconText from './IconText';
 import MultiIcon from './MultiIcon';
-import BladeHeartIcon from './BladeHeartIcon';
+import BladeHeartIcon from './icons/BladeHeartIcon';
 import { getAuth } from 'firebase/auth';
 
 interface LoginModal {

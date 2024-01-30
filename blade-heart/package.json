@@ -1,5 +1,5 @@
 {
-  "homepage": "http://ayrlin-renata.github.io/blade-heart",
+  "homepage": "http://ayrl.in/blade-heart",
   "name": "blade-heart",
   "private": true,
   "version": "0.0.0",
@@ -27,6 +27,7 @@
     "preact": "^10.19.3",
     "re-resizable": "^6.9.11",
     "react-highlight": "^0.15.0",
+    "react-markdown": "^9.0.1",
     "react-router-dom": "^6.21.1",
     "react-select": "^5.8.0",
     "sass": "^1.69.6",

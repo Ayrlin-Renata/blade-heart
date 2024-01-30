@@ -23,6 +23,10 @@ $grad-bg-dark-bottom: linear-gradient(to bottom, $bg-dark, $bg-dark, $bg-dark, $
 $grad-bg-dark-left: linear-gradient(to left, $bg-dark, $bg-dark, $bg-dark, $acc-dark);
 $grad-bg-dark-right: linear-gradient(to right, $bg-dark, $bg-dark, $bg-dark, $acc-dark);
 
+$grad-acc-primary-top: linear-gradient(to top, $acc-dull, $acc-primary);
+$grad-acc-primary-bottom: linear-gradient(to bottom, $acc-dull, $acc-primary);
+$grad-acc-primary-left: linear-gradient(to left, $acc-dull, $acc-primary);
+$grad-acc-primary-right: linear-gradient(to right, $acc-dull, $acc-primary);
 // $grad-bg-dark-top: linear-gradient(to top, #00070a, #00070a, #00070a, #002020);
 // $grad-bg-dark-bottom: linear-gradient(to bottom, #00070a, #00070a, #00070a, #002020);
 // $grad-bg-dark-left: linear-gradient(to left, #00070a, #00070a, #00070a, #002020);

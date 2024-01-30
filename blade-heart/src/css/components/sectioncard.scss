@@ -1,0 +1,157 @@
+@use '@/css/colors';
+@import '@/css/_mixins.scss';
+
+.sectioncard {
+    z-index: 1;
+    flex-grow: 1;
+    overflow: hidden;
+
+    position: relative;
+    // display:flex;
+    // flex-direction: column;
+
+    margin: 0em;
+    //padding: 1em 2em;
+
+    background: colors.$grad-bg-dark-bottom;
+
+    border: solid 1px colors.$acc-bright;
+    border-radius: 0.5em;
+    outline: solid 3px colors.$acc-dull;
+
+    transition: border-color 0.25s ease-in-out;
+}
+
+.sectioncard:hover {
+    border-color: colors.$acc-white;
+}
+
+.sectioncard.small {
+    max-height: 10vh;
+    height: 10vh;
+    width: 10vw;
+    min-width: 10em;
+}
+
+.sectioncard.medium {
+    max-height: 30vh;
+    height: 25vh;
+    width: 40vw;
+    min-width: 15em;
+}
+
+.sectioncard.large {
+    max-height: 50vh;
+    height: 50vh;
+    width: 70vw;
+    min-width: 15em;
+}
+
+.sectioncard>.bg {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.sectioncard>.bg>.coverwrapper {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+
+    display:none;
+
+    overflow: hidden;
+    display: flex;
+    place-content: center;
+    place-items: center;
+
+    height: 100%;
+    width: 100%;
+
+    transition: transform 1s ease-in-out;
+}
+
+.sectioncard>.bg>.coverwrapper.active {
+    z-index: 2;
+    transform: none;
+}
+
+.sectioncard>.bg>.coverwrapper.inactive {
+    z-index: 0;
+    transform: translate(100%);
+}
+
+.sectioncard>.bg>.coverwrapper>img {
+    object-fit: cover;
+    height: 107%;
+    width: 100%;
+    
+    transform: translateY(-7.5%);
+    transition: transform 6s linear;
+}
+.sectioncard>.bg>.coverwrapper.active >img {
+    transform: translateY(-2.5%);
+}
+
+.sectioncard>.bg>.coverwrapper.inactive >img {
+    transform: translateY(2.5%);
+}
+
+.sectioncard>.fg {
+    z-index: 2;
+    position: absolute;
+    bottom: 0;
+
+    max-height: 100%;
+
+    box-sizing: border-box;
+    width: 100%;
+
+    padding: 0.5em 2em;
+
+    background: colors.$bg-dark-trans;
+    backdrop-filter: blur(4px);
+
+    user-select: none;
+}
+
+.sectioncard>.fg>div {
+    text-wrap: wrap;
+    overflow-wrap: none;
+}
+
+.sectioncard>.fg>.title {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: x-large;
+}
+
+.sectioncard>.fg>.subtitle {
+    color: colors.$acc-bright;
+    font-size: medium;
+}
+
+.sectioncard>.fg>.type {
+    color: colors.$acc-bright;
+    font-size: small;
+}
+
+.sectioncard>.fg>.desc {
+    color: colors.$acc-white;
+    font-size: medium;
+    max-width: 50em; 
+}
+
+
+// .sectioncard::before {
+//     content: '';
+//     display:inline-block;
+//     position: relative;
+//     top: 0;
+
+//     height: 100%;
+//     width: 100%;
+//     margin-top: -100%;
+//     @include bg-dots(0.1rem, 1.35rem);
+// }

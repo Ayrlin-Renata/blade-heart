@@ -8,7 +8,7 @@ import {
     OAuthCredential,
     signInWithPopup
 } from "firebase/auth";
-import { useQuery } from "@tanstack/react-query";
+import { QueryClient, useQuery } from "@tanstack/react-query";
 
 //import { getAnalytics } from "firebase/analytics";
 
@@ -163,6 +163,22 @@ export function useUserdata(): { status: "error" | "success" | "pending" | undef
         return { status: status, data: data?.data() }
     }
     return { status: undefined, data: undefined }
+}
+
+export async function getUserdata(queryClient: QueryClient): Promise<any> {
+    const uid = auth.currentUser?.uid
+    if (uid) {
+        const udRef = doc(db, 'userdata', uid)
+        const data = await queryClient.fetchQuery({
+            queryKey: [uid],
+            queryFn: () => {
+                return getDoc(udRef)
+            },
+            staleTime: 300000,
+        })
+        return data.data()
+    }
+    return undefined
 }
 
 // export function getUserdataField(field: string, defaultValue: any) {

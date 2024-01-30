@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import BladeHeartIcon from '../../../components/BladeHeartIcon';
+import BladeHeartIcon from '../../../components/icons/BladeHeartIcon';
 
 import '@/css/mangareader/menu/readermenuheader.scss';
 
@@ -8,7 +8,7 @@ export default function () {
     
     return (
         <>
-            <div class="readermenuheader" onClick={() => nav('/')}>
+            <div class="readermenuheader" onClick={() => nav('/blade-heart/')}>
                 <BladeHeartIcon />
                 <div class="bh-wordmark">
                     <div>BLADE</div>

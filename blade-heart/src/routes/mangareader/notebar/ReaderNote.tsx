@@ -7,7 +7,7 @@ import ReaderNoteContent from './ReaderNoteContent.tsx';
 import { createRef } from 'preact';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useUserdata } from '@/utils/firebase.ts';
-import { NavContext } from '../Reader.tsx';
+import { NavContext, ViewContext } from '../Reader.tsx';
 
 interface ReaderNote {
     type: string,
@@ -63,6 +63,8 @@ export default function ({ type, pos, note }: ReaderNote) {
         }
     }
 
+    const rView = useContext(ViewContext)
+
     return (
         <>
             <div class={"readernote"
@@ -70,7 +72,7 @@ export default function ({ type, pos, note }: ReaderNote) {
                 + (expanded ? " noteexp" : "")}
                 //data-type={type} 
                 //data-pos={pos}
-                style={"top:" + pos + "px;"}
+                style={"top:" + rView.posToPx(pos) + "px;"}
                 ref={noteRef}>
                 <ReaderNoteContent
                     type={type}

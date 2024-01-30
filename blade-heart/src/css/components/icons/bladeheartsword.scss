@@ -1,0 +1,19 @@
+@use '@/css/colors';
+
+.bladeheartswordicon>g>#blade {
+    fill: colors.$acc-white;
+    stroke: colors.$acc-primary;
+    stroke-width: 1.05px;
+}
+
+.bladeheartswordicon>g>#dot>circle {
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 1.05px;
+}
+
+.bladeheartswordicon>g>#base {
+    fill: colors.$acc-secondary;
+    stroke: colors.$acc-primary;
+    stroke-width: 1.05px;
+}

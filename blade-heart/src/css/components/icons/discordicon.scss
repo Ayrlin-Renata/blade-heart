@@ -1,0 +1,15 @@
+@use '@/css/colors';
+
+svg.discordicon {
+    height: 3rem;
+    width: 3rem;
+}
+
+svg.discordicon>path {
+    fill:currentColor;
+
+    //transform: translateY(0.3em);
+
+    //stroke: colors.$acc-white;
+    //stroke-width: 1.05px;
+}

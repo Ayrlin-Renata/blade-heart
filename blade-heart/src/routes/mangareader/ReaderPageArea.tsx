@@ -3,10 +3,10 @@ import '@/css/mangareader/readerpagearea.scss'
 import { useState, useContext, useEffect, useMemo } from 'preact/hooks';
 import { Resizable } from 're-resizable';
 
-import { createRef } from 'preact';
+import { RefObject, createRef } from 'preact';
 import { numeralFromNav, getMeta } from '../../utils/jsonutils';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { NavContext, ReaderView, ViewContext } from './Reader';
+import { NavContext, ReaderPage, ReaderView, ViewContext } from './Reader';
 import { idify } from '@/utils/ayrutils';
 
 export default function () {
@@ -57,61 +57,96 @@ export default function () {
         }
     }, [])
 
-    const [, setLoadedPages] = useState(0)
+    const [, setLoadedPages] = useState([] as {id:number,loaded:boolean}[])
 
-    function doneLoading(rv: ReaderView) {
+    function doneLoading(rv: ReaderView, id: number) {
         setLoadedPages((loadedPages) => {
-            //console.log(loadedPages, rv.pages.length)
-            if (loadedPages == rv.pages.length - 1 && rv.isLoaded()) {
-                rv.update(rv)
+            if(loadedPages.some((pg) => pg.id === id)){
+                return loadedPages
             }
-            return loadedPages + 1
+
+            const lp = loadedPages
+            lp.push({id:id, loaded:true})
+
+            //console.log("DL", loadedPages, rv.pages.length)
+            if (lp.length >= rv.pages.length - 1) {
+                if(rv.isLoaded()) {
+                    rv.update(rv)
+                    rv.runAfterLoad()
+                } else {
+                    setTimeout(() => {doneLoading(rv,id)},500)
+                }
+            }
+            return lp
         })
+    }
+
+    function handleLoad(page: ReaderPage, ir: RefObject<any>) {
+        //console.log('load' , page)
+        const hir = (ir.current as HTMLImageElement)
+        if (!hir || !hir.naturalHeight || !hir.naturalWidth || !hir.offsetHeight || hir.offsetHeight == 0) {
+            //console.log("waiting for image load...", hir)
+            setTimeout(() => handleLoad(page, ir), 100)
+            return
+        }
+        page.origSize.height = hir.naturalHeight
+        page.origSize.width = hir.naturalWidth
+        page.viewHeight = hir.offsetHeight
+
+        const resizeObserver = new ResizeObserver(() => {
+            page.viewHeight = hir.offsetHeight
+        });
+        page.loaded = true;
+
+        resizeObserver.observe(hir)
+        rView.viewWidth = hir.offsetWidth
+
+        if (page.noPageGap)
+            hir.style.marginBottom = '0px'
+
+        //console.log("handleLoad:", page)
+        doneLoading(rView,page.numeral)
+        //rView.update(rView)
     }
 
     const loadPages = useMemo(() => {
         //console.log('loadPages', {...rView})
         if (!rView.pages) {
-            return (<div>Loading...</div>)
+            return [{ ref: null, pg: null, jsx: (<div>Loading...</div>) }]
         }
-        setLoadedPages(0)
+        setLoadedPages((_lp) => [])
         return rView.pages
             .map((page) => {
                 const image = page.getImg()
-
                 const imgRef = createRef()
 
-                function handleLoad() {
-                    //console.log('load' , page)
-                    const hir = (imgRef.current as HTMLImageElement)
-                    if (!hir || !hir.naturalHeight || !hir.naturalWidth || !hir.offsetHeight || hir.offsetHeight == 0) {
-                        setTimeout(() => handleLoad(), 100)
-                        return
-                    }
-                    page.origSize.height = hir.naturalHeight
-                    page.origSize.width = hir.naturalWidth
-                    page.viewHeight = hir.offsetHeight
-
-                    const resizeObserver = new ResizeObserver(() => {
-                        page.viewHeight = hir.offsetHeight
-                    });
-                    page.loaded = true;
-
-                    resizeObserver.observe(hir)
-                    rView.viewWidth = hir.offsetWidth
-                    doneLoading(rView)
-                    //rView.update(rView)
+                return {
+                    ref: imgRef,
+                    pg: page,
+                    jsx: (
+                        <img key={image.src}
+                            ref={imgRef}
+                            id={image.id}
+                            src={image.src}
+                            onLoad={() => handleLoad(page, imgRef)} 
+                            />
+                    )
                 }
-
-                return (
-                    <img key={image.src}
-                        ref={imgRef}
-                        id={image.id}
-                        src={image.src}
-                        onLoad={handleLoad} />
-                )
             })
     }, [mNav.chapid, mNav.langid, mNav.mangaid])
+
+    //console.log("checkRefs", loadPages)
+    for (const rdat of loadPages) {
+        const htRe = rdat.ref?.current as HTMLImageElement
+        if (htRe && rdat.pg) {
+            if (htRe.complete && rdat.pg.loaded === false) {
+                handleLoad(rdat.pg, rdat.ref)
+                //console.log("LOADING COMPLETED PAGE ", rdat)
+            }
+        }
+    }
+
+    const pageOut = loadPages.map((pdat: any) => pdat.jsx)
 
     const navigate = useNavigate();
     const loc = useLocation();
@@ -133,7 +168,7 @@ export default function () {
                 onResizeStop={handleResizeStop}
             >
                 <div class="readerpagearea">
-                    <div class="pagecontainer" ref={pageContainerRef}>{loadPages}</div>
+                    <div class="pagecontainer" ref={pageContainerRef}>{pageOut}</div>
                     <div class="pagebottom">
                         <button class="nextchap"
                             onClick={() => {

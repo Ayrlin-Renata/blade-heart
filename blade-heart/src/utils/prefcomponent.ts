@@ -8,7 +8,8 @@ import { useEffect, useState } from "preact/hooks"
 
 export function usePrefComponent(id: string,
     qc: QueryClient,
-    defaultValue: any)
+    defaultValue: any,
+    afterChange?: (source?: 'state' | 'auth' | 'guest' | 'force') => void)
     : {
         accType: 'auth' | 'guest',
         status: "error" | "success" | "pending",
@@ -88,6 +89,7 @@ export function usePrefComponent(id: string,
             //console.log('after state:' , pcState.value)
             //console.log('attempting mutation', idkey, pcState.value)
             mutateToValue.mutate()
+            if(afterChange) afterChange()
         }
     }, [pcState])
 

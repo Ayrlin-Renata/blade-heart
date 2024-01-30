@@ -1,36 +1,81 @@
 @use '@/css/colors';
 
 .audioplayer {
-
+    height: 3.5em;
+    width: 3.5em;
 }
 
-.audioplayer > .icon {
+.audioplayer>.icon {
+    width: 100%;
+    height: 100%;
+
     margin: 0;
 }
 
-.audioplayer > .icon > button {
-    width: 3.5em;
-    height: 3.5em;
+.audioplayer>.icon>button {
+    width: 100%;
+    height: 100%;
 
-    padding: 0.4em;
+    display: flex;
+    place-content: center;
+    place-items: center;
+
+    padding: 0;
 
     color: colors.$acc-bright;
     background: colors.$bg-dark;
 
     border: solid 3px colors.$acc-primary;
-    border-radius: 2em;
+    border-radius: 50%;
 
     transition: color 0.25s ease-in-out,
         border-color 0.25s ease-in-out;
 }
 
-.audioplayer > .icon > button:hover {
+.audioplayer>.icon>button:hover {
     color: colors.$acc-white;
 
     border: solid 3px colors.$acc-white;
 }
 
-.audioplayer > .icon > button > svg {
-    width: 1.2em;
-    height: 1.2em;
+.audioplayer>.icon>button:hover>svg {
+    color: colors.$acc-white;
+}
+.audioplayer>.icon>button>svg {
+    width: 75%;
+    height: 75%;
+
+    color: colors.$acc-secondary;
+    transition: color 0.25s ease-in-out
+}
+
+.audioplayer.playing>.icon>button:hover>svg {
+    color: colors.$acc-white;
+}
+.audioplayer.playing>.icon>button>svg {
+    color: colors.$acc-bright;
+
+    animation: music-shake 4.75s infinite;
+}
+
+@keyframes music-shake {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    25% {
+        transform: rotate(10deg)
+    }
+
+    50% {
+        transform: rotate(0deg)
+    }
+
+    75% {
+        transform: rotate(-10deg)
+    }
+
+    100% {
+        transform: rotate(0deg)
+    }
 }

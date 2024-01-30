@@ -1,0 +1,90 @@
+@use '@/css/colors';
+//@import '@/css/_mixins.scss';
+
+.menu {
+    z-index: 10;
+    position: sticky;
+    top: 0;
+
+    height: 4em;
+}
+
+.menu>.topbar {
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 3em;
+
+    background: colors.$grad-bg-dark-left;
+}
+
+.topbar>.MuiSvgIcon-root[data-testid="MenuIcon"] {
+    height: 1.3em;
+    width: 1.3em;
+
+    padding: 0.5em;
+    padding-left: 1em;
+
+    color: colors.$acc-white;
+    border-left: solid 3px colors.$acc-primary;
+
+    transition: color 0.25s ease-in-out, border-color 0.25s ease-in-out;
+}
+
+.topbar>.MuiSvgIcon-root[data-testid="MenuIcon"]:hover {
+    color: colors.$acc-bright;
+    border-left: solid 3px colors.$acc-white;
+}
+
+.topbar>.midtitle {
+    display: flex;
+    flex-direction: row;
+    place-content: center;
+    place-items: center;
+    gap: 0.5em;
+
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+    user-select: none;
+}
+
+.topbar>.audioplayer {
+    height: 4em;
+    width: 4em;
+    margin-right: 1.5em;
+}
+
+.menu>.menubar {
+    height: 100vh;
+    width: 25em;
+    //min-width: 100%;
+    max-width: 100vw;
+
+    margin: 0;
+    padding: 0;
+
+    background: colors.$grad-bg-dark-bottom;
+    border-right: solid 2px colors.$acc-secondary;
+
+    transform: translateX(-25.1em);
+
+    transition: transform 0.25s ease-in;
+}
+
+.menu>.menubar.active {
+    transform: none;
+}
+
+.menu>.menubar>.readermenuheader {
+    background-image: colors.$grad-bg-dark-left;
+    background-position: -100px 0;
+}
+
+.menu>.menubar>.readermenuheader:hover {
+    background-position: 0 0;
+}

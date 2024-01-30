@@ -1,5 +1,9 @@
 @use '@/css/colors';
 
+html {
+    background: #000;
+}
+
 #errorpage {
     height: -webkit-fill-available;
 

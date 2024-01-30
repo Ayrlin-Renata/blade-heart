@@ -1,0 +1,154 @@
+@use '@/css/colors';
+
+.pagesection {
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    place-items: center;
+    flex-wrap: wrap;
+
+    margin: 0 auto;
+    margin-top: 2em;
+    padding: 1em 4vw;
+
+    //background: linear-gradient(to left, #0000, #000a, #000a, #0000)
+
+    //border: solid 1px colors.$acc-bright;
+}
+
+.pagesection>.title {
+    margin: 0;
+    margin-bottom: 0.5em;
+
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 3rem;
+    text-align: center;
+
+    text-shadow: 0px 5px 0px colors.$acc-dark;
+
+    user-select: none;
+}
+
+.pagesection>.subtitle {
+    width: 60%;
+    
+    margin: 0;
+    margin-top: -1em;
+    margin-bottom: 0.5em;
+
+    color: colors.$acc-white;
+    //background: linear-gradient(to left, #0000, #0005, #0005, #0000);
+
+    //border-bottom: solid 1px colors.$acc-bright;
+
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1rem;
+    text-align: center;
+
+    //text-shadow: 0px 5px 0px colors.$acc-dark;
+
+    user-select: none;
+}
+
+.pagesection>.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    place-items: center;
+    place-content: center;
+    gap: 1em 2em;
+
+}
+
+.pagesection>.bg,
+.pagesection>.row>.bg {
+    width: fit-content;
+    padding: 1em;
+    background: linear-gradient(to bottom, #0000, #0005, #0005, #0000);
+}
+
+.pagesection>.text {
+    max-width: 50em;
+}
+
+ol.pagelist {
+    counter-reset: menuollistitem;
+
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+    padding: 1em 3em;
+    gap: 0.6em;
+
+    font-size: large;
+
+    background: colors.$bg-darkest;
+    border-left-color: colors.$acc-secondary;
+}
+
+ol.pagelist>li {
+    position:relative;
+    z-index: 1;
+
+    padding-left: 1.8em;
+    margin-left:1em;
+    
+    text-wrap: wrap;
+    
+    list-style-type: none;
+}
+
+ol.pagelist>div {
+    position:relative;
+    z-index: 1;
+
+    max-width: 50em;
+    
+    margin-top: 0.5em;
+    //margin-bottom: 1em;
+    padding-left: 1.9em;
+    margin-left:1em;
+
+    text-wrap: wrap;
+
+    list-style-type: none;
+}
+
+ol.pagelist>hr {
+    margin: 1em;
+    margin-top: 2em;
+    
+    border: none;
+    border-bottom: solid 1px colors.$acc-primary;
+    
+}
+
+ol.pagelist>li::before {
+    content: counter(menuollistitem) "";
+    counter-increment: menuollistitem;
+
+    position:absolute;
+    
+    top:0px;
+    left:-2em;
+    z-index:-1;
+
+    display:inline-block;
+    
+    width:0.8em;
+    height:1em;
+
+    padding-left: 1.2em;
+    padding-top: 1px;
+    padding-bottom: 3px;
+    
+    color: colors.$acc-dark;
+    background-color:colors.$acc-primary;
+
+    font-weight: bold;
+    
+    border-right: solid 2px colors.$acc-bright;
+    border-radius:2px;
+    border-top-right-radius:4px;
+    border-bottom-right-radius:4px;
+}
