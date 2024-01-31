@@ -163,7 +163,7 @@ export default function () {
                                 subContent="blade-heart settings menu" />
                             <ButtonMenuItem id={ids.settings + '|btn|acct'}
                                 label="Account Settings"
-                                onClick={() => { navigate('/blade-heart/account/') }}>
+                                onClick={() => { navigate('/account/') }}>
                                 <ExitToAppIcon />
                             </ButtonMenuItem>
                             <SliderMenuItem id={ids.settings + '|sld|music'}

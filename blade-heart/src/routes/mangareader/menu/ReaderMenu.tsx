@@ -68,7 +68,7 @@ export default function ({ isCollapsed, onCollapse }: ReaderMenu) {
 
             const lang = goto.type === 'lang' ? goto.id : mNav.langid
             const chap = goto.type === 'chap' ? goto.id : mNav.chapid
-            const url = ['/blade-heart/manhua', mNav.mangaid, lang, chap].join('/')
+            const url = ['/manhua', mNav.mangaid, lang, chap].join('/')
             //console.log('goto:', url)
             navigate(url)
             rView.addToLoadQueue({

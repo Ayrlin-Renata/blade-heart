@@ -72,7 +72,7 @@ export default function ({ onAuthEvent, noButton, buttonType }: AccountComponent
                         <div class={"iconarea" + (expand ? " expand" : "")}>
                             { buttonType === 'settings' ? 
                                 (
-                                    <button onClick={() => navigate('/blade-heart/account')}><SettingsIcon /></button>
+                                    <button onClick={() => navigate('/account')}><SettingsIcon /></button>
                                 ): buttonType === 'edit' ? (
                                     <button onClick={() => alert('somehow you\'ve found unplanned functionality')}><AddPhotoAlternateIcon /></button>
                                 ): (<></>)
