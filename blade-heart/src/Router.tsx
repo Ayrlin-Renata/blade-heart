@@ -39,39 +39,39 @@ const MhCompWrapper = () => {
 
   const { manhuaId } = useParams()
   return (
-    <Navigate to={"/blade-heart/manhua/" + manhuaId + "/" + curMhLang + "/" + curMhChap} replace />
+    <Navigate to={"/manhua/" + manhuaId + "/" + curMhLang + "/" + curMhChap} replace />
   )
 }
 
 //router
 const router = createBrowserRouter([
+  // {
+  //   path: "/",
+  //   element: <Navigate to="/blade-heart/" replace />,
+  //   errorElement: <ErrorPage />,
+  // },
   {
     path: "/",
-    element: <Navigate to="/blade-heart/" replace />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/blade-heart/",
     element: <HomePage />,
     errorElement: <ErrorPage />,
   },
   {
-    path: "/blade-heart/account",
+    path: "/account",
     element: <AccountPage />,
     errorElement: <ErrorPage />,
   },
   {
-    path: "/blade-heart/manhua/:manhuaId/",
+    path: "/manhua/:manhuaId/",
     element: <MhCompWrapper />,
     errorElement: <ErrorPage />,
   },
   {
-    path: "/blade-heart/manhua/:manhuaId/:langId/:chapterId",
+    path: "/manhua/:manhuaId/:langId/:chapterId",
     element: <ChapterReader />,
     errorElement: <ErrorPage />,
   },
   {
-    path: "/blade-heart/tools/elysian",
+    path: "/tools/elysian",
     element: <ElysianPage />,
     errorElement: <ErrorPage />,
   },
@@ -85,7 +85,7 @@ export default function Router() {
   const queryClient = useQueryClient()
   useEffect(() => {
     onAuthStateChanged(getAuth(), async (_user) => {
-      const data = await getUserdata(queryClient)
+      await getUserdata(queryClient)
     })
   }, [])
 
