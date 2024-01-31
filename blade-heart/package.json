@@ -1,11 +1,11 @@
 {
-  "homepage": "http://ayrl.in/blade-heart",
+  "homepage": "http://blade-heart.ayrl.in/",
   "name": "blade-heart",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "predeploy": "npm run build && @powershell copy ./404.html ./dist/404.html && @powershell -Command \"Copy-Item -Path './src/assets/manhua/' -Destination './dist/src/assets/manhua/' -Recurse\"",
+    "predeploy": "npm run build && @powershell copy ./404.html ./dist/404.html && @powershell -Command \"Copy-Item -Path './src/assets/' -Destination './dist/src/assets/' -Recurse\"",
     "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "tsc && vite build",

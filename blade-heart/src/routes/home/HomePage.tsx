@@ -119,7 +119,7 @@ export default function () {
                         })
                     }}>
                     <div class="bgoverlay">
-                        <img src="/blade-heart/src/assets/graphics/bh-cover.png"></img>
+                        <img src="/src/assets/graphics/bh-cover.png"></img>
                     </div>
                     <div class="logocard">
                         <BladeHeartSword />
@@ -178,15 +178,15 @@ export default function () {
                 </PageMenu>
                 <div id="features" class="featurepage">
                     <div class="featbg">
-                        <img class="bg-end" src="/blade-heart/src/assets/graphics/bh-bg-end.png"></img>
-                        <img class="bg" src="/blade-heart/src/assets/graphics/bh-bg.png"></img>
+                        <img class="bg-end" src="/src/assets/graphics/bh-bg-end.png"></img>
+                        <img class="bg" src="/src/assets/graphics/bh-bg.png"></img>
                     </div>
                     <PageSection className="infosection"
                         title="Still as water,"
                         subtitle="free from dust...">
                         <div class='row bg'>
                             <div class="">
-                                <AccountFrame src="/blade-heart/src/assets/graphics/ayrlin.png" />
+                                <AccountFrame src="/src/assets/graphics/ayrlin.png" />
                             </div>
                             <div class="infotext">
                                 <div class="text">hi, i'm ayrlin! </div>
